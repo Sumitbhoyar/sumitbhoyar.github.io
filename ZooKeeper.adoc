@@ -137,7 +137,8 @@ We know that a write process is expensive than a read process in ZooKeeper ensem
 
 - **Create** znodes
 
-> Syntax  ```create /path /data```
+> Syntax  
+```create /path /data```
 
 > Sample ```create /FirstZnode “Myfirstzookeeper-app”```
 
