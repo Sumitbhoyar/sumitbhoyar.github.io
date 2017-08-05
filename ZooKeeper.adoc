@@ -149,60 +149,106 @@ create /FirstZnode “Myfirstzookeeper-app”
 
 > To create a **Sequential znode**, add -s flag as shown below.
 
-> Syntax ```create -s /path /data```
+> Syntax 
+```
+create -s /path /data
+```
 
-> Sample ```create -s /FirstZnode second-data```
+> Sample 
+```
+create -s /FirstZnode second-data
+```
 
 > To create an **Ephemeral Znode**, add -e flag
 
 - **Get** data
-> Syntax ```get /path ```
+> Syntax 
+```
+get /path
+```
 
-> Sample ```get /FirstZnode```
+> Sample 
+```
+get /FirstZnode
+```
 
 > To access a **sequential znode**, you must enter the full path of the znode.
 
-> Sample ```get /FirstZnode0000000023```
+> Sample 
+```
+get /FirstZnode0000000023
+```
 
 
 - **Watch** znode for changes
 Watches show a notification when the specified znode or znode’s children data changes. You can set a watch only in get command.
 > Syntax ```get /path [watch] 1 ```
 
-> Sample ```get /FirstZnode 1```
+> Sample 
+```
+get /FirstZnode 1
+```
 
 
 - **Set data**
-> Syntax ```set /path /data```
+> Syntax 
+```
+set /path /data
+```
 
-> Sample ```set /SecondZnode Data-updated```
+> Sample 
+```
+set /SecondZnode Data-updated
+```
 
 - **Create children** of a znode
 
-> Syntax ```create /parent/path/subnode/path /data```
+> Syntax 
+```
+create /parent/path/subnode/path /data
+```
 
-> Sample ```create /FirstZnode/Child1 firstchildren```
+> Sample 
+```
+create /FirstZnode/Child1 firstchildren
+```
 
 - **List children** of a znode
 
 > Syntax
-```ls /path```
+```
+ls /path
+```
 
 > Sample
-```ls /MyFirstZnode```
+```
+ls /MyFirstZnode
+```
 
 - **Check Status**
 
 > Status describes the metadata of a specified znode. It contains details such as Timestamp, Version number, ACL, Data length, and Children znode.
 
-> Syntax ```stat /path```
+> Syntax 
+```
+stat /path
+```
 
-> Sample ```stat /FirstZnode```
+> Sample 
+```
+stat /FirstZnode
+```
 
 - **Remove / Delete** a znode
 Removes a specified znode and recursively all its children. This would happen only if such a znode is available.
-> Syntax ```rmr /path```
+> Syntax 
+```
+rmr /path
+```
 
-> Sample ```rmr /FirstZnode```
+> Sample 
+```
+rmr /FirstZnode
+```
 
 
