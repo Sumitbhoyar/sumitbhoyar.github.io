@@ -23,7 +23,7 @@ A distributed application has two parts, **Server** and **Client** application. 
  - Inconsistency − Partial failure of data.
 
 
-**The common services provided by ZooKeeper are as follows − **
+**The common services provided by ZooKeeper are as follows −**
 
 - Naming service − Identifying the nodes in a cluster by name. It is similar to DNS, but for nodes.
 - Configuration management − Latest and up-to-date configuration information of the system for a joining node.
@@ -33,6 +33,7 @@ A distributed application has two parts, **Server** and **Client** application. 
 - Highly reliable data registry − Availability of data even when one or a few nodes are down.
 
 **Benefits of ZooKeeper**
+
 Here are the benefits of using ZooKeeper −
 
 - Simple distributed coordination process
@@ -45,12 +46,12 @@ Here are the benefits of using ZooKeeper −
 **Zookeeper components**
 
 | Part     | Description
-| :------- | :----
-| Client | One of the nodes in our distributed application cluster, access information from the server. For a particular time interval, every client sends a message to the server to let the sever know that the client is alive.Similarly, the server sends an acknowledgement when a client connects. If there is no response from the connected server, the client automatically redirects the message to another server.
-| Server    | Server, one of the nodes in our ZooKeeper ensemble, provides all the services to clients. Gives acknowledgement to client to inform that the server is alive.
-| Ensemble     | Group of ZooKeeper servers. The minimum number of nodes that is required to form an ensemble is 3. 
-| Leader     | Server node which performs automatic recovery if any of the connected node failed. Leaders are elected on service startup.  
-| Follower     | Server node which follows leader instruction.    
+| ---------| :-----------
+| Client   | One of the nodes in our distributed application cluster, access information from the server. For a particular time interval, every client sends a message to the server to let the sever know that the client is alive.Similarly, the server sends an acknowledgement when a client connects. If there is no response from the connected server, the client automatically redirects the message to another server.
+| Server   | Server, one of the nodes in our ZooKeeper ensemble, provides all the services to clients. Gives acknowledgement to client to inform that the server is alive.
+| Ensemble | Group of ZooKeeper servers. The minimum number of nodes that is required to form an ensemble is 3. 
+| Leader   | Server node which performs automatic recovery if any of the connected node failed. Leaders are elected on service startup.  
+| Follower | Server node which follows leader instruction.    
 
 **Hierarchical Namespace**
 ZooKeeper node is referred as znode. Every znode is identified by a name and separated by a sequence of path (/).
@@ -62,6 +63,7 @@ The config namespace is used for centralized configuration management and the wo
 Under config namespace, each znode can store upto 1MB of data. This is similar to UNIX file system except that the parent znode can store data as well. The main purpose of this structure is to store synchronized data and describe the metadata of the znode. This structure is called as **ZooKeeper Data Model**.
 
 **Types of Znodes**
+
 Znodes are categorized as persistence, sequential, and ephemeral.
 
 - Persistence znode − Persistence znode is alive even after the client, which created that particular znode, is disconnected. By default, all znodes are persistent unless otherwise specified.
@@ -100,6 +102,7 @@ Atomic broadcasts| Responsible for broadcasting the changes from the leader node
 
 
 **Nodes in a ZooKeeper Ensemble**
+
 Let us analyze the effect of having different number of nodes in the ZooKeeper ensemble.
 
 - If we have a **single node**, then the ZooKeeper ensemble fails when that node fails. It contributes to “Single Point of Failure” and it is not recommended in a production environment.
@@ -117,8 +120,8 @@ We know that a write process is expensive than a read process in ZooKeeper ensem
 
 - Create znodes
 
-: -- Syntax
-> create /path /data
+: Syntax
+ >create /path /data
 : -- Sample
 > create /FirstZnode “Myfirstzookeeper-app”
 
