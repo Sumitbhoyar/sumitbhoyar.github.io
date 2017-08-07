@@ -9,11 +9,14 @@
 Spring Security provides comprehensive security services for Java EE-based enterprise software applications. 
 
 **Getting spring security**
-
+```
 artifactId>spring-security-web
 artifactId>spring-security-config
+```
 OR
+```
 artifactId>spring-boot-starter-security
+```
 
 **Configuration**
 
@@ -29,23 +32,27 @@ Spring Security's web infrastructure should only be used by delegating to an ins
 
 **HttpSecurity**:
 How does Spring Security know that we want to require all users to be authenticated? How does Spring Security know we want to support form based authentication? The reason for this is that the WebSecurityConfigurerAdapter provides a default configuration in the configure(HttpSecurity http) method.
-- All users to be authenticated:- .authorizeRequests().anyRequest().authenticated()
-- Enable form authentication:- .formLogin()
-- Enable basic authentication:- .httpBasic()
-- Allow some resource without authentication:- .antMatchers("/resources/**", "/signup", "/about").permitAll()
-- Restrict access to specific role:- .antMatchers("/db/**").access("hasRole('ADMIN') and hasRole('DBA')")
-- Login:- .formLogin().loginPage("/login").failureUrl("/login?error").usernameParameter("email").permitAll()
-- Logout:- .logout().logoutUrl("/my/logout").logoutSuccessUrl("/my/index")
+- All users to be authenticated:- ```.authorizeRequests().anyRequest().authenticated()```
+- Enable form authentication:- ```.formLogin()```
+- Enable basic authentication:- ```.httpBasic()```
+- Allow some resource without authentication:- ```.antMatchers("/resources/**", "/signup", "/about").permitAll()```
+- Restrict access to specific role:- ```.antMatchers("/db/**").access("hasRole('ADMIN') and hasRole('DBA')")```
+- Login:- ```.formLogin().loginPage("/login").failureUrl("/login?error").usernameParameter("email").permitAll()```
+- Logout:- ```.logout().logoutUrl("/my/logout").logoutSuccessUrl("/my/index")```
 
 **Getting current logged in user**:
+```
 Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+```
 
 **Getting user role**:
 Method provided by Authentication is getAuthorities(). This method provides an array of GrantedAuthority objects. A GrantedAuthority is, not surprisingly, an authority that is granted to the principal. Such authorities are usually "roles", such as ROLE_ADMINISTRATOR or ROLE_HR_SUPERVISOR.
 
 **Creating current user**:
 UserDetails is used to build the Authentication object that is stored in the SecurityContextHolder by implementing interface UserDetailsService.
+```
 UserDetails loadUserByUsername(String username) throws UsernameNotFoundException;
+```
 
 **Custom authenticator:**
 ```java
