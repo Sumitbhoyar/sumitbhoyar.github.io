@@ -36,7 +36,7 @@ The authorization server will respond with access_token.
 
 5. Refresh token grant
 
-![Which Grant](WhichGrant.png) 
+![Which Grant](https://github.com/Sumitbhoyar/notes/blob/master/WhichGrant.png?raw=true) 
 
 
 
