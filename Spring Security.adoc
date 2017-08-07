@@ -32,6 +32,7 @@ Spring Security's web infrastructure should only be used by delegating to an ins
 
 **HttpSecurity**:
 How does Spring Security know that we want to require all users to be authenticated? How does Spring Security know we want to support form based authentication? The reason for this is that the WebSecurityConfigurerAdapter provides a default configuration in the configure(HttpSecurity http) method.
+
 - All users to be authenticated:- ```.authorizeRequests().anyRequest().authenticated()```
 
 - Enable form authentication:- ```.formLogin()```
