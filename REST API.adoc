@@ -26,7 +26,7 @@ Helps to self describe API
 
 Hypermedia == HATEOAS -  Hypermedia As The Engine Of Application State
 
-'''
+'''javascript
 {  
   "links": [{
     "href": "https://api.paypal.com/v1/payments/sale/36C38912MN9658832",
