@@ -13,13 +13,9 @@ URI should follow **hierarchical** structure: http://api.soccer.restapi.org/leag
 **Sort**: ?sort=created,modified 
 
 **Response codes:**
-
 - GET: 200 + Body
-
 - POST: 200 + Body OR 201 Created + Body OR 204 No Content
-
 - PUT: 200 + Body OR 201 Created + Body OR 204 No Content
-
 - DELETE: 200 + Body OR 204 No Content OR 202 Accepted(Asynchronous)
 
 **Hypermedia** is the engine of application state.
@@ -56,3 +52,62 @@ Partial items works also for updating resource too, called patch.
 **ContentType**:application/api.1.param+json
 
 **RequestHeader**: x-ms-version: 2011-08-10
+
+
+**HTTP Response codes**
+
+- 1xx: Informational Communicates transfer protocol-level information.
+
+- 2xx: Success Indicates that the client’s request was accepted successfully.
+
+- 3xx: Redirection Indicates that the client must take some additional action in order to complete their request.
+
+- 4xx: Client Error This category of error status codes points the finger at clients.
+
+- 5xx: Server Error The server takes responsibility for these error status codes.
+
+
+**HTTP response success code**
+
+- 200 OK: Indicates a nonspecific success
+
+- 201 Created: Sent primarily by collections and stores but sometimes also by controllers, to
+indicate that a new resource has been created
+
+- 202 Accepted: Sent by controllers to indicate the start of an asynchronous action
+
+- 204 No Content: Indicates that the body has been intentionally left blank
+
+- 301 Moved Permanently: Indicates that a new permanent URI has been assigned to the client’s requested
+resource
+
+- 303 See Other: Sent by controllers to return results that it considers optional
+
+- 304 Not Modified: Sent to preserve bandwidth (with conditional GET)
+
+- 307 Temporary Redirect: Indicates that a temporary URI has been assigned to the client’s requested
+resource
+
+**HTTP response error code**
+
+
+- 400 Bad Request Indicates a nonspecific client error
+
+- 401 Unauthorized Sent when the client either provided invalid credentials or forgot to send them
+
+- 402 Forbidden Sent to deny access to a protected resource
+
+- 404 Not Found Sent when the client tried to interact with a URI that the REST API could not
+map to a resource
+
+- 405 Method Not Allowed Sent when the client tried to interact using an unsupported HTTP method
+
+- 406 Not Acceptable Sent when the client tried to request data in an unsupported media type format
+
+- 409 Conflict Indicates that the client attempted to violate resource state
+
+- 412 Precondition Failed Tells the client that one of its preconditions was not met
+
+- 415 Unsupported Media Type Sent when the client submitted data in an unsupported media type format
+
+- 500 Internal Server Error Tells the client that the API is having problems of its own
