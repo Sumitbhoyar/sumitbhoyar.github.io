@@ -1,0 +1,54 @@
+**REST** stands for REpresentational State Transfer. REST is a web standards based architecture and uses HTTP Protocol for data communication. It revolves around resources where every component is a resource and a resource is accessed by a common interface using HTTP standard methods. 
+
+Web services based on REST Architecture are known as **RESTful Web Services**.  
+
+REpresentational State Transfer indicates transfer of Resources across network.
+
+URI should follow **hierarchical** structure: http://api.soccer.restapi.org/leagues/{leagueId}/teams/{teamId}/players/{playerId}
+
+**Pagination url**: GET /users?pageSize=25&pageStartIndex=50
+
+**Record filtering**: GET /users?role=admin
+
+**Sort**: ?sort=created,modified 
+
+**Response codes:**
+- GET: 200 + Body
+- POST: 200 + Body OR 201 Created + Body OR 204 No Content
+- PUT: 200 + Body OR 201 Created + Body OR 204 No Content
+- DELETE: 200 + Body OR 204 No Content OR 202 Accepted(Asynchronous)
+
+**Hypermedia** is the engine of application state.
+
+Hypermedia == HATEOAS
+
+An **ETag** (entity tag) is an HTTP response header returned by an HTTP/1.1 compliant web
+server used to determine change in content at a given URL.
+ETags represents a version number of entity. 
+
+ETags are used for two things – caching and conditional requests.
+
+GET Flow: Client request a resource. Server responds entity with ETag="SomeId". Client will send another request with If-None-Match="SomeId"
+If the Resource is not modified yet then server just return 302, else it returns the entity with new ETag.
+
+PUT flow: ETag matches then it updates else it return 412- Precondition fails indicating to load the resource again for update.
+
+**Partial Items:** It allows to load only part of te resource.
+
+It is useful to save the bandwidth. 
+
+api/games/123/fields=id,name,url
+
+Partial items works also for updating resource too, called patch.
+
+**Versioning options**
+
+**URI path** :  api/v2/user
+
+**URI Parameter**: api/user?v=1.5
+
+**Content Negotiation**: api/user
+
+**ContentType**:application/api.1.param+json
+
+**RequestHeader**: x-ms-version: 2011-08-10
