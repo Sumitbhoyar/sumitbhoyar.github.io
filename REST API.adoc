@@ -13,9 +13,13 @@ URI should follow **hierarchical** structure: http://api.soccer.restapi.org/leag
 **Sort**: ?sort=created,modified 
 
 **Response codes:**
+
 - GET: 200 + Body
+
 - POST: 200 + Body OR 201 Created + Body OR 204 No Content
+
 - PUT: 200 + Body OR 201 Created + Body OR 204 No Content
+
 - DELETE: 200 + Body OR 204 No Content OR 202 Accepted(Asynchronous)
 
 **Hypermedia** is the engine of application state.
