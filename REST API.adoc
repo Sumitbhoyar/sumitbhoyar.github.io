@@ -26,7 +26,7 @@ Helps to self describe API
 
 Hypermedia == HATEOAS -  Hypermedia As The Engine Of Application State
 
-'''javascript
+```javascript
 {  
   "links": [{
     "href": "https://api.paypal.com/v1/payments/sale/36C38912MN9658832",
@@ -42,7 +42,7 @@ Hypermedia == HATEOAS -  Hypermedia As The Engine Of Application State
     "method": "GET"
   }]
 }
-'''
+```
 
 An **ETag** (entity tag) is an HTTP response header returned by an HTTP/1.1 compliant web
 server used to determine change in content at a given URL.
