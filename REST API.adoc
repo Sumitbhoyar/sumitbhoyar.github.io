@@ -59,7 +59,7 @@ PUT flow: ETag matches then it updates else it return 412- Precondition fails in
 
 It is useful to save the bandwidth. 
 
-```api/games/123/fields=id,name,url```
+api/games/123/fields=id,name,url
 
 Partial items works also for updating resource too, called patch.
 
