@@ -20,7 +20,29 @@ URI should follow **hierarchical** structure: http://api.soccer.restapi.org/leag
 
 **Hypermedia** is the engine of application state.
 
-Hypermedia == HATEOAS
+Hypermedia are links for other API
+
+Helps to self describe API
+
+Hypermedia == HATEOAS -  Hypermedia As The Engine Of Application State
+
+'''
+{  
+  "links": [{
+    "href": "https://api.paypal.com/v1/payments/sale/36C38912MN9658832",
+    "rel": "self",
+    "method": "GET"
+  }, {
+    "href": "https://api.paypal.com/v1/payments/sale/36C38912MN9658832/refund",
+    "rel": "refund",
+    "method": "POST"
+  }, {
+    "href": "https://api.paypal.com/v1/payments/payment/PAY-5YK922393D847794YKER7MUI",
+    "rel": "parent_payment",
+    "method": "GET"
+  }]
+}
+'''
 
 An **ETag** (entity tag) is an HTTP response header returned by an HTTP/1.1 compliant web
 server used to determine change in content at a given URL.
