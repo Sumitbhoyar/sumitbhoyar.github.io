@@ -4,13 +4,13 @@ Web services based on REST Architecture are known as **RESTful Web Services**.
 
 REpresentational State Transfer indicates transfer of Resources across network.
 
-URI should follow **hierarchical** structure: http://api.soccer.restapi.org/leagues/{leagueId}/teams/{teamId}/players/{playerId}
+URI should follow **hierarchical** structure: ```http://api.soccer.restapi.org/leagues/{leagueId}/teams/{teamId}/players/{playerId}```
 
-**Pagination url**: GET /users?pageSize=25&pageStartIndex=50
+**Pagination url**: ```GET /users?pageSize=25&pageStartIndex=50```
 
-**Record filtering**: GET /users?role=admin
+**Record filtering**: ```GET /users?role=admin```
 
-**Sort**: ?sort=created,modified 
+**Sort**: ```?sort=created,modified ```
 
 **Response codes:**
 - GET: 200 + Body
@@ -59,21 +59,21 @@ PUT flow: ETag matches then it updates else it return 412- Precondition fails in
 
 It is useful to save the bandwidth. 
 
-api/games/123/fields=id,name,url
+```api/games/123/fields=id,name,url```
 
 Partial items works also for updating resource too, called patch.
 
 **Versioning options**
 
-**URI path** :  api/v2/user
+**URI path** :  ```api/v2/user```
 
-**URI Parameter**: api/user?v=1.5
+**URI Parameter**: ``````api/user?v=1.5```
 
-**Content Negotiation**: api/user
+**Content Negotiation**: ```api/user```
 
-**ContentType**:application/api.1.param+json
+**ContentType**:```application/api.1.param+json`````````
 
-**RequestHeader**: x-ms-version: 2011-08-10
+**RequestHeader**: ``````x-ms-version: 2011-08-10```
 
 
 **HTTP Response codes**
