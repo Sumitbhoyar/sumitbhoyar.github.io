@@ -105,9 +105,9 @@ MapReduce is a Distributed Data Processing Algorithm, introduced by Google in it
 
 **MapReduce Algorithm Steps**
 
-- **Map Function**
-
 **Input - Queen, Joker, King, King, King, Queen, King, Queen, Joker, Joker, King, King**
+
+- **Map Function**
 
 1. Splitting: Dataset 1 - Queen, Joker, King, King; Dataset 2 - King, Queen, King, Queen; Dataset 3 - Joker, Joker, King, King
 
