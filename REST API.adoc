@@ -73,9 +73,7 @@ Partial items works also for updating resource too, called patch.
 
 - **URI Parameter**: ```api/user?v=1.5```
 
-- **Content Negotiation**: ```api/user```
-
-- **ContentType**:```application/api.1.param+json```
+- **Content Negotiation**: ```ContentType:application/api.1.param+json```
 
 - **RequestHeader**: ```x-ms-version: 2011-08-10```
 
