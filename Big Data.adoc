@@ -124,4 +124,4 @@ MapReduce is a Distributed Data Processing Algorithm, introduced by Google in it
 - **Reduce Function**
 (Joker, 3); (King,6; (Queen, 3)
 
-**Output - (Joker, 3); (King,6; (Queen, 3)**
+**Output - (Joker, 3); (King,6); (Queen, 3)**
