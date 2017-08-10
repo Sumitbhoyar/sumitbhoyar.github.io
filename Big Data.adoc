@@ -38,9 +38,9 @@ Characterisitcs of Big Data Technology - **3 V's**
 - **Stream processing**: Stream processing is the practice of computing over individual data items as they move through a system. This allows for real-time analysis of the data being fed to the system and is useful for time-sensitive operations using high velocity metrics.
 
 - **Data Types**
-- Structured Data: Data which is presented in a tabular format and stores in RDMS (Relational Database Management System)
-- Semi-structured Data: Data which does not have a formal data model and stores in XML, JSON etc.
-- Unstructured Data: Data which does not have a pre-defined data model like video, audio, image, text, web logs, system logs etc.
+1. Structured Data: Data which is presented in a tabular format and stores in RDMS (Relational Database Management System)
+2. Semi-structured Data: Data which does not have a formal data model and stores in XML, JSON etc.
+3. Unstructured Data: Data which does not have a pre-defined data model like video, audio, image, text, web logs, system logs etc.
 
 
 **Big Data Life Cycle**
