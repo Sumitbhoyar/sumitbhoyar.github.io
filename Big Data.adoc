@@ -81,3 +81,47 @@ Due to the type of information being processed in big data systems, recognizing 
 **Elastic Stack**: Composed of Logstash for data collection, Elasticsearch for indexing data, and Kibana for visualization, the Elastic stack can be used with big data systems to visually interface with the results of calculations or raw metrics.
 
 **Silk**: Apache Solr for indexing and a Kibana fork called Banana for visualization.
+
+**How Does Hadoop Work?**
+
+- **Stage 1**
+
+A user/application can submit a job to the Hadoop (a hadoop job client) for required process by specifying the following items:
+
+The location of the input and output files in the distributed file system.
+
+The java classes in the form of jar file containing the implementation of map and reduce functions.
+
+The job configuration by setting different parameters specific to the job.
+
+- **Stage 2**
+The Hadoop job client then submits the job (jar/executable etc) and configuration to the JobTracker which then assumes the responsibility of distributing the software/configuration to the slaves, scheduling tasks and monitoring them, providing status and diagnostic information to the job-client.
+
+- **Stage 3**
+The TaskTrackers on different nodes execute the task as per MapReduce implementation and output of the reduce function is stored into the output files on the file system.
+
+**MapReduce Algorithm**
+MapReduce is a Distributed Data Processing Algorithm, introduced by Google in it’s MapReduce Tech Paper. MapReduce algorithm is mainly useful to process huge amount of data in parallel, reliable and efficient way in cluster environments.
+
+**MapReduce Algorithm Steps**
+
+- **Map Function**
+
+**Input - Queen, Joker, King, King, King, Queen, King, Queen, Joker, Joker, King, King**
+
+1. Splitting: Dataset 1 - Queen, Joker, King, King; Dataset 2 - King, Queen, King, Queen; Dataset 3 - Joker, Joker, King, King
+
+2. Mapping - Dataset 1 - (Queen,1), (Joker,1), (King,1), (King,1); Dataset 2 - (King,1), (Queen,1), (King,1), (Queen,1); Dataset 3 - (Joker,1), (Joker,1), (King,1), (King,1)
+
+- **Shuffle/Merge Function**
+
+1. Step 1: Dataset 1 - (Queen,1), (Joker,1), (King,1,1); Dataset 2 - (King,1,1), (Queen,1,1); Dataset 3 - (Joker,1,1), (King,1,1)
+
+1. Step 1: (Queen, 1,1,1); (King,1,1,1,1,1,1); (Joker, 1,1,1)
+
+3. Sorting: (Joker, 1,1,1); (King,1,1,1,1,1,1); (Queen, 1,1,1)
+
+- **Reduce Function**
+(Joker, 3); (King,6; (Queen, 3)
+
+**Output - (Joker, 3); (King,6; (Queen, 3)**
