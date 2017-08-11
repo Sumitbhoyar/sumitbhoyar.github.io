@@ -77,11 +77,12 @@ int port = instanceInfo.getPort();
 
 Steps to configure Feign client
 
-i. Add dependency spring-cloud-starter-feign  
+1. Add dependency spring-cloud-starter-feign  
 
-ii. Add @EnableFeignClients along with @EnableEurekaClient to @SpringBootApplication class.
+2. Add @EnableFeignClients along with @EnableEurekaClient to @SpringBootApplication class.
 
-iii. Create the client. It is similar to Spring data interfaces.
+3. Create the client. It is similar to Spring data interfaces.
+
 ```java
 @FeignClient("spring-cloud-eureka-client")
 public interface GreetingClient {
