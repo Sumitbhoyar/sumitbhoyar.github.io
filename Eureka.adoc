@@ -12,8 +12,8 @@ In AWS cloud, because of its inherent nature, servers come and go. Unlike the tr
 - **Eureka Server**: A service registry is a phone book for your microservices. Each service registers itself with the service registry and tells the registry where it lives (host, port, node name) and perhaps other service-specific metadata - things that other services can use to make informed decisions about it. 
 
 - **Eureka Client**:  A client retrieves a list of all connected peers of a service registry and makes all further requests to any other services through a load-balancing algorithm. Your architecture which is using Eureka will typically have two applications
-- **Application Client** which uses Eureka Client to make requests to the Application Service.
-- **Application Service** which receives requests from Application Client and sends a response back.
+1. **Application Client** which uses Eureka Client to make requests to the Application Service.
+2. **Application Service** which receives requests from Application Client and sends a response back.
 	
 **Configuration**:
 - **Eureka Server**:
