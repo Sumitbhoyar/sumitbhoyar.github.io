@@ -1,7 +1,3 @@
-Eureka
-======
-Created Friday 11 August 2017
-
 **Eureka**
 --------------------
 
@@ -13,22 +9,18 @@ In AWS cloud, because of its inherent nature, servers come and go. Unlike the tr
 
 **The setups involve the following**
 
-- ****Eureka Server****: A service registry is a phone book for your microservices. Each service registers itself with the service registry and tells the registry where it lives (host, port, node name) and perhaps other service-specific metadata - things that other services can use to make informed decisions about it. 
+- **Eureka Server**: A service registry is a phone book for your microservices. Each service registers itself with the service registry and tells the registry where it lives (host, port, node name) and perhaps other service-specific metadata - things that other services can use to make informed decisions about it. 
 
-- ****Eureka Client****:  A client retrieves a list of all connected peers of a service registry and makes all further requests to any other services through a load-balancing algorithm. Your architecture which is using Eureka will typically have two applications
-- ****Application Client**** which uses Eureka Client to make requests to the Application Service.
-- ****Application Service**** which receives requests from Application Client and sends a response back.
+- **Eureka Client**:  A client retrieves a list of all connected peers of a service registry and makes all further requests to any other services through a load-balancing algorithm. Your architecture which is using Eureka will typically have two applications
+- **Application Client** which uses Eureka Client to make requests to the Application Service.
+- **Application Service** which receives requests from Application Client and sends a response back.
 	
 **Configuration**:
-- ****Eureka Server**:**
+- **Eureka Server**:
 
 1. Dependency - spring-cloud-starter-eureka-server
 
-
-
 2. Add @EnableEurekaServer to @SpringBootApplication class.
-
-
 
 3. Add following properties.
 
@@ -38,20 +30,13 @@ eureka.client.fetchRegistry=false
 ```
 We are telling the built-in Eureka Client not to register with ‘itself’, because our application should be acting as a server.
 
+4. start the server and check Eureka dashboard at default host:port like http://localhost:8761
 
-4. start the server and check Eureka dashboard at default [host:port](file:///home/sumit/work/notes/Sumit/work/host/port.txt) like <http://localhost:8761>
-
-
-****Eureka client- Application Service**:**
-
+**Eureka client- Application Service**:
 
 1. Dependency - spring-cloud-starter-eureka
 
-
-
 2. Add @EnableEurekaClient to @SpringBootApplication class.
-
-
 
 3. Register service at Eureka server.
 
@@ -66,16 +51,11 @@ Note that all the instances/nodes of this application server should have same sp
 4. Start Eureka server and this application service. Observe the serve getting registered with spring.application.name value.
 
 
-****Eureka client- Application Client**:**
-
+**Eureka client- Application Client**:
 
 1. Dependency - spring-cloud-starter-eureka
 
-
-
 2. Add @EnableEurekaClient to @SpringBootApplication class.
-
-
 
 3. Register service at Eureka server.
 
@@ -84,7 +64,6 @@ server.port=0
 spring.application.name=spring-cloud-eureka-client
 eureka.client.serviceUrl.defaultZone: ${EUREKA_URI:<http://localhost:8761/eureka>}
 ```
-
 
 4. Autowire EurekaClient and get instance info 
 
@@ -96,8 +75,6 @@ int port = instanceInfo.getPort();
 ```
 
 5. Call the service based on this client details.
-
-
 
 6. Other simple alternative is to use Feign Client
 
@@ -112,7 +89,7 @@ Steps to configure Feign client
 @FeignClient("spring-cloud-eureka-client")
 public interface GreetingClient {
 @RequestMapping("/greeting")
-String greeting();
+	String greeting();
 }
 ```
 6.4 Call the client by injecting client.
