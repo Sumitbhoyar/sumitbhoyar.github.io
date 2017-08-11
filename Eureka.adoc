@@ -50,7 +50,6 @@ Note that all the instances/nodes of this application server should have same sp
 
 4. Start Eureka server and this application service. Observe the serve getting registered with spring.application.name value.
 
-
 **Eureka client- Application Client**:
 
 1. Dependency - spring-cloud-starter-eureka
@@ -64,7 +63,6 @@ server.port=0
 spring.application.name=spring-cloud-eureka-client
 eureka.client.serviceUrl.defaultZone: ${EUREKA_URI:<http://localhost:8761/eureka>}
 ```
-
 4. Autowire EurekaClient and get instance info 
 
 ```java
@@ -73,16 +71,15 @@ InstanceInfo instanceInfo = application.getInstances().get(0);
 String hostname = instanceInfo.getHostName();
 int port = instanceInfo.getPort();
 ```
-
 5. Call the service based on this client details.
 
 6. Other simple alternative is to use Feign Client
 
 Steps to configure Feign client
 
-6.1 Add dependency spring-cloud-starter-feign  
+: Add dependency spring-cloud-starter-feign  
 
-6.2 Add @EnableFeignClients along with @EnableEurekaClient to @SpringBootApplication class.
+ : Add @EnableFeignClients along with @EnableEurekaClient to @SpringBootApplication class.
 
 6.3 Create the client. It is similar to Spring data interfaces.
 ```java
