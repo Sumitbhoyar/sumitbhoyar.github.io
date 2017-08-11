@@ -81,7 +81,7 @@ Steps to configure Feign client
 
 2. Add @EnableFeignClients along with @EnableEurekaClient to @SpringBootApplication class.
 
-3. Create the client. It is similar to Spring data interfaces.
+3. Create the client. It is similar to Spring data interfaces. Call the client by injecting client.
 ```java
 @FeignClient("spring-cloud-eureka-client")
 public interface GreetingClient {
@@ -89,7 +89,6 @@ public interface GreetingClient {
 	String greeting();
 }
 ```
-4. Call the client by injecting client.
 
 **Eureka deployed at Netflix**:
 There is one eureka cluster per region which knows only about instances in its region. There is at the least one eureka server per zone to handle zone failures.
