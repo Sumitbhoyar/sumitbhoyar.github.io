@@ -43,7 +43,7 @@ We are telling the built-in Eureka Client not to register with ‘itself’, bec
 ```
 server.port=0
 spring.application.name=spring-cloud-eureka-client
-eureka.client.serviceUrl.defaultZone: ${EUREKA_URI:<http://localhost:8761/eureka>}
+eureka.client.serviceUrl.defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
 ```
 Note that all the instances/nodes of this application server should have same spring.application.name but different server.port.
 
@@ -61,7 +61,7 @@ Note that all the instances/nodes of this application server should have same sp
 ```
 server.port=0
 spring.application.name=spring-cloud-eureka-client
-eureka.client.serviceUrl.defaultZone: ${EUREKA_URI:<http://localhost:8761/eureka>}
+eureka.client.serviceUrl.defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
 ```
 4. Autowire EurekaClient and get instance info 
 
