@@ -90,7 +90,7 @@ public interface GreetingClient {
 	String greeting();
 }
 ```
-iv. Call the client by injecting client.
+4. Call the client by injecting client.
 
 **Eureka deployed at Netflix**:
 There is one eureka cluster per region which knows only about instances in its region. There is at the least one eureka server per zone to handle zone failures.
