@@ -56,7 +56,30 @@ Here are the benefits of using ZooKeeper −
 > **Follower**: Server node which follows leader instruction.
 
 
+**Zookeeper Setup**
+```
+cd /ur/path
 
+wget http://redrockdigimark.com/apachemirror/zookeeper/zookeeper-3.4.10/zookeeper-3.4.10.tar.gz
+
+tar -zxf zookeeper-3.4.10.tar.gz /ur/path
+
+Edit: ~/.bashrc
+export ZOOKEEPER_HOME = /ur/path/zookeeper-3.4.10
+export PATH=$PATH:$ZOOKEEPER_HOME/bin
+
+source ~/.bashrc
+
+Edit/Create: /ur/path/zookeeper-3.4.10/conf/zoo.cfg
+tickTime = 2000
+dataDir = ../data
+clientPort = 2181
+initLimit = 5
+syncLimit = 2
+
+
+zkServer.sh start
+```
 
 
 **Hierarchical Namespace**
