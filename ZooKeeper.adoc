@@ -58,17 +58,17 @@ Here are the benefits of using ZooKeeper −
 
 **Zookeeper Setup**
 ```
-cd /ur/path
+Execute: cd /ur/path
 
-wget http://redrockdigimark.com/apachemirror/zookeeper/zookeeper-3.4.10/zookeeper-3.4.10.tar.gz
+Execute: wget http://redrockdigimark.com/apachemirror/zookeeper/zookeeper-3.4.10/zookeeper-3.4.10.tar.gz
 
-tar -zxf zookeeper-3.4.10.tar.gz /ur/path
+Execute: tar -zxf zookeeper-3.4.10.tar.gz /ur/path
 
 Edit: ~/.bashrc
 export ZOOKEEPER_HOME = /ur/path/zookeeper-3.4.10
 export PATH=$PATH:$ZOOKEEPER_HOME/bin
 
-source ~/.bashrc
+Execute: source ~/.bashrc
 
 Edit/Create: /ur/path/zookeeper-3.4.10/conf/zoo.cfg
 tickTime = 2000
@@ -78,7 +78,7 @@ initLimit = 5
 syncLimit = 2
 
 
-zkServer.sh start
+Execute: zkServer.sh start
 ```
 
 
