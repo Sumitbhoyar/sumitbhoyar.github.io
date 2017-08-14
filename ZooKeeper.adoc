@@ -274,5 +274,7 @@ rmr /path
 rmr /FirstZnode
 ```
 
-** Java (spring-boot) + ZooKeeper integration**
+
+**Java (spring-boot) + ZooKeeper integration**
+
 https://github.com/Sumitbhoyar/spring-boot-zookeeper
