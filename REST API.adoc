@@ -4,7 +4,7 @@ Web services based on REST Architecture are known as **RESTful Web Services**.
 
 REpresentational State Transfer indicates transfer of Resources across network.
 
-------------------------------------
+
 **What does it mean to be RESTful?**
 
 REST defined 6 constraints for services:
@@ -21,7 +21,7 @@ REST defined 6 constraints for services:
 
 6. Data and functionality are accessed through a uniform interface.
 
----------------------------------------------------
+
 **The Richardson Maturity Model**
 
 The Richardson Maturity Model is a way to grade your API according to the constraints of REST. The better your API adheres to these constraints, the higher its score is. The Richardson Maturity Model knows 4 levels (0-3), where level 3 designates a truly RESTful API.
@@ -58,7 +58,7 @@ This is the most mature level of Richardson’s model which encourages easy disc
 
 Level 3 introduces discoverability, providing a way of making a protocol more self-documenting.
 
-------------------------------------------
+
 URI should follow **hierarchical** structure: ```http://api.soccer.restapi.org/leagues/{leagueId}/teams/{teamId}/players/{playerId}```
 
 **Pagination url**: ```GET /users?pageSize=25&pageStartIndex=50```
