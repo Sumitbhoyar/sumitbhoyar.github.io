@@ -58,6 +58,7 @@ This is the most mature level of Richardson’s model which encourages easy disc
 
 Level 3 introduces discoverability, providing a way of making a protocol more self-documenting.
 
+**Few REST APIbest practices**
 
 URI should follow **hierarchical** structure: ```http://api.soccer.restapi.org/leagues/{leagueId}/teams/{teamId}/players/{playerId}```
 
