@@ -4,6 +4,61 @@ Web services based on REST Architecture are known as **RESTful Web Services**.
 
 REpresentational State Transfer indicates transfer of Resources across network.
 
+------------------------------------
+**What does it mean to be RESTful?**
+
+REST defined 6 constraints for services:
+
+1. There are clients and servers, separated by API boundaries over a network. Clients take care of presentation, servers take care of logic and storage.
+
+2. Communication is stateless, every request contains all the information required to service that request.
+
+3. Messages are cacheable by the server, client, or any proxy in between, or when not appropriate, mark themselves as not cacheable.
+
+4. A client cannot tell whether it is connected directly to the source of the service, there can be any number of layers in between, facilitating load balancing, caching, and more.
+
+5. Additional code for presentation is provided to the client on demand.
+
+6. Data and functionality are accessed through a uniform interface.
+
+---------------------------------------------------
+**The Richardson Maturity Model**
+
+The Richardson Maturity Model is a way to grade your API according to the constraints of REST. The better your API adheres to these constraints, the higher its score is. The Richardson Maturity Model knows 4 levels (0-3), where level 3 designates a truly RESTful API.
+
+Richardson used three factors to decide the maturity of a service i.e. URI, HTTP Methods and HATEOAS (Hypermedia). The more a service employs these technologies – more mature it shall be considered.
+
+- Level Zero
+
+Level zero of maturity do not make use of any of URI, HTTP Methods and HATEOAS capabilities.
+
+These services have a single URI, and use a single HTTP method (typically POST).
+
+- Level One
+
+Level one of maturity makes use of URIs out of URI, HTTP Methods and HATEOAS.
+
+These services employ many URIs but only a single HTTP verb – generally HTTP POST. They give each individual resource in their universe a URI. **Every resource is separately identified by a unique URI – and that make them better than level zero**.
+
+Level 1 tackles the question of handling complexity by using divide and conquer, breaking a large service endpoint down into multiple resources.
+
+- Level Two
+
+Level two of maturity makes use of URIs and HTTP out of URI, HTTP Methods and HATEOAS.
+
+Level two services host numerous URI-addressable resources. Such services support several of the HTTP verbs on each exposed resource – Create, Read, Update and Delete (CRUD) services. Here the state of resources, typically representing business entities, can be manipulated over the network.
+
+Level 2 introduces a standard set of verbs so that we handle similar situations in the same way, removing unnecessary variation.
+
+- Level Three
+
+Level three of maturity makes use of all three i.e. URIs and HTTP and HATEOAS.
+
+This is the most mature level of Richardson’s model which encourages easy discoverability and makes it easy for the responses to be self-explanatory by using HATEOAS.
+
+Level 3 introduces discoverability, providing a way of making a protocol more self-documenting.
+
+------------------------------------------
 URI should follow **hierarchical** structure: ```http://api.soccer.restapi.org/leagues/{leagueId}/teams/{teamId}/players/{playerId}```
 
 **Pagination url**: ```GET /users?pageSize=25&pageStartIndex=50```
