@@ -4,7 +4,7 @@
 Popular platform-as-a-service provider Heroku maintains a manifesto of sorts called The Twelve-Factor App. It outlines a methodology for developers to follow when building modern web-based applications.
 The 12-factor app methodology specifically created for building **Software as a Service (SaaS)** apps, while avoiding the headaches that has typically bedeviled long-term enterprise software projects.
 
-- Codebase — One codebase tracked in revision control, many deploys
+- **Codebase — One codebase tracked in revision control, many deploys**
 
 A twelve-factor app is always tracked in a version control system.
 
