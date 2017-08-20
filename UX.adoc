@@ -1,5 +1,5 @@
-**User Experience - UX**
---------------------------
+# User Experience - UX
+
 
 **User experience** encompasses all aspects of the end user's interaction with the company, its services, and its products.
 
@@ -10,49 +10,58 @@
 - UX is focused on the user’s journey to solve a problem, UI is focused on how a product’s surfaces look and function.
 
 **US Concepts**
-- Useful
+
+- **Useful**
+
 > A useful feature or tool allows users to do things. It fulfills a need.  It fulfills a need and lets the user accomplish something. 
  
-- Usable
+- **Usable**
+
 > Usable simply means how easy or hard it is to do something. It's not whether you can or can't, it's more about the ease of doing so.
 > First, low usefulness and low usability, this is the worst of both worlds. In this scenario, it'll take a long time for users to accomplish their tasks and they'll make a lot of mistakes along the way. 
 > Moving up to high usefulness and low usability, here users can accomplish the task they set out to do, but it won't be very fast and or they'll make a lot of mistakes along the way.
 > Moving down to low usefulness and high usability, here users can easily accomplish a small set of tasks, but to fully complete the tasks, it probably requires a lot of manual work and or work in other systems. 
 > High usefulness and high usability. This is obviously the best of both worlds, where the user experience is optimal. Users can easily and quickly do what they need to do.
 
-- User Interface (UI)
-UI is a means by which the user and a computer system interact, in particular the use of input devices and software. In other words, the pages, menus, images, icons and buttons you see on a screen. Things like this. But it also includes input devices such as a mouse, or a touch screen, maybe even a game controller.
+- **User Interface (UI)**
 
-- Visual/Graphic Design
-Visual or graphic design focuses on the aesthetic of a site and its related materials by strategically implementing images, colors, fonts and other elements. So elements like these shapes. Lines are often used to connect or align or separate other elements. Color. Color is huge when it comes to visual design. It can be used to call out important terms. It can be used to change people's moods. Texture and gradients are also part of the visual design tool kit. They have a way of displaying information so that it's readable and highlights key points. There's a visual hierarchy, a connection of the elements. The information flows correctly. 
+> UI is a means by which the user and a computer system interact, in particular the use of input devices and software. In other words, the pages, menus, images, icons and buttons you see on a screen. Things like this. But it also includes input devices such as a mouse, or a touch screen, maybe even a game controller.
 
-- User Research
-Focuses on understanding your users. What do they need? What motivates them? How do they behave?
+- **Visual/Graphic Design**
 
-**Techniques used **
+> Visual or graphic design focuses on the aesthetic of a site and its related materials by strategically implementing images, colors, fonts and other elements. So elements like these shapes. Lines are often used to connect or align or separate other elements. Color. Color is huge when it comes to visual design. It can be used to call out important terms. It can be used to change people's moods. Texture and gradients are also part of the visual design tool kit. They have a way of displaying information so that it's readable and highlights key points. There's a visual hierarchy, a connection of the elements. The information flows correctly. 
+
+- **User Research**
+
+> Focuses on understanding your users. What do they need? What motivates them? How do they behave?
+
+> **Techniques used **
 1. Persona: The idea of a persona is to really get a picture of the user. Who are they in their work life? Their day-to-day life? What are their goals? What are their frustrations? How can you help solve those frustrations? What's their tech-savvy?
+2. **Interviews**: 
+3. **Contextual interviews:**  are similar to interviews, but here the interviewer is actually observing the interviewee in their work. 
 
-2. Interviews: 
+- **Human-computer Interaction (HCI)**
 
-3. Contextual interviews:  are similar to interviews, but here the interviewer is actually observing the interviewee in their work. 
-
-- Human-computer Interaction (HCI)
 This is the study of how people interact with computers and to what extent computers are or are not developed for successful interaction with human beings.
 Researchers in the field of HCI do three primary things. 
 1. They innovate novel computing UI's using exploratory engineering and they also build complex interactive systems. For example, maybe it's a new software application and infrastructure. Or a wearable device or a mobile hardware platforms. 
 2. They develop an empirical understanding of the usage and the user experience of different interfaces. They might do this through experimental testing in a lab or they might observe people who are actually using the interfaces in the wild. 
 3. They develop theoretical knowledge about the design and use of digital systems. 
 
-- Interaction Design
-This is the practice of designing interactive digital products, environments, systems, and services. And unlike visual design where the focus is on what you see, here the focus is on behavior.  If I'm in the role of an interaction designer, I have to answer several questions. The first set of questions is related to interface interaction. What can a user do to interact with the interface? Is it mouse, finger, stylus, something else? And what commands can the user issue, such as a keyboard shortcut. The next questions relate to behavior. How does the appearance change to give the user a clue about its behavior?
+- **Interaction Design**
+
+> This is the practice of designing interactive digital products, environments, systems, and services. And unlike visual design where the focus is on what you see, here the focus is on behavior.  If I'm in the role of an interaction designer, I have to answer several questions. The first set of questions is related to interface interaction. What can a user do to interact with the interface? Is it mouse, finger, stylus, something else? And what commands can the user issue, such as a keyboard shortcut. The next questions relate to behavior. How does the appearance change to give the user a clue about its behavior?
  
-- Content Strategy
-Is the planning, development and management of content, written or in other media. These days, content could include text, images and videos on a website, or a mobile app. It could be offline marketing, such as mailers or community outreach. It's absolutely social media today.
+- **Content Strategy**
 
-- Information Architecture
-The organization of a site. And its labeling and navigation system. One excellent way to build a solid information architecture is through an exercise called card sorting. Here you gather all the information that already exists on the site or the information that you're proposing for a new site. A list of topics basically. 
+> Is the planning, development and management of content, written or in other media. These days, content could include text, images and videos on a website, or a mobile app. It could be offline marketing, such as mailers or community outreach. It's absolutely social media today.
 
-- Usability Testing
-This is a technique used to evaluate a product by having users test it out. Here we take a task based approach on actual systems to see how users interact with the software. So go and do tasks A, B and C and talk me through what you're doing and what you're thinking. Why are they clicking what they're clicking? Did they get stuck? Do things make sense to them?
+- **Information Architecture**
+
+> The organization of a site. And its labeling and navigation system. One excellent way to build a solid information architecture is through an exercise called card sorting. Here you gather all the information that already exists on the site or the information that you're proposing for a new site. A list of topics basically. 
+
+- **Usability Testing**
+
+> This is a technique used to evaluate a product by having users test it out. Here we take a task based approach on actual systems to see how users interact with the software. So go and do tasks A, B and C and talk me through what you're doing and what you're thinking. Why are they clicking what they're clicking? Did they get stuck? Do things make sense to them?
 There are all kinds of interesting things that you can learn from watching and listening to your users as they use the site or system.
 
