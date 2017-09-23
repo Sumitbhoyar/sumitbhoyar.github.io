@@ -41,29 +41,29 @@ A hybrid encryption scheme is one that blends the convenience of an asymmetric e
 
 ** Example: SSL / TLS **
 
-Sumit types facebook.com
+- Sumit types facebook.com
 
-facebook.com sends 30x series redirect code and provides new Location:https://www.facebook.com/
+- facebook.com sends 30x series redirect code and provides new Location:https://www.facebook.com/
 
-Browser redirects to https://www.facebook.com/
+- Browser redirects to https://www.facebook.com/
 
-Server sends the certificate and public key
+- Server sends the certificate and public key
 
-Browser creates its own symmetric key. Then encrypts it with public key from facebook. Send it to facebook.
+- Browser creates its own symmetric key. Then encrypts it with public key from facebook. Send it to facebook.
 
-Facebook take this encrypted assymetric key and decrypt it using its own private key.
+- Facebook take this encrypted assymetric key and decrypt it using its own private key.
 
-Now facebook and server, both has symmetric key.
+- Now facebook and server, both has symmetric key.
 
-Client gets the certificate and checks with certification authority. If CA verifies it, then browser marks or glows the url in broser, otherwise marks as crossed https.
+- Client gets the certificate and checks with certification authority. If CA verifies it, then browser marks or glows the url in broser, otherwise marks as crossed https.
 
 **Terminologies**
 
-**Encoding** is for maintaining data usability and can be reversed by employing the same algorithm that encoded the content, i.e. no key is used.
+- **Encoding** is for maintaining data usability and can be reversed by employing the same algorithm that encoded the content, i.e. no key is used.
 
-**Encryption** is for maintaining data confidentiality and requires the use of a key (kept secret) in order to return to plaintext.
+- **Encryption** is for maintaining data confidentiality and requires the use of a key (kept secret) in order to return to plaintext.
 
-**Hashing** is for validating the integrity of content using  private key by detecting all modification thereof via obvious changes to the hash output.
+- **Hashing** is for validating the integrity of content using  private key by detecting all modification thereof via obvious changes to the hash output.
 
-**Obfuscation** is used to prevent people from understanding the meaning of something, and is often used with computer code to help prevent successful reverse engineering and/or theft of a product’s functionality.
+- **Obfuscation** is used to prevent people from understanding the meaning of something, and is often used with computer code to help prevent successful reverse engineering and/or theft of a product’s functionality.- 
 
