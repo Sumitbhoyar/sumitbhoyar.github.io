@@ -39,7 +39,7 @@ A hybrid encryption scheme is one that blends the convenience of an asymmetric e
 
 > Hybrid encryption is achieved through data transfer using unique session keys along with symmetrical encryption. Public key encryption is implemented for random symmetric key encryption. The recipient then uses the public key encryption method to decrypt the symmetric key. Once the symmetric key is recovered, it is then used to decrypt the message.
 
-Example: SSL / TLS
+** Example: SSL / TLS **
 
 Sumit types facebook.com
 
@@ -57,6 +57,7 @@ Now facebook and server, both has symmetric key.
 
 Client gets the certificate and checks with certification authority. If CA verifies it, then browser marks or glows the url in broser, otherwise marks as crossed https.
 
+**Terminologies**
 
 **Encoding** is for maintaining data usability and can be reversed by employing the same algorithm that encoded the content, i.e. no key is used.
 
