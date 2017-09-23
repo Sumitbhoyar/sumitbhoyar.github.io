@@ -1,5 +1,6 @@
 Encryption Algorithms : Symmetric, Public-key, Hybrid-key
-------------------------------------------------------------
+----------------------------------------------------------
+
 
 **Cryptography Algorithms:**
 
