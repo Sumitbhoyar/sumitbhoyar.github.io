@@ -8,8 +8,7 @@ A mathematical procedure for performing encryption on data. Through the use of a
 
 - **Symmetric-key algorithms: **
 An encryption system in which the sender and receiver of a message share a single, common key that is used to encrypt and decrypt the message.
-
-> Symmetric-key cryptography is sometimes called secret-key cryptography. The most popular symmetric-key system is the Data Encryption Standard (DES).
+Symmetric-key cryptography is sometimes called secret-key cryptography. The most popular symmetric-key system is the Data Encryption Standard (DES).
 
 - **Public-key encryption**
 Public-key encryption is a cryptographic system that uses two keys -- a public key known to everyone and a private or secret key known only to the recipient of the message.
