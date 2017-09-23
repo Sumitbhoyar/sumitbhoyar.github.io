@@ -6,7 +6,7 @@ Encryption Algorithms : Symmetric, Public-key, Hybrid-key
 
 A mathematical procedure for performing encryption on data. Through the use of an algorithm, information is made into meaningless cipher text and requires the use of a key to transform the data back into its original form. Blowfish, AES RC4, RC5, and RC6 are examples of encryption algorithms.
 
-- **Symmetric-key algorithms: **
++ **Symmetric-key algorithms: **
 An encryption system in which the sender and receiver of a message share a single, common key that is used to encrypt and decrypt the message.
 
   - Symmetric-key cryptography is sometimes called secret-key cryptography. The most popular symmetric-key system is the Data Encryption Standard (DES).
