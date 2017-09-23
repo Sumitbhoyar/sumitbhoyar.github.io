@@ -12,7 +12,7 @@ WebSecurityConfigurerAdapter: Provides way to customise default setting.
 The auto configuration of Spring Boot automatically enables web security and retrieves all beans of the type WebSecurityConfigurerAdapter to customize the configuration if certain conditions are met (spring-boot-starter-security on the classpath etc.). The auto configuration for web security is enabled in the class 
 
 
-
+```
 | Annotation | Meaning                                             |
 +------------+-----------------------------------------------------+
 | @Component | generic stereotype for any Spring-managed component |
@@ -20,7 +20,7 @@ The auto configuration of Spring Boot automatically enables web security and ret
 | @Service   | stereotype for service layer                        |
 | @Controller| stereotype for presentation layer (spring-mvc)      |
 | @Bean      | Explicit declaration of generic bean                |
-
+```
 
 @Service, @Controller, @Repository = {@Component + some more special functionality}
 
