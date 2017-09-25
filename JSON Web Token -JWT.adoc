@@ -60,6 +60,8 @@ http://www.baeldung.com/spring-security-oauth-jwt
 
 
 References:
+
 https://medium.com/vandium-software/5-easy-steps-to-understanding-json-web-tokens-jwt-1164c0adfcec
+
 
 https://jwt.io/introduction/
