@@ -1,5 +1,5 @@
 ```
-replicaset
+Directory Structure
 	r1
 		data
 		logs
@@ -14,7 +14,7 @@ replicaset
 		mongod.conf
 ```
 
-# mongod.conf
+** mongod.conf**
 ```
 systemLog:
   destination: file
