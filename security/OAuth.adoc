@@ -38,8 +38,7 @@ The authorization server will respond with access_token.
 
 5. **Refresh token grant**
 
-
-![Refresh token grant](/Sumitbhoyar/notes/blob/master/security/WhichGrant.png?raw=true)
+[[/Sumitbhoyar/notes/blob/master/security/WhichGrant.png?raw=true|Refresh token grant]]
 
 
 
