@@ -38,7 +38,8 @@ The authorization server will respond with access_token.
 
 5. **Refresh token grant**
 
-https://raw.githubusercontent.com/Sumitbhoyar/notes/master/WhichGrant.png
+
+![Refresh token grant](/Sumitbhoyar/notes/blob/master/security/WhichGrant.png?raw=true)
 
 
 
