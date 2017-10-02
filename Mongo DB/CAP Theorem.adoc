@@ -5,10 +5,10 @@ The **CAP Theorem** states that, in a distributed system (a collection of interc
 
 **Consistency** - A read is guaranteed to return the most recent write for a given client.
 ```
- _______		 _________
-|Node 1	|		|Node 2	  |
+ _______	 _________
+|Node 1	|	|Node 2	  |
 | (x=5)	|------>| (x=5)	  |
-|_______|		|_________|
+|_______|	|_________|
 ```
 
 **Availability** - A non-failing node will return a reasonable response within a reasonable amount of time (no error or timeout).
@@ -22,7 +22,7 @@ The **CAP Theorem** states that, in a distributed system (a collection of interc
 ```
 _______		 ________
 |Node 1	|---|---|Node 2	 |
-|_______|	|	|________|
+|_______|   |	|________|
 
 ```
 **CP - Consistency/Partition Tolerance** - Wait for a response from the partitioned node which could result in a timeout error. The system can also choose to return an error, depending on the scenario you desire. Choose Consistency over Availability when your business requirements dictate atomic reads and writes.
@@ -32,6 +32,6 @@ MongoDB, HBase, Redis
 
 In the absence of network failure – that is, when the distributed system is running normally – both availability and consistency can be satisfied.
 
-CAP is frequently misunderstood as if one had to choose to abandon one of the three guarantees at all times. In fact, the choice is really between consistency and availability only when a network partition or failure happens; at all other times, no trade-off has to be made.
+CAP is frequently misunderstood as if one had to choose to abandon one of the three guarantees at all times. In fact, **the choice is really between consistency and availability only** when a network partition or failure happens; at all other times, no trade-off has to be made.
 
 Database systems designed with traditional ACID guarantees in mind such as RDBMS choose consistency over availability, whereas systems designed around the BASE philosophy, common in the NoSQL movement for example, choose availability over consistency.
