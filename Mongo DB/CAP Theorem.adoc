@@ -4,7 +4,7 @@
 The **CAP Theorem** states that, in a distributed system (a collection of interconnected nodes that share data.), you can only have two out of the following three guarantees across a write/read pair: Consistency, Availability, and Partition Tolerance - one of them must be sacrificed.
 
 **Consistency** - A read is guaranteed to return the most recent write for a given client.
- ```
+```
  _______		 _________
 |Node 1	|		|Node 2	  |
 | (x=5)	|------>| (x=5)	  |
