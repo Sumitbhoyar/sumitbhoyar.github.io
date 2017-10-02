@@ -1,5 +1,5 @@
-#CAP Theorem
---------------
+CAP Theorem
+---------
 
 The **CAP Theorem** states that, in a distributed system (a collection of interconnected nodes that share data.), you can only have two out of the following three guarantees across a write/read pair: Consistency, Availability, and Partition Tolerance - one of them must be sacrificed.
 
@@ -16,13 +16,15 @@ The **CAP Theorem** states that, in a distributed system (a collection of interc
  _______		 ________
 |Node 1	|		|Node 2	 |
 |_______|		|________|
-	^				 ^
+	^		    ^
+```
 **Partition Tolerance** - The system will continue to function when network partitions occur.
- _______		 ________
+```
+_______		 ________
 |Node 1	|---|---|Node 2	 |
 |_______|	|	|________|
 
-
+```
 **CP - Consistency/Partition Tolerance** - Wait for a response from the partitioned node which could result in a timeout error. The system can also choose to return an error, depending on the scenario you desire. Choose Consistency over Availability when your business requirements dictate atomic reads and writes.
 MongoDB, HBase, Redis 
 
