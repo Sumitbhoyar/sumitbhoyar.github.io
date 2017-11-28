@@ -1,0 +1,48 @@
+“If it ain’t broke, don’t fix it.”-Lance 
+
+
+Minimum viable product: Is a product with just enough features to satisfy early customers, and to provide feedback for future product development. Some experts suggest that in business to business transactions an MVP also means saleable: "it’s not an MVP until you sell it. Viable means you can sell it".
+
+
+Overengineering: Overengineering (or over-engineering) is the additional designing of a product to be more robust or extra featured than is deemed necessary for its primary application to be completed successfully.
+
+
+Worse is better, also called New Jersey style: , was conceived by Richard P. Gabriel in an essay "Worse is better" to describe the dynamics of software acceptance, but it has broader application. It is the idea that quality does not necessarily increase with functionality—that there is a point where less functionality ("worse") is a preferable option ("better") in terms of practicality and usability. Software that is limited, but simple to use, may be more appealing to the user and market than the reverse.
+
+
+YAGNI: "You aren't gonna need it": is a principle of extreme programming (XP) that states a programmer should not add functionality until deemed necessary. XP co-founder Ron Jeffries has written: "Always implement things when you actually need them, never when you just foresee that you need them."
+
+
+DTSTTCPW: "do the simplest thing that could possibly work".
+
+
+KISS principle: KISS is an acronym for "Keep it simple, stupid" as a design principle noted by the U.S. Navy in 1960.[1][2] The KISS principle states that most systems work best if they are kept simple rather than made complicated; therefore simplicity should be a key goal in design and unnecessary complexity should be avoided.
+
+
+DRY: don't repeat yourself (DRY) is a principle of software development.  aimed at reducing repetition of software patterns, replacing them with abstractions; and several copies of the same data, using data normalization to avoid redundancy.  "Every piece of knowledge must have a single, unambiguous, authoritative representation within a system"
+
+
+Minimalism : In computing, minimalism refers to the application of minimalist philosophies and principles in the design and use of hardware and software. Minimalism, in this sense, means designing systems that use the least hardware and software resources possible.
+
+
+SOLID Principle:
+
+
+SRP: The Single Responsibility Principle: A class should have one, and only one, reason to change.
+
+OCP: The Open Closed Principle: You should be able to extend a classes behavior, without modifying it.
+
+LSP: The Liskov Substitution Principle: Derived classes must be substitutable for their base classes.
+
+ISP: The Interface Segregation Principle: Make fine grained interfaces that are client specific.
+
+DIP: The Dependency Inversion Principle: Depend on abstractions, not on concretions.
+
+
+CCP: The Common Closure Principle: Classes that change together are packaged together.
+CRP: The Common Reuse Principle: Classes that are used together are packaged together.
+
+
+Broken Windows Theory: Consider a building with a few broken windows. If the windows are not repaired, the tendency is for vandals to break a few more windows. Eventually, they may even break into the building, and if it's unoccupied, perhaps become squatters or light fires inside.
+
+Or consider a pavement. Some litter accumulates. Soon, more litter accumulates. Eventually, people even start leaving bags of refuse from take-out restaurants there or even break into cars.
