@@ -31,15 +31,10 @@ Minimalism : In computing, minimalism refers to the application of minimalist ph
 
 SOLID Principle:
 
-
 SRP: The Single Responsibility Principle: A class should have one, and only one, reason to change.
-
 OCP: The Open Closed Principle: You should be able to extend a classes behavior, without modifying it.
-
 LSP: The Liskov Substitution Principle: Derived classes must be substitutable for their base classes.
-
 ISP: The Interface Segregation Principle: Make fine grained interfaces that are client specific.
-
 DIP: The Dependency Inversion Principle: Depend on abstractions, not on concretions.
 
 
@@ -48,5 +43,4 @@ CRP: The Common Reuse Principle: Classes that are used together are packaged tog
 
 
 Broken Windows Theory: Consider a building with a few broken windows. If the windows are not repaired, the tendency is for vandals to break a few more windows. Eventually, they may even break into the building, and if it's unoccupied, perhaps become squatters or light fires inside.
-
 Or consider a pavement. Some litter accumulates. Soon, more litter accumulates. Eventually, people even start leaving bags of refuse from take-out restaurants there or even break into cars.
