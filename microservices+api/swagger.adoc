@@ -149,4 +149,4 @@ paths:
 - Open the Swagger editor at: http://editor2.swagger.io
 - Select everything on the left side and delete it. You’ll start from scratch
 - Create your API document
-- Generate Clinet or service using API Document. Editor supports many language and framework.
+- Generate Client or service using API Document. Editor supports many language and framework.
