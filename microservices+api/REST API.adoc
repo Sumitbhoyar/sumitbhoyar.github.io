@@ -191,3 +191,10 @@ map to a resource
 - 415 Unsupported Media Type Sent when the client submitted data in an unsupported media type format
 
 - 500 Internal Server Error Tells the client that the API is having problems of its own
+
+**The three basic principles of API First are:**
+
+- The API comes before the user interface. Before you develop your web application, mobile, IoT, etc, you'll need to define your APIs, and then work on the channels that will use them.
+- The API comes before its implementation. By using tools such as Swagger to define and describe interfaces, you are generating discussions with the customer, user story and, mocking the APIs, also a user interface.
+- The API must be described or self-descriptive. API documentation is an indispensable requirement for making it usable by humans.
+
