@@ -145,6 +145,7 @@ paths:
 ```
 
 **Generating Service or Client from Open API document**
+
 - Open the Swagger editor at: http://editor2.swagger.io
 - Select everything on the left side and delete it. You’ll start from scratch
 - Create your API document
