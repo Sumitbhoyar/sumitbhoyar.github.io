@@ -19,6 +19,7 @@ When stack memory is full, Java runtime throws java.lang.StackOverFlowError wher
 - Survivor space
 
 **Non Heap Memory**
+
 - Code Cache
 
 - Permanent Generation
