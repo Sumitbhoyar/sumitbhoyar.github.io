@@ -13,11 +13,14 @@ When stack memory is full, Java runtime throws java.lang.StackOverFlowError wher
 
 **Heap Memory**
 - Eden space
+
 - Old gen
+
 - Survivor space
 
 **Non Heap Memory**
 - Code Cache
+
 - Permanent Generation
 
 ### Reference Types
