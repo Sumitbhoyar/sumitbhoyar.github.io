@@ -12,6 +12,7 @@ We can use -Xms and -Xmx JVM option to define the startup size and maximum size 
 When stack memory is full, Java runtime throws java.lang.StackOverFlowError whereas if heap memory is full, it throws java.lang.OutOfMemoryError: Java Heap Space error.
 
 **Heap Memory**
+
 - Eden space
 
 - Old gen
