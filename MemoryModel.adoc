@@ -29,11 +29,15 @@ When stack memory is full, Java runtime throws java.lang.StackOverFlowError wher
 **Strong Reference:** These are the most popular reference types that we all are used to. The object on the heap it is not garbage collected while there is a strong reference pointing to it, or if it is strongly reachable through a chain of strong references.
 
 **Weak Reference:** In simple terms, a weak reference to an object from the heap is most likely to not survive after the next garbage collection process. A weak reference is created as follows:
-> WeakReference<StringBuilder> reference = new WeakReference<>(new StringBuilder());
+```
+WeakReference<StringBuilder> reference = new WeakReference<>(new StringBuilder());
+```
 A nice use case for weak references are caching scenarios. Imagine that you retrieve some data, and you want it to be stored in memory as well — the same data could be requested again. On the other hand, you are not sure when, or if, this data will be requested again. So you can keep a weak reference to it, and in case the garbage collector runs, it could be that it destroys your object on the heap. Therefore, after a while, if you want to retrieve the object you refer to, you might suddenly get back a null value. A nice implementation for caching scenarios is the collection WeakHashMap<K,V>. 
 
 **Soft Reference:** These types of references are used for more memory-sensitive scenarios, since those are going to be garbage collected only when your application is running low on memory. Therefore, as long as there is no critical need to free up some space, the garbage collector will not touch softly reachable objects. Java guarantees that all soft referenced objects are cleaned up before it throws an OutOfMemoryError.
-> SoftReference<StringBuilder> reference = new SoftReference<>(new StringBuilder());
+```
+SoftReference<StringBuilder> reference = new SoftReference<>(new StringBuilder());
+```
 
 **Phantom Reference**
 Used to schedule post-mortem cleanup actions, since we know for sure that objects are no longer alive. Used only with a reference queue, since the .get() method of such references will always return null. These types of references are considered preferable to finalizers.
