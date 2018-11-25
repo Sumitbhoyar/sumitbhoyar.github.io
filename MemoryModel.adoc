@@ -2,7 +2,7 @@
 
 ### The Stack: 
 Stack memory is responsible for holding references to heap objects and for storing value types (also known in Java as primitive types), which hold the value itself rather than a reference to an object from the heap.
-The stack memory in Java is allocated per Thread. Therefore, each time a Thread is created and started, it has its own stack memory ó and cannot access another threadís stack memory.
+The stack memory in Java is allocated per Thread. Therefore, each time a Thread is created and started, it has its own stack memory ‚Äî and cannot access another thread‚Äôs stack memory.
 
 ### The Heap: 
 This part of memory stores the actual object in memory. Those are referenced by the variables from the stack.
@@ -12,20 +12,20 @@ We can use -Xms and -Xmx JVM option to define the startup size and maximum size 
 When stack memory is full, Java runtime throws java.lang.StackOverFlowError whereas if heap memory is full, it throws java.lang.OutOfMemoryError: Java Heap Space error.
 
 **Heap Memory**
-  - Eden space,
-  - Old gen,
-  - Survivor space.
+- Eden space
+- Old gen
+- Survivor space
 
 **Non Heap Memory**
-  - Code Cache
-  - Permanent Generation.
+- Code Cache
+- Permanent Generation
 
 ### Reference Types
 **Strong Reference:** These are the most popular reference types that we all are used to. The object on the heap it is not garbage collected while there is a strong reference pointing to it, or if it is strongly reachable through a chain of strong references.
 
 **Weak Reference:** In simple terms, a weak reference to an object from the heap is most likely to not survive after the next garbage collection process. A weak reference is created as follows:
 WeakReference<StringBuilder> reference = new WeakReference<>(new StringBuilder());
-A nice use case for weak references are caching scenarios. Imagine that you retrieve some data, and you want it to be stored in memory as well ó the same data could be requested again. On the other hand, you are not sure when, or if, this data will be requested again. So you can keep a weak reference to it, and in case the garbage collector runs, it could be that it destroys your object on the heap. Therefore, after a while, if you want to retrieve the object you refer to, you might suddenly get back a null value. A nice implementation for caching scenarios is the collection WeakHashMap<K,V>. 
+A nice use case for weak references are caching scenarios. Imagine that you retrieve some data, and you want it to be stored in memory as well ‚Äî the same data could be requested again. On the other hand, you are not sure when, or if, this data will be requested again. So you can keep a weak reference to it, and in case the garbage collector runs, it could be that it destroys your object on the heap. Therefore, after a while, if you want to retrieve the object you refer to, you might suddenly get back a null value. A nice implementation for caching scenarios is the collection WeakHashMap<K,V>. 
 
 **Soft Reference:** These types of references are used for more memory-sensitive scenarios, since those are going to be garbage collected only when your application is running low on memory. Therefore, as long as there is no critical need to free up some space, the garbage collector will not touch softly reachable objects. Java guarantees that all soft referenced objects are cleaned up before it throws an OutOfMemoryError.
 SoftReference<StringBuilder> reference = new SoftReference<>(new StringBuilder());
@@ -40,40 +40,40 @@ Used to schedule post-mortem cleanup actions, since we know for sure that object
 
 ### Regions in JVM Memory
 **[Young Generation/Nursery] Eden Space**
-All new objects are first created in the Eden Space. As soon as it reaches an arbitrary threshold decided by the JVM, a minor garbage collection (Minor GC) kicks in. It first removes all the non-referenced objects and moves referenced objects from the ëedení and ëfromí into the ëtoí survivor space. Once the GC is over, the ëfromí and ëtoí roles (names) are swapped.
+All new objects are first created in the Eden Space. As soon as it reaches an arbitrary threshold decided by the JVM, a minor garbage collection (Minor GC) kicks in. It first removes all the non-referenced objects and moves referenced objects from the ‚Äòeden‚Äô and ‚Äòfrom‚Äô into the ‚Äòto‚Äô survivor space. Once the GC is over, the ‚Äòfrom‚Äô and ‚Äòto‚Äô roles (names) are swapped.
 
 **[Young Generation/Nursery] Survivor 1 (From)**
-This is a part of the survivor space (You may think of this a role in the survivor space). This was the ëtoí role during the previous garbage collection (GC).
+This is a part of the survivor space (You may think of this a role in the survivor space). This was the ‚Äòto‚Äô role during the previous garbage collection (GC).
 
 **[Young Generation/Nursery] Suvrivor 2 (To)**
 This is also a part of the survivor space (You may think of this also a role in the survivor space). It is here, where during the GC, all the referenced objects
-are moved to, from ëfromí and ëedení .
+are moved to, from ‚Äòfrom‚Äô and ‚Äòeden‚Äô .
 
 **[Old Generation] Tenured**
-Depending on the threshold limits, which can be checked by using -XX:+PrintTenuringDistribution, which shows the objects (space in bytes) by age ñ Objects are moved from the ëtoí Survivor space to the Tenured space. ëAgeí is the number of times that it has moved within the survivor space. There are other important flags like, -XX:InitialTenuringThreshold, -XX:MaxTenuringThreshold and -XX:TargetSurvivorRatio which lead to an optimum utilization of the tenured as well as the survivor spaces. By setting -XX:InitialTenuringThreshold and -XX:MaxTenuringThreshold we allow an initial value and an maximum value for ëAgeí while maintaining the percentage utilization in the ëSurvivor (To)í as specified by the -XX:+NeverTenure and -XX:+AlwaysTenure, as they suggest are used to either never tenure an object (risky to use) and the opposite usage is to always tenure, which is to always use the ëold generationí. The garbage collection that happens here is the major garbage collection (Major GC). This is usually triggered when the heap is full or the old generation is full. This is usually a ëStop-the-Worldë event or thread that takes over to perform the garbage collection. There is another type of GC named as the full garbage collection (Full GC) which involves other memory areas such as the permgen space.
+Depending on the threshold limits, which can be checked by using -XX:+PrintTenuringDistribution, which shows the objects (space in bytes) by age ‚Äì Objects are moved from the ‚Äòto‚Äô Survivor space to the Tenured space. ‚ÄòAge‚Äô is the number of times that it has moved within the survivor space. There are other important flags like, -XX:InitialTenuringThreshold, -XX:MaxTenuringThreshold and -XX:TargetSurvivorRatio which lead to an optimum utilization of the tenured as well as the survivor spaces. By setting -XX:InitialTenuringThreshold and -XX:MaxTenuringThreshold we allow an initial value and an maximum value for ‚ÄòAge‚Äô while maintaining the percentage utilization in the ‚ÄòSurvivor (To)‚Äô as specified by the -XX:+NeverTenure and -XX:+AlwaysTenure, as they suggest are used to either never tenure an object (risky to use) and the opposite usage is to always tenure, which is to always use the ‚Äòold generation‚Äô. The garbage collection that happens here is the major garbage collection (Major GC). This is usually triggered when the heap is full or the old generation is full. This is usually a ‚ÄòStop-the-World‚Äò event or thread that takes over to perform the garbage collection. There is another type of GC named as the full garbage collection (Full GC) which involves other memory areas such as the permgen space.
 
 **[Permanent Generation] Permgen space**
-The ëPermgení is used to store the following information: Constant Pool (Memory Pool), Field & Method Data and Code. Each of them related to the same specifics as their name suggests.
+The ‚ÄòPermgen‚Äô is used to store the following information: Constant Pool (Memory Pool), Field & Method Data and Code. Each of them related to the same specifics as their name suggests.
 
 ### Types of GC
-**Minor GC:** Itís also called as Scavenge GC. This is the GC which collects garbage from the Young Generation.
+**Minor GC:** It‚Äôs also called as Scavenge GC. This is the GC which collects garbage from the Young Generation.
 **Major GC:** This GC collects garbage from the Old Generation
 **Full GC:** This GC collects garbage from all regions i.e. Young, Old, Perm, Metaspace.
-When Major or Full GC run all application threads are paused. Itís called a stop-the-world event. In Minor GCs, stop-the-world events occurs, but only momentarily.
+When Major or Full GC run all application threads are paused. It‚Äôs called a stop-the-world event. In Minor GCs, stop-the-world events occurs, but only momentarily.
 
 ### Types of GC Algorithms
 **Serial GC (-XX:+UseSerialGC):** Serial GC uses the simple mark-sweep-compact approach for young and old generations garbage collection that is, Minor and Major GC
 
-**Parallel GC (-XX:+UseParallelGC):** Parallel GC is same as Serial GC except that, it spawns N threads for young generation garbage collection where N is the number of CPU cores in the system. We can control the number of threads using ñXX:ParallelGCThreads=n JVM option
+**Parallel GC (-XX:+UseParallelGC):** Parallel GC is same as Serial GC except that, it spawns N threads for young generation garbage collection where N is the number of CPU cores in the system. We can control the number of threads using ‚ÄìXX:ParallelGCThreads=n JVM option
 
 **Parallel Old GC (-XX:+UseParallelOldGC):** This is same as Parallel GC except that it uses multiple threads for both young generation and old generation garbage collection
 
-**Concurrent Mark Sweep (CMS) Collector (-XX:+UseConcMarkSweepGC):** CMS is also referred as concurrent low pause collector. It does the garbage collection for old generation. CMS collector tries to minimize the pauses due to garbage collection by doing most of the garbage collection work concurrently within the application threads. CMS collector on young generation uses the same algorithm as that of the parallel collector. This garbage collector is suitable for responsive applications where we canít afford longer pause times. We can limit the number of threads in CMS collector using ñXX:ParallelCMSThreads=n JVM option
+**Concurrent Mark Sweep (CMS) Collector (-XX:+UseConcMarkSweepGC):** CMS is also referred as concurrent low pause collector. It does the garbage collection for old generation. CMS collector tries to minimize the pauses due to garbage collection by doing most of the garbage collection work concurrently within the application threads. CMS collector on young generation uses the same algorithm as that of the parallel collector. This garbage collector is suitable for responsive applications where we can‚Äôt afford longer pause times. We can limit the number of threads in CMS collector using ‚ÄìXX:ParallelCMSThreads=n JVM option
 
-**G1 Garbage Collector (-XX:+UseG1GC):** The garbage first or G1 Garbage Collector is available from Java 7 and its long term goal is to replace the CMS collector. The G1 collector is a parallel, concurrent and incrementally compact low-pause garbage collector. Garbage first collector doesnít work like other collectors and there is no concept of young and old generation space. It divides the heap space into multiple equal-sized heap regions. When a garbage collector is invoked, it first collects the region with lesser live data, hence ìGarbage Firstî
+**G1 Garbage Collector (-XX:+UseG1GC):** The garbage first or G1 Garbage Collector is available from Java 7 and its long term goal is to replace the CMS collector. The G1 collector is a parallel, concurrent and incrementally compact low-pause garbage collector. Garbage first collector doesn‚Äôt work like other collectors and there is no concept of young and old generation space. It divides the heap space into multiple equal-sized heap regions. When a garbage collector is invoked, it first collects the region with lesser live data, hence ‚ÄúGarbage First‚Äù
 
 ### Important change in Memory Management in Java 8
-Oracle has completely gotten rid of ëPermGení and replaced it with Metaspace.
+Oracle has completely gotten rid of ‚ÄòPermGen‚Äô and replaced it with Metaspace.
 With Java 8, there is NO PermGen. So no more OutOfMemory Errors due to PermGen.
 The key difference between PermGen and Metaspace is this: PermGen is not part of the HEAP and is not controlled by Garbage collection. Rather Metaspace is part of Native Memory (process memory) which is only limited by the Host Operating System.
 
