@@ -33,5 +33,5 @@ System.out.println(fifth == sixth); // False
 
 String newString = new String("interned Baeldung");
 String internedString = newString.intern();
-System.out.println(constantString == internedString); // True
+System.out.println(newString == internedString); // True
 ```
