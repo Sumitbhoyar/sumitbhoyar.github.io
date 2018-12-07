@@ -1,0 +1,57 @@
+# Tomcat
+## Architecture
+- Catalina: Apache Tomcat is a widely used implementation of the Java Servlet Specification.
+			Catalina is Tomcat's servlet container. Catalina implements Sun Microsystems' specifications for servlet and JavaServer Pages (JSP).
+- Coyote: Coyote is a Connector component for Tomcat that supports the HTTP 1.1 protocol as a web server. This allows Catalina, nominally a Java Servlet or JSP container, to also act as a plain web server that serves local files as HTTP documents.
+		Coyote listens for incoming connections to the server on a specific TCP port and forwards the request to the Tomcat Engine to process the request and send back a response to the requesting client. Another Coyote Connector, Coyote JK, listens similarly but instead forwards its requests to another web server, such as Apache, using the JK protocol. This usually offers better performance.
+- Server:
+		In the Tomcat world, a Server represents the whole container. Tomcat provides a default implementation of the Server interface., and this is rarely customized by users.
+		The Server is the top component and represents an instance of Tomcat. It can contain one or more services, each with its own engine and connectors.
+
+- Service:
+		A Service is an intermediate component which lives inside a Server and ties one or more Connectors to exactly one Engine. The Service element is rarely customized by users, as the default implementation is simple and sufficient: Service interface.
+		A Service is an intermediate component which lives inside a Server and ties one or more Connectors to exactly one Engine. Tomcat’s default configuration includes the service Catalina which associates the HTTP and AJP connectors to the Catalina engine. Accordingly, Connector and Engine are subelements of the Service element.
+		The Service element is rarely customized by users, as the default implementation is simple and sufficient.
+
+- Engine:
+		An Engine represents request processing pipeline for a specific Service. As a Service may have multiple Connectors, the Engine received and processes all requests from these connectors, handing the response back to the appropriate connector for transmission to the client. The Engine interface may be implemented to supply custom Engines, though this is uncommon.
+		An Engine represents request processing pipeline for a specific Service. As a Service may have multiple Connectors, the Engine receives and processes all requests from these connectors, handing the response back to the appropriate connector for transmission to the client.
+		An engine must contain one or more hosts, one of which is designated as the default host. The default Tomcat configuration includes the engine Catalina, which contains the host localhost (obviously designated to be the default host because it is the only one). The Catalina engine handles all incoming requests received via the HTTP connector and sends back the corresponding responses. It forwards each request to the correct host and context on the basis of the information contained in the request header.
+
+- Host:
+		A Host is an association of a network name, e.g. www.yourcompany.com, to the Tomcat server. An Engine may contain multiple hosts, and the Host element also supports network aliases such as yourcompany.com and abc.yourcompany.com. Users rarely create custom Hosts because the StandardHost implementation provides significant additional functionality.
+		A Host is an association of a network name, e.g. www.yourdomain.com, to the Tomcat server. A host can contain any number of contexts (i.e. applications). You can define several hosts on the same server. For example, if you have registered the domain yourdomain.com, you can define host names such as w1.yourdomain.com and w2.yourdomain.com. Keep in mind that it will only be accessible from the Internet if a domain name server maps its name to the IP address of your computer.
+		The default configuration of Tomcat includes the host named localhost. The association between localhost and your computer is done instead by writing an entry in the file C:\Windows\System32\drivers\etc\hosts.
+		The Host attribute “appBase” defines the application directory within the Tomcat installation folder. Each application is then identified by its path within that directory. The only exception is the path ROOT, which is mapped to the empty string. The application base directory for localhost is webapps. This means that the application in directory “C:\Program Files\Apache Software Foundation\Tomcat 6.0\webapps\ROOT\” is identified by the empty string. Therefore, its URL is “http://localhost:8080/“. For other applications, which reside in directories other than ROOT, as in “C:\Program Files\Apache Software Foundation\Tomcat 6.0\webapps\myapp\“, the URL is like “http://localhost:8080/myapp/“.
+		The attribute unpackWARs=”true” means that if you drop a WAR file in the appBase directory, Tomcat will automatically expand it into a normal folder. If you set this attribute to false, the application will run directly from the WAR file. This obviously means a slower execution of the application, because Tomcat needs to unzip the WAR file at execution time.
+		The attribute autoDeploy=”true” means that if you drop an application in the appBase directory while Tomcat is running, it will be deployed automatically.
+
+- Connector:
+		A Connector handles communications with the client. There are multiple connectors available with Tomcat, all of which implement the Connector interface. These include the Coyote connector which is used for most HTTP traffic, especially when running Tomcat as a standalone server, and the JK2 connector which implements the AJP protocol used when connecting Tomcat to an Apache HTTPD server. Creating a customized connector is a significant effort.
+		A Connector handles communications with the client. There are multiple connectors available with Tomcat e.g. HTTP connector for most of the HTTP traffic and AJP connector which implements the AJP protocol used when connecting Tomcat to another web server such as Apache HTTPD server.
+		The default configuration of Tomcat includes a connector to handle HTTP communication. By default, this connector waits for requests coming through port 8080. This is why the URLs of our examples always start with http://localhost:8080/. Note that the requests for all applications go through a single instance of this connector. Each new request causes the instantiation of a new thread that remains alive within the connector for the duration of the request. Articles available on internet about Tomcat often refer to this connector as “Coyote“.
+		The connectionTimeout attribute set to 20,000 means that a session is terminated after 5 hours, 33 minutes, and 20 seconds of inactivity, while redirectPort=”8443″ means that incoming requests that require Secure Socket Layer (SSL) transport are redirected to port 8443.
+		AJP connector lets Tomcat only handle dynamic web pages and lets a pure HTML server (e.g., the Apache Web Server) handle the requests for static pages. This maximizes the efficiency with which the requests are handled. You can probably comment out this connector as tomcat itself is pretty fast today OR simply if you don’t plan on using a web server together with Tomcat.
+
+- Context:
+		A Context represents a web application. A Host may contain multiple contexts, each with a unique path. A Context is the innermost element of a group of Tomcat components called containers, and it represents a single web application. Tomcat automatically instantiates and configures a standard context upon loading your application. As part of the configuration, Tomcat also processes the properties defined in the \WEB-INF\web.xml file of your application folder and makes them available to the application.
+		
+## Tomcat Logging
+Apache's Java Commons Logging (JCL) technology is used throughout Tomcat.  JCL is a lightweight API for Java applications that allows hierarchical logging to be supported across all log levels, independent of logging implementation.  This means that rather being limited to a specific hard-coded framework, you can choose the solution that works for you with only a small amount of extra configuration.  
+	The two most common logging implementations used for Tomcat - the included JULI implementation, and Log4J, a popular, feature-rich implementation compatible with JCL.
+- JULI:
+	Java Utility Logging Implementation:
+	Uses commons-logging.jar from classpath.
+	Logging preference could be set in commons-logging.properties
+	
+	
+## Container vs web server vs application server.
+	
+## SSL configuration
+## Clustering
+## Virtual host
+## Proxy
+## server.xml
+## context.xml
+## logging.properties
+## tomcat.conf
