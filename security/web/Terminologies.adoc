@@ -1,0 +1,4 @@
+# Terminologies
+
+- Worms: A worm is a malicious program that replicates itself in order to spread to other systems.
+Worms can take the form of executable programs that a user is tricked into downloading and executing.
