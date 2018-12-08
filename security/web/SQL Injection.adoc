@@ -25,6 +25,7 @@ Generated query:
 
 
 **Prevention**
+
 - Parameterized Statements
 - Object Relational Mapping
 - Escaping Inputs
