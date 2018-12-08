@@ -1,0 +1,76 @@
+## Cloud Computing
+Definition: The practice of using a network of remote servers hosted on the Internet to store, manage, and process data, rather than a local server or a personal computer.
+
+## SaaS  Vs  PaaS  Vs  IaaS
+Common Examples of SaaS, PaaS, & IaaS
+Platform Type	Common Examples
+**SaaS**: Google Apps, Dropbox, Salesforce, Cisco WebEx, Concur, GoToMeeting
+**PaaS**: AWS Elastic Beanstalk, Windows Azure, Heroku, Force.com, Google App Engine, Apache Stratos, OpenShift
+**IaaS**	: DigitalOcean, Linode, Rackspace, Amazon Web Services (AWS), Cisco Metapod, Microsoft Azure, Google Compute Engine (GCE)
+
+### SaaS: Software as a Service
+
+Clients, in this case usually web browsers, provide the point of access to software running on servers.
+Due to its web delivery model, SaaS eliminates the need to download and install applications on each individual computer;
+SaaS provides numerous advantages to employees and companies by greatly reducing the time and money spent on tedious tasks such as installing, managing, and upgrading software. 
+
+ - SaaS Characteristics
+
+    Managed from a central location
+    Hosted on a remote server
+    Accessible over the internet
+    Users not responsible for hardware or software updates
+
+ - When to Use SaaS
+
+    If you are a startup or small company that needs to launch e-commerce quickly and don’t have time for server issues or software
+    For short-term projects that require collaboration
+    If you use applications that aren’t in-demand very often, such as tax software
+    For applications that need both web and mobile access
+
+### PaaS: Platform as a Service
+
+PaaS provides a framework for developers that they can build upon and use to create customized applications. All servers, storage, and networking can be managed by the enterprise or a third-party provider while the developers can maintain management of the applications.
+The delivery model of PaaS is similar to SaaS, except instead of delivering the software over the internet, PaaS provides a platform for software creation. This platform is delivered over the web, and gives developers the freedom to concentrate on building the software while still not having to worry about operating systems, software updates, storage, or infrastructure.
+
+ - PaaS Advantages
+
+    Makes the development and deployment of apps simple and cost-effective
+    Scalable
+    Highly available
+    Gives developers the ability to create customized apps without the headache of maintaining the software
+    Greatly reduces the amount of coding
+    Automates business policy
+    Allows easy migration to the hybrid model
+
+
+ - PaaS Characteristics
+
+    It is built on virtualization technology, meaning resources can easily be scaled up or down as your business changes
+    Provides a variety of services to assist with the development, testing, and deployment of apps
+    Numerous users can access the same development application
+    Web services and databases are integrated
+
+### IaaS: Infrastructure as a Service
+
+IaaS delivers Cloud Computing infrastructure to organizations, including things such as servers, network, operating systems, and storage, through virtualization technology. 
+
+ - IaaS Advantages
+
+    Is the most flexible cloud computing model
+    Easily allows for automated deployment of storage, networking, servers, and processing power
+    Hardware can be purchased based on consumption
+    Gives clients complete control of their infrastructure
+    Resources can be purchased as-needed
+    Is highly scalable
+
+ - IaaS Characteristics
+
+    Resources are available as a service
+    The cost varies depending on consumption
+    Services are highly scalable
+    Typically includes multiple users on a single piece of hardware
+    Provides complete control of the infrastructure to organizations
+    Dynamic and flexible
+
+Reference: https://www.bmc.com/blogs/saas-vs-paas-vs-iaas-whats-the-difference-and-how-to-choose/
