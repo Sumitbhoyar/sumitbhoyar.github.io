@@ -1,5 +1,5 @@
 
-# Java Memory Leaks:
+# Java Memory Leak:
 
 A memory leak is when memory is marked "in use" even though it's no longer needed, and it will never be freed by the process that created it.
 
