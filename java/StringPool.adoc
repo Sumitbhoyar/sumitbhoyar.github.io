@@ -19,19 +19,22 @@ The risk of interning Strings in the PermGen (instead of the Heap) is that we ca
 From Java 7 onwards, the Java String Pool is stored in the Heap space, which is garbage collected by the JVM. The advantage of this approach is the reduced risk of OutOfMemory error because unreferenced Strings will be removed from the pool, thereby releasing memory.
 
 ```
-String first = "Baeldung"; 
-String second = "Baeldung"; 
+String first = "Sumit";
+String second = "Sumit";
 System.out.println(first == second); // True
 
-String third = new String("Baeldung");
-String fourth = new String("Baeldung"); 
+String third = new String("Sumit");
+String fourth = new String("Sumit");
 System.out.println(third == fourth); // False
 
-String fifth = "Baeldung";
-String sixth = new String("Baeldung");
+String fifth = "Sumit";
+String sixth = new String("Sumit");
 System.out.println(fifth == sixth); // False
 
-String newString = new String("interned Baeldung");
+String newString = new String("interned Sumit");
 String internedString = newString.intern();
-System.out.println(newString == internedString); // True
+System.out.println(newString == internedString); // False
+
+String newStringLiteral = "interned Sumit";
+System.out.println(newStringLiteral == internedString); // True
 ```
