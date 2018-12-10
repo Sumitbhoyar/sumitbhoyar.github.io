@@ -68,8 +68,6 @@ This is when thread A needs to obtain thread B's lock to continue its task, whil
     "Thread-0":
     	at DeadlockProgram$DeadlockRunnable.run(DeadlockProgram.java:25)
     	- waiting to lock <0x00000000d5d43110> (a java.lang.Object)
-   
-
      	- locked <0x00000000d5d43100> (a java.lang.Object)
         	at java.lang.Thread.run(Thread.java:748)
     
