@@ -70,7 +70,6 @@ This is when thread A needs to obtain thread B's lock to continue its task, whil
     	- waiting to lock <0x00000000d5d43110> (a java.lang.Object)
      	- locked <0x00000000d5d43100> (a java.lang.Object)
         	at java.lang.Thread.run(Thread.java:748)
-    
     Found 1 deadlock.
 
 #### When Waiting
@@ -98,7 +97,7 @@ From the application, find out which thread is using the CPU the most.
 
 Acquire the Light Weight Process (LWP) that uses the CPU the most and convert its unique number (10039) into a hexadecimal number (0x2737).
 
-2. After acquiring the thread dump, check the thread's action.
+After acquiring the thread dump, check the thread's action.
 
 Extract the thread dump of an application with a PID of 10029, then find the thread with an nid of 0x2737.
 
