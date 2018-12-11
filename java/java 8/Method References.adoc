@@ -1,6 +1,8 @@
-
 # Java Method References
 Method reference is used to refer method of functional interface.
+A method reference is a simplified form (or short-hand) of a lambda expression. It specifies the class name or the instance name followed by the method name. Instead of writing the lambda expression with all the details such as parameter and return type, a method reference lets you create a lambda expression from an existing method implementation.
+
+Method Reference Syntax: <class or instance name>::<methodName>
 
 ## Types of Method References
 
