@@ -3,10 +3,10 @@
 
 4 fundamental and most commonly used functional interfaces.
 
-Consumer<T>: Represents an operation that accepts a single input argument and returns no result.
-Function <T, R>: Represents a function that accepts one argument and produces a result.
-Predicate<T>: Represents a predicate (boolean-valued function) of one argument.
-Supplier<T>: Represents a supplier of results.
+- Consumer<T>: Represents an operation that accepts a single input argument and returns no result.
+- Function <T, R>: Represents a function that accepts one argument and produces a result.
+- Predicate<T>: Represents a predicate (boolean-valued function) of one argument.
+- Supplier<T>: Represents a supplier of results.
 
 ## java.util.function.Predicate
 
@@ -22,6 +22,7 @@ Example:
     predicate.test(5)
 
 **Default methods**
+
 **and()**: It does logical AND of the predicate on which it is called with another predicate. 
 Example: 
 
@@ -43,6 +44,7 @@ Example:
 	
 
 **Static method**
+
 **isEqual()**:
 Its defined as – static <T> Predicate<T> isEqual(Object targetRef) 
 It returns a predicate that tests if two arguments are equal according to Objects.equals(Object, Object).
@@ -50,6 +52,7 @@ It returns a predicate that tests if two arguments are equal according to Object
 ## java.util.function.Consumer
 
 **Abstract Method:**
+
 void **accept**(T t):
 accept() method takes as input the type T and returns no value.
 Example:
@@ -58,6 +61,7 @@ Example:
     consumer.accept(13);
 
 **Default methods**
+
 Consumer<T> **andThen**(Consumer<? super T> after):
 Takes as input another instance of Consumer interface and returns as a result a new consumer interface which represents aggregation of both of the operations defined in the two Consumer interfaces.
 Example:
@@ -69,6 +73,7 @@ Example:
 ## java.util.function.Function
 
 **Abstract Method:**
+
 R **apply**(T t)
 T is the type of the input and R is the output type.
 Method takes as input a parameter t of type T and gives an output object of type R.
@@ -78,17 +83,20 @@ Example:
     funcEmpToString.apply(emp)
 
 **Default methods**
+
 <V> Function<V, R> **compose**(Function<? super V, ? extends T> before)
 Example: 
 
     <V> Function<T, V> **andThen**(Function<? super R, ? extends V> after)	
 
 **Static method**
+
 <T> Function<T, T> identity()
 
 ## java.util.function.Supplier
 
 **Abstract Method**
+
 **T get();**
 Supplier has been defined with the generic type T which is the same type which its get() methods return as output.
 
