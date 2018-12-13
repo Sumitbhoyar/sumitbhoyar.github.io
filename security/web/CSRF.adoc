@@ -6,7 +6,7 @@ Cross-site request forgery (CSRF) vulnerabilities can be used to trick a user’
 A CSRF attack occurs when a user is tricked into interacting with a page or script on a third-party site that generates a malicious request to your site.
 All your server will see is an HTTP request from an authenticated user. However, an attacker takes control over the form of the data sent in the request to cause mischief.
 
-**Risk**
+## Risk
 
 Any function that your users can perform deliberately is something they can be tricked into performing inadvertently using CSRF. In the most malign cases, CSRF attacks can spread themselves as a worm.
 
@@ -15,7 +15,7 @@ Any function that your users can perform deliberately is something they can be t
 - Spread worms on social media.
 - Install malware on mobile phones.
 
-**Prevention**
+## Prevention
 
 Server-side actions can also be triggered by forged HTTP requests, unless you explicitly put in protective measures. A CSRF attack occurs when a malicious actor tricks a victim into clicking on a link, or running some code, that triggers a forged request. (This malicious code is typically hosted on a website owned by the attacker, on another domain – hence the “cross-domain” denomination.)
 

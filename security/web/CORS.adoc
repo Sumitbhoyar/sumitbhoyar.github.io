@@ -38,7 +38,6 @@ Preflight requests use the OPTIONS header. The preflight request is sent before 
     Content-Length: 35
     Connection: keep-alive
     Access-Control-Allow-Origin: http://foo.client.com
-    
     [response payload]
 
 
@@ -83,11 +82,9 @@ Preflight requests use the OPTIONS header. The preflight request is sent before 
 
 ## References:
 https://www.keycdn.com/support/cors
+
 https://spring.io/understanding/CORS
+
 https://spring.io/blog/2015/06/08/cors-support-in-spring-framework
+
 https://enable-cors.org/server.html
-
-
-
-
-
