@@ -1,0 +1,35 @@
+
+# Head vs Tail recursion
+
+## Recursion
+
+In Java, the function-call mechanism supports the possibility of having a method call itself. This functionality is known as recursion.
+
+There are two main requirements of a recursive function:
+
+- A Stop Condition – the function returns a value when a certain condition is satisfied, without a further recursive call
+- The Recursive Call – the function calls itself with an input which is a step closer to the stop condition
+
+## Tail Recursion
+
+A recursive function is tail recursive when recursive call is the last thing executed by the function.
+
+    public int tailSum(int currentSum, int n) {
+        if (n <= 1) {
+            return currentSum + n;
+        }
+        return tailSum(currentSum + n, n - 1);
+    }
+
+With tail recursion, the recursive call is the last thing the method does, so there is nothing left to execute within the current function.
+
+## Head recursion
+
+    public int sum(int n) {
+        if (n >= 1) {
+            return sum(n - 1) + n;
+        }
+        return n;
+    }
+
+
