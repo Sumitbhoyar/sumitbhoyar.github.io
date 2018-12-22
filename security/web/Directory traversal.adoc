@@ -3,9 +3,11 @@
 Directory traversal vulnerabilities allow attackers to access arbitrary files on your system. They tend to occur in older technology stacks, which map URLs too literally to directories on disk.
 
 **Risk**
+
 - File system could be compromised.
 
 **Protection**
+
 Following search on Google could be used to identify if your sire is vulnerable- site:<yourdomain.com> inurl:file=
 
 - Use a Content Management System
