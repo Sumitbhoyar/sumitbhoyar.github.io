@@ -1,0 +1,192 @@
+# Elasticsearch Concepts and terminologies
+
+### What is Elasticsearch?
+
+Elasticsearch is an open-source, RESTful, distributed search and analytics engine built on Apache Lucene.
+Unlike RDBMS, Elasticsearch stores data in the form of JSON document which is denormalized and doesn’t support transactions, referential integrity, joins, and subqueries.
+It provides full-text search capabilities with simple REST APIs. Elasticsearch is written in Java with Apache Lucene at its core. 
+
+### How does Elasticsearch work?
+You can send data in the form of JSON documents to Elasticsearch using the API or ingestion tools such as Logstash and Amazon Kinesis Firehose. Elasticsearch automatically stores the original document and adds a searchable reference to the document in the cluster’s index. You can then search and retrieve the document using the Elasticsearch API. You can also use Kibana, an open-source visualization tool, with Elasticsearch to visualize your data and build interactive dashboards.
+
+### Elasticsearch benefits?
+
+- FAST TIME-TO-VALUE
+Elasticsearch offers simple REST based APIs, a simple HTTP interface, and uses schema-free JSON documents, making it easy to get started and quickly build applications for a variety of use-cases.
+
+- HIGH PERFORMANCE
+The distributed nature of Elasticsearch enables it to process large volumes of data in parallel, quickly finding the best matches for your queries.
+
+- COMPLIMENTARY TOOLING AND PLUGINS
+Elasticsearch comes integrated with Kibana, a popular visualization and reporting tool. It also offers integration with Beats and Logstash, while enable you to easily transform source data and load it into your Elasticsearch cluster. You can also use a number of open-source Elasticsearch plugins such as language analyzers and suggesters to add rich functionality to your applications.
+
+- NEAR REAL-TIME OPERATIONS
+Elasticsearch operations such as reading or writing data usually take less than a second to complete. This lets you use Elasticsearch for near real-time use cases such as application monitoring and anomaly detection.
+
+- EASY APPLICATION DEVELOPMENT
+Elasticsearch provides support for various languages including Java, Python, PHP, JavaScript, Node.js, Ruby, and many more.
+
+- Manages the huge amount of data: 
+As a comparison to the traditional SQL database management systems that take more than 10 seconds to fetch required search query data, Elasticsearch can do that within 10 ms.
+
+- Direct, Easy and Fast access: 
+Documents are stored in a close proximity to the corresponding metadata in the index. This reduces the no of data reads and as a result increases the search result response.
+
+- Scalability of the search Engine: 
+As Elasticsearch has a distributed architecture it enables to scale up to thousands of servers and accommodate petabytes of data. The customers then need not manage the complexity of distributed design as it has been done automatically.
+
+### Use cases
+
+- Textual Search (searching for pure text)- Elasticsearch is primarily used where there is lots of text and we want to search any data for the best match with a specific phrase.
+
+- Product search by properties and name (Text search and structured data)
+
+- Data Aggregation- The aggregation’s framework helps provide aggregated data based on a search query. It is based on simple building blocks called aggregations, that can be composed in order to build complex summaries of the data. An aggregation can be seen as a unit-of-work that builds analytic information over a set of documents. The context of the execution defines what this document set is (e.g. a top-level aggregation executes within the context of the executed query/filters of the search request).
+
+- JSON document storage- A JSON object with some data. It’s the basic information unit in ES. The document is a basic information unit that can be indexed.
+
+- Geo Search- Elasticsearch can be used to Geo-localize any product. For example: for all the restaurants that serve pizza within 30 minutes.
+
+- Auto Suggest: It allows the user to start typing few characters and receive a list of suggested queries as they type.
+
+- Auto Complete: It helps in autocompleting for the search by completing a search box on partially-typed words, based on the previous searches.
+
+### Basic concepts
+
+- Fields
+Fields are the smallest individual unit of data in Elasticsearch. Each field has a defined type and contains a single piece of data that can be, for example, a boolean, string or array expression. A collection of fields are together a single Elasticsearch document.
+
+- Documents
+Documents are JSON objects that are stored within an Elasticsearch index and are considered the base unit of storage. In the world of relational databases, documents can be compared to a row in table.
+let’s assume that you are running an e-commerce application. You could have one document per product or one document per order.
+Data in documents is defined with fields comprised of keys and values. A key is the name of the field, and a value can be an item of many different types such as a string, a number, a boolean expression, another object, or an array of values.
+Documents also contain reserved fields that constitute the document metadata such as:
+
+_index – the index where the document resides
+_type – the type that the document represents
+_id – the unique identifier for the document
+
+Example
+
+    {
+       "_id": 3,
+       “_type”: [“user”],
+       "age": 28,
+       "name": ["daniel”],
+       "year":1989, 
+    }
+
+- Types
+Elasticsearch types are used within documents to subdivide similar types of data wherein each type represents a unique class of documents. Types consist of a name and a mapping (see below) and are used by adding the _type field. This field can then be used for filtering when querying a specific type.
+An index can have any number of types, and you can store documents belonging to these types in the same index.
+
+- Mapping
+Like a schema in the world of relational databases, mapping defines the different types that reside within an index. It defines the fields for documents of a specific type — the data type (such as string and integer) and how the fields should be indexed and stored in Elasticsearch.
+A mapping can be defined explicitly or generated automatically when a document is indexed using templates.
+
+Example
+
+    curl -XPUT localhost:9200/example -d '{
+      "mappings": {
+        "mytype": {
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "age": {
+              "type": "long"
+            }
+          }
+        }
+      }
+    }'
+
+- Index
+Indices, the largest unit of data in Elasticsearch, are logical partitions of documents and can be compared to a database in the world of relational databases.
+Continuing our e-commerce app example, you could have one index containing all of the data related to the products and another with all of the data related to the customers.
+You can have as many indices defined in Elasticsearch as you want. These in turn will hold documents that are unique to each index.
+You can have as many indices defined in Elasticsearch as you want. These in turn will hold documents that are unique to each index.
+Indices are identified by lowercase names that refer to actions that are performed actions (such as searching and deleting) against the documents that are inside each index.
+
+- Shards
+
+
+Example
+
+    curl -XPUT localhost:9200/example -d '{
+      "settings" : {
+        "index" : {
+          "number_of_shards" : 2, 
+          "number_of_replicas" : 1 
+        }
+      }
+    }'
+
+- Replicas
+Replicas, as the name implies, are Elasticsearch fail-safe mechanisms and are basically copies of your index’s shards. This is a useful backup system for a rainy day — or, in other words, when a node crashes. Replicas also serve read requests, so adding replicas can help to increase search performance.
+To ensure high availability, replicas are not placed on the same node as the original shards (called the “primary” shard) from which they were replicated.
+Like with shards, the number of replicas can be defined per index when the index is created. Unlike shards, however, you may change the number of replicas anytime after the index is created.
+
+- Replication
+Hardware can fail at any time. To ensure fault tolerance and high availability ES provides a feature to replicate the data. Shards can be replicated. A shard which is being copied is called as Primary Shard. The copy of the primary shard is called a replica shard or simply replica. Similar to the number of shards, number of replication can also be specified at the time of index creation. Replication served two purposes
+
+  - High Availability - Replica is never been created on the same node where the primary shard is present. This ensures that even if complete node is failed data is can be available through the replica shard.
+
+  - Performance - Replica can also contribute into search capabilities. The search queries will be executed parallely across the replicas.
+
+To summarize, each index can be split into multiple shards. An index can also be replicated zero (meaning no replicas) or more times. Once replicated, each index will have primary shards (the original shards that were replicated from) and replica shards (the copies of the primary shards). The number of shards and replicas can be defined per index at the time the index is created. After the index is created, you may change the number of replicas dynamically anytime but you cannot change the number of shards.
+
+- Analyzers
+Analyzers are used during indexing to break down phrases or expressions into terms. Defined within an index, an analyzer consists of a single tokenizer and any number of token filters. For example, a tokenizer could split a string into specifically defined terms when encountering a specific expression.
+By default, Elasticsearch will apply the “standard” analyzer, which contains a grammar-based tokenizer that removes common English words and applies additional filters. Elasticsearch comes bundled with a series of built-in tokenizers as well, and you can also use a custom tokenizer.
+
+- Nodes
+The heart of any ELK setup is the Elasticsearch instance, which has the crucial task of storing and indexing data.
+Each node in a cluster is capable of doing all these operations. Elasticsearch provides the capability to split responsibilities across different nodes. This makes it easy to scale, optimize and maintain the cluster. Based on the responsibilities, following are the different types of nodes that are supported:
+
+  - Master-eligible node:
+A node that has node.master set to true (default), which makes it eligible to be elected as the master node, which controls the cluster.
+  - Data node:
+A node that has node.data set to true (default). Data nodes hold data and perform data related operations such as CRUD, search, and aggregations.
+  - Ingest node:
+A node that has node.ingest set to true (default). Ingest nodes are able to apply an ingest pipeline to a document in order to transform and enrich the document before indexing. With a heavy ingest load, it makes sense to use dedicated ingest nodes and to mark the master and data nodes as node.ingest: false.
+  - Tribe node:
+A tribe node, configured via the tribe.* settings, is a special type of coordinating only node that can connect to multiple clusters and perform search and other operations across all connected clusters.
+By default a node is a master-eligible node and a data node, plus it can pre-process documents through ingest pipelines. This is very convenient for small clusters but, as the cluster grows, it becomes important to consider separating dedicated master-eligible nodes from dedicated data nodes.
+In a development or testing environment, you can set up multiple nodes on a single server. In production, however, due to the number of resources that an Elasticsearch node consumes, it is recommended to have each Elasticsearch instance run on a separate server.
+
+  - Coordinating-Only Node
+Any node which is not a master node or a data node will end up serving as coordinating node. Coordinating nodes act as smart load balancers. Coordinating nodes are exposed to the end user requests. It appropriately redirects the requests between data nodes and master nodes.
+To take an example, user’s search request is sent to different data nodes. Each data node performs searching locally and sends the result back to coordinating node. Coordinating Node aggregates and returns the end result back to the user.
+
+- Cluster
+One or more nodes (servers) collectively becomes a cluster which holds your entire data and provides indexing and search capabilities. A Cluster can be as small as a single node or can scale to hundreds or thousands of nodes. Each cluster is identified by a unique name.
+
+- Shards
+Shards help with enabling Elasticsearch to become horizontally scalable. An index can store millions of documents and occupy terabytes of data. This can cause problems with performance, scalability and maintenance. Let's see how Shards help achieve scalability.
+Indices are divided into multiple units called Shards. Shard is full featured subset of an index. Shards of the same index now can reside on the same or different nodes of the cluster. Shard decides the degree of parallelism for search and indexing operations. Shards allow the cluster to grow horizontally. The number of shards per index can be specified at the time of index creation. By default number of shards created is 5. Although, once the index is created the number of shards can not be changed. To change the number of shards that data will need to re-indexed.
+
+- Master Election
+As part of the ping process a master of the cluster is either elected or joined to. This is done automatically. The discovery.zen.ping_timeout (which defaults to 3s) determines how long the node will wait before deciding on starting an election or joining an existing cluster. Three pings will be sent over this timeout interval. In case where no decision can be reached after the timeout, the pinging process restarts. In slow or congested networks, three seconds might not be enough for a node to become aware of the other nodes in its environment before making an election decision. Increasing the timeout should be done with care in that case, as it will slow down the election process. Once a node decides to join an existing formed cluster, it will send a join request to the master (discovery.zen.join_timeout) with a timeout defaulting at 20 times the ping timeout.
+When the master node stops or has encountered a problem, the cluster nodes start pinging again and will elect a new master. This pinging round also serves as a protection against (partial) network failures where a node may unjustly think that the master has failed. In this case the node will simply hear from other nodes about the currently active master.
+If discovery.zen.master_election.ignore_non_master_pings is true, pings from nodes that are not master eligible (nodes where node.master is false) are ignored during master election; the default value is false.
+Nodes can be excluded from becoming a master by setting node.master to false.
+The discovery.zen.minimum_master_nodes sets the minimum number of master eligible nodes that need to join a newly elected master in order for an election to complete and for the elected node to accept its mastership. The same setting controls the minimum number of active master eligible nodes that should be a part of any active cluster. If this requirement is not met the active master node will step down and a new master election will begin.
+This setting must be set to a quorum of your master eligible nodes. It is recommended to avoid having only two master eligible nodes, since a quorum of two is two. Therefore, a loss of either master eligible node will result in an inoperable cluster.
+
+
+- Fault Detection
+There are two fault detection processes running. The first is by the master, to ping all the other nodes in the cluster and verify that they are alive. And on the other end, each node pings to master to verify if its still alive or an election process needs to be initiated.
+The following settings control the fault detection process using the discovery.zen.fd prefix:
+
+    ping_interval
+
+How often a node gets pinged. Defaults to 1s.
+
+    ping_timeout
+
+How long to wait for a ping response, defaults to 30s.
+
+    ping_retries
+
+How many ping failures / timeouts cause a node to be considered failed. Defaults to 3.
