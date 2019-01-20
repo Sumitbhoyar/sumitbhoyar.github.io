@@ -110,7 +110,10 @@ Indices are identified by lowercase names that refer to actions that are perform
 
 - Shards: 
 An index can potentially store a large amount of data that can exceed the hardware limits of a single node. For example, a single index of a billion documents taking up 1TB of disk space may not fit on the disk of a single node or may be too slow to serve search requests from a single node alone.
-To solve this problem, Elasticsearch provides the ability to subdivide your index into multiple pieces called shards. When you create an index, you can simply define the number of shards that you want. Each shard is in itself a fully-functional and independent "index" that can be hosted on any node in the cluster.
+To solve this problem, Elasticsearch provides the ability to subdivide your index into multiple pieces called shards. When you create an index, you can simply define the number of shards that you want. 
+Shards help with enabling Elasticsearch to become horizontally scalable. An index can store millions of documents and occupy terabytes of data. This can cause problems with performance, scalability and maintenance. Let's see how Shards help achieve scalability.
+Indices are divided into multiple units called Shards. Shard is full featured subset of an index. Shards of the same index now can reside on the same or different nodes of the cluster. Shard decides the degree of parallelism for search and indexing operations. Shards allow the cluster to grow horizontally. The number of shards per index can be specified at the time of index creation. By default number of shards created is 5. Although, once the index is created the number of shards can not be changed. To change the number of shards that data will need to re-indexed.
+Each shard is in itself a fully-functional and independent "index" that can be hosted on any node in the cluster.
 Sharding is important for two primary reasons:
 
      * It allows you to horizontally split/scale your content volume
@@ -167,10 +170,6 @@ To take an example, user’s search request is sent to different data nodes. Each 
 
 - Cluster: 
 One or more nodes (servers) collectively becomes a cluster which holds your entire data and provides indexing and search capabilities. A Cluster can be as small as a single node or can scale to hundreds or thousands of nodes. Each cluster is identified by a unique name.
-
-- Shards: 
-Shards help with enabling Elasticsearch to become horizontally scalable. An index can store millions of documents and occupy terabytes of data. This can cause problems with performance, scalability and maintenance. Let's see how Shards help achieve scalability.
-Indices are divided into multiple units called Shards. Shard is full featured subset of an index. Shards of the same index now can reside on the same or different nodes of the cluster. Shard decides the degree of parallelism for search and indexing operations. Shards allow the cluster to grow horizontally. The number of shards per index can be specified at the time of index creation. By default number of shards created is 5. Although, once the index is created the number of shards can not be changed. To change the number of shards that data will need to re-indexed.
 
 - Master Election: 
 As part of the ping process a master of the cluster is either elected or joined to. This is done automatically. The discovery.zen.ping_timeout (which defaults to 3s) determines how long the node will wait before deciding on starting an election or joining an existing cluster. Three pings will be sent over this timeout interval. In case where no decision can be reached after the timeout, the pinging process restarts. In slow or congested networks, three seconds might not be enough for a node to become aware of the other nodes in its environment before making an election decision. Increasing the timeout should be done with care in that case, as it will slow down the election process. Once a node decides to join an existing formed cluster, it will send a join request to the master (discovery.zen.join_timeout) with a timeout defaulting at 20 times the ping timeout.
