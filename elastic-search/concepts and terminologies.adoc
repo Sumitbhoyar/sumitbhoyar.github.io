@@ -110,9 +110,7 @@ Indices are identified by lowercase names that refer to actions that are perform
 
 - Shards: 
 An index can potentially store a large amount of data that can exceed the hardware limits of a single node. For example, a single index of a billion documents taking up 1TB of disk space may not fit on the disk of a single node or may be too slow to serve search requests from a single node alone.
-
 To solve this problem, Elasticsearch provides the ability to subdivide your index into multiple pieces called shards. When you create an index, you can simply define the number of shards that you want. Each shard is in itself a fully-functional and independent "index" that can be hosted on any node in the cluster.
-
 Sharding is important for two primary reasons:
 
      * It allows you to horizontally split/scale your content volume
