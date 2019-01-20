@@ -101,14 +101,23 @@ Example
       }
     }'
 
-- Index
+- Index: 
 Indices, the largest unit of data in Elasticsearch, are logical partitions of documents and can be compared to a database in the world of relational databases.
 Continuing our e-commerce app example, you could have one index containing all of the data related to the products and another with all of the data related to the customers.
 You can have as many indices defined in Elasticsearch as you want. These in turn will hold documents that are unique to each index.
 You can have as many indices defined in Elasticsearch as you want. These in turn will hold documents that are unique to each index.
 Indices are identified by lowercase names that refer to actions that are performed actions (such as searching and deleting) against the documents that are inside each index.
 
-- Shards
+- Shards: 
+An index can potentially store a large amount of data that can exceed the hardware limits of a single node. For example, a single index of a billion documents taking up 1TB of disk space may not fit on the disk of a single node or may be too slow to serve search requests from a single node alone.
+
+To solve this problem, Elasticsearch provides the ability to subdivide your index into multiple pieces called shards. When you create an index, you can simply define the number of shards that you want. Each shard is in itself a fully-functional and independent "index" that can be hosted on any node in the cluster.
+
+Sharding is important for two primary reasons:
+
+     * It allows you to horizontally split/scale your content volume
+     * It allows you to distribute and parallelize operations across shards (potentially on multiple nodes) thus increasing performance/throughput
+The mechanics of how a shard is distributed and also how its documents are aggregated back into search requests are completely managed by Elasticsearch and is transparent to you as the user.
 
 
 Example
@@ -122,51 +131,50 @@ Example
       }
     }'
 
-- Replicas
+- Replicas: 
 Replicas, as the name implies, are Elasticsearch fail-safe mechanisms and are basically copies of your index’s shards. This is a useful backup system for a rainy day — or, in other words, when a node crashes. Replicas also serve read requests, so adding replicas can help to increase search performance.
 To ensure high availability, replicas are not placed on the same node as the original shards (called the “primary” shard) from which they were replicated.
 Like with shards, the number of replicas can be defined per index when the index is created. Unlike shards, however, you may change the number of replicas anytime after the index is created.
 
-- Replication
+- Replication: 
 Hardware can fail at any time. To ensure fault tolerance and high availability ES provides a feature to replicate the data. Shards can be replicated. A shard which is being copied is called as Primary Shard. The copy of the primary shard is called a replica shard or simply replica. Similar to the number of shards, number of replication can also be specified at the time of index creation. Replication served two purposes
 
-  - High Availability - Replica is never been created on the same node where the primary shard is present. This ensures that even if complete node is failed data is can be available through the replica shard.
+     * High Availability - Replica is never been created on the same node where the primary shard is present. This ensures that even if complete node is failed data is can be available through the replica shard.
 
-  - Performance - Replica can also contribute into search capabilities. The search queries will be executed parallely across the replicas.
+     * Performance - Replica can also contribute into search capabilities. The search queries will be executed parallely across the replicas.
 
 To summarize, each index can be split into multiple shards. An index can also be replicated zero (meaning no replicas) or more times. Once replicated, each index will have primary shards (the original shards that were replicated from) and replica shards (the copies of the primary shards). The number of shards and replicas can be defined per index at the time the index is created. After the index is created, you may change the number of replicas dynamically anytime but you cannot change the number of shards.
 
-- Analyzers
+- Analyzers: 
 Analyzers are used during indexing to break down phrases or expressions into terms. Defined within an index, an analyzer consists of a single tokenizer and any number of token filters. For example, a tokenizer could split a string into specifically defined terms when encountering a specific expression.
 By default, Elasticsearch will apply the “standard” analyzer, which contains a grammar-based tokenizer that removes common English words and applies additional filters. Elasticsearch comes bundled with a series of built-in tokenizers as well, and you can also use a custom tokenizer.
 
-- Nodes
+- Nodes: 
 The heart of any ELK setup is the Elasticsearch instance, which has the crucial task of storing and indexing data.
 Each node in a cluster is capable of doing all these operations. Elasticsearch provides the capability to split responsibilities across different nodes. This makes it easy to scale, optimize and maintain the cluster. Based on the responsibilities, following are the different types of nodes that are supported:
 
-  - Master-eligible node:
+  * Master-eligible node:
 A node that has node.master set to true (default), which makes it eligible to be elected as the master node, which controls the cluster.
-  - Data node:
+  * Data node:
 A node that has node.data set to true (default). Data nodes hold data and perform data related operations such as CRUD, search, and aggregations.
-  - Ingest node:
+  * Ingest node:
 A node that has node.ingest set to true (default). Ingest nodes are able to apply an ingest pipeline to a document in order to transform and enrich the document before indexing. With a heavy ingest load, it makes sense to use dedicated ingest nodes and to mark the master and data nodes as node.ingest: false.
-  - Tribe node:
+  * Tribe node:
 A tribe node, configured via the tribe.* settings, is a special type of coordinating only node that can connect to multiple clusters and perform search and other operations across all connected clusters.
 By default a node is a master-eligible node and a data node, plus it can pre-process documents through ingest pipelines. This is very convenient for small clusters but, as the cluster grows, it becomes important to consider separating dedicated master-eligible nodes from dedicated data nodes.
 In a development or testing environment, you can set up multiple nodes on a single server. In production, however, due to the number of resources that an Elasticsearch node consumes, it is recommended to have each Elasticsearch instance run on a separate server.
-
-  - Coordinating-Only Node
+  * Coordinating-Only Node: 
 Any node which is not a master node or a data node will end up serving as coordinating node. Coordinating nodes act as smart load balancers. Coordinating nodes are exposed to the end user requests. It appropriately redirects the requests between data nodes and master nodes.
 To take an example, user’s search request is sent to different data nodes. Each data node performs searching locally and sends the result back to coordinating node. Coordinating Node aggregates and returns the end result back to the user.
 
-- Cluster
+- Cluster: 
 One or more nodes (servers) collectively becomes a cluster which holds your entire data and provides indexing and search capabilities. A Cluster can be as small as a single node or can scale to hundreds or thousands of nodes. Each cluster is identified by a unique name.
 
-- Shards
+- Shards: 
 Shards help with enabling Elasticsearch to become horizontally scalable. An index can store millions of documents and occupy terabytes of data. This can cause problems with performance, scalability and maintenance. Let's see how Shards help achieve scalability.
 Indices are divided into multiple units called Shards. Shard is full featured subset of an index. Shards of the same index now can reside on the same or different nodes of the cluster. Shard decides the degree of parallelism for search and indexing operations. Shards allow the cluster to grow horizontally. The number of shards per index can be specified at the time of index creation. By default number of shards created is 5. Although, once the index is created the number of shards can not be changed. To change the number of shards that data will need to re-indexed.
 
-- Master Election
+- Master Election: 
 As part of the ping process a master of the cluster is either elected or joined to. This is done automatically. The discovery.zen.ping_timeout (which defaults to 3s) determines how long the node will wait before deciding on starting an election or joining an existing cluster. Three pings will be sent over this timeout interval. In case where no decision can be reached after the timeout, the pinging process restarts. In slow or congested networks, three seconds might not be enough for a node to become aware of the other nodes in its environment before making an election decision. Increasing the timeout should be done with care in that case, as it will slow down the election process. Once a node decides to join an existing formed cluster, it will send a join request to the master (discovery.zen.join_timeout) with a timeout defaulting at 20 times the ping timeout.
 When the master node stops or has encountered a problem, the cluster nodes start pinging again and will elect a new master. This pinging round also serves as a protection against (partial) network failures where a node may unjustly think that the master has failed. In this case the node will simply hear from other nodes about the currently active master.
 If discovery.zen.master_election.ignore_non_master_pings is true, pings from nodes that are not master eligible (nodes where node.master is false) are ignored during master election; the default value is false.
@@ -178,6 +186,8 @@ This setting must be set to a quorum of your master eligible nodes. It is recomm
 - Fault Detection
 There are two fault detection processes running. The first is by the master, to ping all the other nodes in the cluster and verify that they are alive. And on the other end, each node pings to master to verify if its still alive or an election process needs to be initiated.
 The following settings control the fault detection process using the discovery.zen.fd prefix:
+
+Setting	Description
 
     ping_interval
 
