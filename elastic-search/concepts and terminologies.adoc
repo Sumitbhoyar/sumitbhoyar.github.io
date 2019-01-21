@@ -11,19 +11,19 @@ You can send data in the form of JSON documents to Elasticsearch using the API o
 
 ### Elasticsearch benefits?
 
-- FAST TIME-TO-VALUE
+- FAST TIME-TO-VALUE: 
 Elasticsearch offers simple REST based APIs, a simple HTTP interface, and uses schema-free JSON documents, making it easy to get started and quickly build applications for a variety of use-cases.
 
-- HIGH PERFORMANCE
+- HIGH PERFORMANCE: 
 The distributed nature of Elasticsearch enables it to process large volumes of data in parallel, quickly finding the best matches for your queries.
 
-- COMPLIMENTARY TOOLING AND PLUGINS
+- COMPLIMENTARY TOOLING AND PLUGINS: 
 Elasticsearch comes integrated with Kibana, a popular visualization and reporting tool. It also offers integration with Beats and Logstash, while enable you to easily transform source data and load it into your Elasticsearch cluster. You can also use a number of open-source Elasticsearch plugins such as language analyzers and suggesters to add rich functionality to your applications.
 
-- NEAR REAL-TIME OPERATIONS
+- NEAR REAL-TIME OPERATIONS: 
 Elasticsearch operations such as reading or writing data usually take less than a second to complete. This lets you use Elasticsearch for near real-time use cases such as application monitoring and anomaly detection.
 
-- EASY APPLICATION DEVELOPMENT
+- EASY APPLICATION DEVELOPMENT: 
 Elasticsearch provides support for various languages including Java, Python, PHP, JavaScript, Node.js, Ruby, and many more.
 
 - Manages the huge amount of data: 
@@ -53,10 +53,10 @@ As Elasticsearch has a distributed architecture it enables to scale up to thousa
 
 ### Basic concepts
 
-- Fields
+- Fields: 
 Fields are the smallest individual unit of data in Elasticsearch. Each field has a defined type and contains a single piece of data that can be, for example, a boolean, string or array expression. A collection of fields are together a single Elasticsearch document.
 
-- Documents
+- Documents: 
 Documents are JSON objects that are stored within an Elasticsearch index and are considered the base unit of storage. In the world of relational databases, documents can be compared to a row in table.
 let’s assume that you are running an e-commerce application. You could have one document per product or one document per order.
 Data in documents is defined with fields comprised of keys and values. A key is the name of the field, and a value can be an item of many different types such as a string, a number, a boolean expression, another object, or an array of values.
@@ -76,11 +76,11 @@ Example
        "year":1989, 
     }
 
-- Types
+- Types: 
 Elasticsearch types are used within documents to subdivide similar types of data wherein each type represents a unique class of documents. Types consist of a name and a mapping (see below) and are used by adding the _type field. This field can then be used for filtering when querying a specific type.
 An index can have any number of types, and you can store documents belonging to these types in the same index.
 
-- Mapping
+- Mapping: 
 Like a schema in the world of relational databases, mapping defines the different types that reside within an index. It defines the fields for documents of a specific type — the data type (such as string and integer) and how the fields should be indexed and stored in Elasticsearch.
 A mapping can be defined explicitly or generated automatically when a document is indexed using templates.
 
@@ -180,7 +180,7 @@ The discovery.zen.minimum_master_nodes sets the minimum number of master eligibl
 This setting must be set to a quorum of your master eligible nodes. It is recommended to avoid having only two master eligible nodes, since a quorum of two is two. Therefore, a loss of either master eligible node will result in an inoperable cluster.
 
 
-- Fault Detection
+- Fault Detection: 
 There are two fault detection processes running. The first is by the master, to ping all the other nodes in the cluster and verify that they are alive. And on the other end, each node pings to master to verify if its still alive or an election process needs to be initiated.
 The following settings control the fault detection process using the discovery.zen.fd prefix:
 
