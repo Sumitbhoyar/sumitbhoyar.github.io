@@ -75,7 +75,7 @@ Use cases: social networks, logistics, spatial data.
 
 Examples: Neo4J, Infinite Graph, OrientDB, FlockDB.
 
-##### Advantages of NoSQL
+### Advantages of NoSQL
 - Can be used as Primary or Analytic Data Source
 - Big Data Capability
 - No Single Point of Failure
@@ -93,7 +93,7 @@ Examples: Neo4J, Infinite Graph, OrientDB, FlockDB.
 - Eliminates the need for a specific caching layer to store data
 - Offers a flexible schema design which can easily be altered without downtime or service disruption
 
-##### Disadvantages of NoSQL
+### Disadvantages of NoSQL
 - No standardization rules
 - Limited query capabilities
 - RDBMS databases and tools are comparatively mature
@@ -103,19 +103,15 @@ Examples: Neo4J, Infinite Graph, OrientDB, FlockDB.
 - The learning curve is stiff for new developers
 - Open source options so not so popular for enterprises.
 
-##### Eventual Consistency
+### Eventual Consistency
 The term "eventual consistency" means to have copies of data on multiple machines to get high availability and scalability. Thus, changes made to any data item on one machine has to be propagated to other replicas.
 
 Data replication may not be instantaneous as some copies will be updated immediately while others in due course of time. These copies may be mutually, but in due course of time, they become consistent. Hence, the name eventual consistency.
 
-ACID vs BASE
+### ACID vs BASE
 ACID: Atomicity, Consistency, Isolation, Durability
 BASE: Basic Availability, Soft state, Eventual consistency
 
 Basically, available means DB is available all the time as per CAP theorem
 Soft state means even without an input; the system state may change. This could be due to changes done on other node eventually reflects. 
 Eventual consistency means that the system will become consistent over time
-
-
-
-
