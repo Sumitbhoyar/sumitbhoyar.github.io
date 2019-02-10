@@ -1,5 +1,4 @@
 # Why Documents?
-----------------
 
 The document is the natural representation of data. We only broke data up into rows and columns back in the 70s as a way to optimize data access. Back then, storage and compute power was expensive and so it made sense to use developer time to reduce the data set into a schema of rows and column, interlinked by relationships and then normalized between tables to reduce duplication. This process was cost-effective then and so it came to dominate database thinking.
 
