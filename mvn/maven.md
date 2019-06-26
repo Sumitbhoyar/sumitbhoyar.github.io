@@ -1,3 +1,4 @@
+
 # Maven
 
 ### snapshot versions Vs release versions
@@ -28,16 +29,20 @@ When you build a child of parent, Maven will retrieve parent to merge the parent
 A. It is a good idea when you only have say 5-10 sub modules (i.e. child modules). But, if you have 50+ child modules inheriting from the parent dependency management or plugin management will cause a re-release of anything inheriting from it.
 
 
-### What are the different dependency scopes have you used?
-A. compile, provided, test, and import.
+### What is dependency scope? Name all the dependency scope.
+Dependency scope includes dependencies as per the current stage of the build. Various Dependency Scopes are −
 
-**Compile** means that you need the JAR for compiling and running the app. For a web application, as an example, the JAR will be placed in the WEB-INF/lib directory.
+**compile** − This scope indicates that dependency is available in classpath of project. It is default scope.
 
-**Provided** means that you need the JAR for compiling, but at run time there is already a JAR provided by the environment so you don’t need it packaged with your app. For a web app, this means that the JAR file will not be placed into the WEB-INF/lib directory.
+**provided** − This scope indicates that dependency is to be provided by JDK or web-Server/Container at runtime.
 
-**Test** scope indicates that the dependency is not required for normal use of the application, and is only available for the test compilation and execution phases.
+**runtime** − This scope indicates that dependency is not required for compilation, but is required during execution.
 
-**import** scope is used to aggregate the specified POM with the dependencies in that POM’s “DependencyManagement” section. This scope is only used on a dependency of type pom in the section and available only from Maven version 2.0.9.
+**test** − This scope indicates that the dependency is only available for the test compilation and execution phases.
+
+**system** − This scope indicates that you have to provide the system path.
+
+**import** − This scope is only used when dependency is of type pom. This scope indicates that the specified POM should be replaced with the dependencies in that POM's <dependencyManagement> section.
 
 
 ### What is the purpose of Maven assembly plugin?
@@ -46,3 +51,44 @@ There are 3 steps to create an assembly:
 1) choose or write the assembly descriptor files to use like dev-assembly.xml, prod-assembly.xml, etc
 2) configure the Assembly Plugin in your project’s pom.xml, and include the above descriptor files
 3) run “mvn assembly:single” on your project.
+
+### What are the phases of a Maven Build Lifecycle?
+**validate** − validate the project is correct and all necessary information is available.
+
+**compile** − compile the source code of the project.
+
+**test** − test the compiled source code using a suitable unit testing framework. These tests should not require the code be packaged or deployed
+
+**package** − take the compiled code and package it in its distributable format, such as a JAR.
+
+**integration-test** − process and deploy the package if necessary into an environment where integration tests can be run.
+
+**verify** − run any checks to verify the package is valid and meets quality criteria.
+
+**install** − install the package into the local repository, for use as a dependency in other projects locally.
+
+**deploy** − done in an integration or release environment, copies the final package to the remote repository for sharing with other developers and projects.
+
+
+### What is Build Profile?
+A Build profile is a set of configuration values which can be used to set or override default values of Maven build. Using a build profile, you can customize build for different environments such as Production v/s Development environments, To give portability to projects ( e.g. windows, linux etc).
+
+### What is local repository?
+Maven local repository is a folder location on your machine. It gets created when you run any maven command for the first time. Maven local repository keeps your project's all dependencies (library jars, plugin jars etc).
+
+### What is Central Repository?
+It is repository provided by Maven community. It contains a large number of commonly used libraries.
+
+### What is Remote Repository?
+Sometimes, Maven does not find a mentioned dependency in central repository as well then it stops the build process and output error message to console. To prevent such situation, Maven provides concept of Remote Repository which is developer's own custom repository containing required libraries or other project jars.
+
+### What is transitive dependency in Maven?
+Transitive dependency means to avoid needing to discover and specify the libraries that your own dependencies require, and including them automatically.
+
+
+### What is the use of optional dependency?
+Any transitive dependency can be marked as optional using "optional" element. As example, A depends upon B and B depends upon C. Now B marked C as optional. Then A will not use C.
+
+### What is difference between Apache Ant and Maven?
+Ant is simply a toolbox whereas Maven is about the application of patterns in order to achieve an infrastructure which displays the characteristics of visibility, reusability, maintainability, and comprehensibility. It is wrong to consider Maven as a build tool and just a replacement for Ant.
+
