@@ -2,7 +2,9 @@
 
 ### snapshot versions Vs release versions
 The term “SNAPSHOT” means the build is a snapshot of your code at a given time, which means downloading 1.0-SNAPSHOT today might give a different file than downloading it tomorrow or day after. When you are ready to release your project, you will change 1.0-SNAPSHOT to 1.0 in the pom.xml file. The 1.0 is the release version. After release, any new development work will stat using 1.1-SNAPSHOT and so on.
-Unlike regular versions, Maven checks for a new SNAPSHOT version in a remote repository at least once a day by default or if you use -U flag to every time you build. A team working on a cash-service module will release SNAPSHOT of its updated code every day to repository – let’s say cash-service:1.0-SNAPSHOT replacing an older cash-service:1.0-SNAPSHOT jar. In case of released versions, if Maven once downloaded the version say cash-service:1.0, it will never try to download a newer 1.0 available in repository. In order to download the updated code, the cash-service version needs to be upgraded to 1.1.
+
+Unlike regular versions, Maven checks for a new SNAPSHOT version in a remote repository at least once a day by default or if you use -U flag to every time you build. A team working on a cash-service module will release SNAPSHOT of its updated code every day to repository – let’s say cash-service:1.0-SNAPSHOT replacing an older cash-service:1.0-SNAPSHOT jar. In case of released versions, if Maven once downloaded the version say cash-service:1.0, it will never try to download a newer 1.0 available in repository. In order to download the updated code, the cash-service version needs to be upgraded to 1.1
+
 When you release artifacts to nexus, you can have separate snapshotRepository and a repository for the releases.
 Need: In large projects, it is not easy to keep communicating these version changes. Using the older versions can cause unforeseen build issues.
 
