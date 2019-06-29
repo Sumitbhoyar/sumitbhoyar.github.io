@@ -11,19 +11,21 @@ Need: In large projects, it is not easy to keep communicating these version chan
 
 ### Parent pom vs Corporate pom vs Reactor pom vs Super pom
 **Super pom**: parent of all poms, irrespective of inheritance
+
 **Corporate pom**: pom with company specific configuration like repository, plugins etc
+
 **Parent pom**: Common pom inherited by other poms.
 
 **Reactor pom**: The mechanism in Maven that handles multi-module projects is referred to as the reactor. A reactor pom is a pom.xml file you define with , and Maven will read all of these modules and build then in the correct order based on dependencies.
 
+**effective-pom:**
+When you build a child of parent, Maven will retrieve parent to merge the parent pom with the child pom. You can have a look to the entire pom.xml by running the command mvn help:effective-pom.
 
-**attached artifact:**
+
+### attached artifact:
 Attached artifacts are additional related artifacts that get installed and deployed along with the “main” (e.g jar, war, or ear) artifact. These are most often, javadocs, sources, resouce bundles, properties files, etc, but can actually be any file.
 Attached artifacts automatically share the same groupId, ArtifactId and version as the main artifact but they are distinguished with an additional Classifier field.
 
-
-**effective-pom:**
-When you build a child of parent, Maven will retrieve parent to merge the parent pom with the child pom. You can have a look to the entire pom.xml by running the command mvn help:effective-pom.
 
 ### Is inheritance of dependencies a good idea?
 A. It is a good idea when you only have say 5-10 sub modules (i.e. child modules). But, if you have 50+ child modules inheriting from the parent dependency management or plugin management will cause a re-release of anything inheriting from it.
@@ -46,6 +48,10 @@ Dependency scope includes dependencies as per the current stage of the build. Va
 
 
 ### What is the purpose of Maven assembly plugin?
+The Assembly Plugin for Maven is primarily intended to allow users to aggregate the project output along with its dependencies, modules, site documentation, and other files into a single distributable archive.
+
+Assume that a Maven project defines a single JAR artifact that contains both a console application and a Swing application. Such a project could define two "assemblies" that bundle the application with a different set of supporting scripts and dependency sets. One assembly would be the assembly for the console application, and the other assembly could be a Swing application bundled with a slightly different set of dependencies.
+
 There are 3 steps to create an assembly:
 
 1) choose or write the assembly descriptor files to use like dev-assembly.xml, prod-assembly.xml, etc
