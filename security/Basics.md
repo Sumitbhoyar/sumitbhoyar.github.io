@@ -1,9 +1,11 @@
 
+
 # Basic points to remember
 
 ### Can you provide a high level overview of the “access control security” in a recent application you had worked?
 Access controls are security features that control how users and systems communicate and interact with other systems and resources.
 Single sign-on (SSO) is a session/user authentication process that permits a user to enter one name and password in order to access multiple applications. The process authenticates the user for all the applications they have been given rights to and eliminates further prompts when they switch applications during a particular session. For example, SiteMinder, TivoliAccessManager (i.e. TAM), etc provides SSO. 
+
 In one of my application, SiteMinder is configured to intercept the calls to authenticate the user. 
 Once the user is authenticated, a HTTP header “SM_USER” is added with the 
 authenticated user name. For example “123”. The user header is passed to 
@@ -70,9 +72,15 @@ Following are the key characteristics of application security.
 **Roles** - Roles are are abstract entities defined in Java EE that has permissions to access a set of secured resources in an application. Users or Groups are mapped to Roles.
 
 ### What are the authentication mechanisms used to secure web applications?
-Http Basic authentication
-Form-based authentication
-Digest authentication
+- Http Basic authentication: HTTP Basic Authentication, which is based on a username and password, is the authentication mechanism defined in the HTTP/1.0 specification. A web server requests a web client to authenticate the user. As part of the request, the web server passes the realm (a string) in which the user is to be authenticated. The realm string of Basic Authentication does not have to reflect any particular security policy domain (confusingly also referred to as a realm). The web client obtains the username and the password from the user and transmits them to the web server. The web server then authenticates the user in the specified realm.
+Basic Authentication is not a secure authentication protocol. User passwords are sent in simple base64 ENCODING (not ENCRYPTED !), and the target server is not authenticated. Additional protection can alleviate some of these concerns: a secure transport mechanism (HTTPS), or security at the network level (such as the IPSEC protocol or VPN strategies) is applied in some deployment scenarios.
+
+- Form-based authentication: The look and feel of the 'login screen' cannot be varied using the web browser's built-in authentication mechanisms. This specification introduces a required form based authentication mechanism which allows a Developer to CONTROL the LOOK and FEEL of the login screens.
+The web application deployment descriptor contains entries for a login form and error page. The login form must contain fields for entering a username and a password. These fields must be named j_username and j_password, respectively.
+When a user attempts to access a protected web resource, the container checks the user's authentication. If the user is authenticated and possesses authority to access the resource, the requested web resource is activated and a reference to it is returned.
+Form based login should be used only when sessions are being maintained by cookies or by SSL session information.
+
+- Digest authentication: Like HTTP Basic Authentication, HTTP Digest Authentication authenticates a user based on a username and a password. However the authentication is performed by transmitting the password in an ENCRYPTED form which is much MORE SECURE than the simple base64 encoding used by Basic Authentication, e.g. HTTPS Client Authentication.  Digest Authentication is not currently in widespread use.
 
 ### What are the Security risks? 
 There are two classes of security problems: **nuisances** and **security breaches**. A nuisance attack merely prevents you from getting your work done - for example it may cause your computer to crash. Security breaches are more serious: your files could be deleted, your private data could be read, or a virus could infect your machine.
