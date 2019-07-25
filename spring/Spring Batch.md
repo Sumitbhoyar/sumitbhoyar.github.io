@@ -66,3 +66,7 @@ The Spring Batch Meta-Data tables are used to persist batch domain objects such 
 
 The JobRepository is responsible for saving and storing each Java object into its correct table
 
+
+### Example
+
+https://github.com/Sumitbhoyar/spring-batch
