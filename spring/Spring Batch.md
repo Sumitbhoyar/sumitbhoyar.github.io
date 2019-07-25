@@ -1,13 +1,13 @@
 # spring-batch
 
-#### Spring Batch Business Use Case
+### Spring Batch Business Use Case
 - At the end of a month when a company has to send salary to its employee’s respective accounts.
 - Processing of salary slips at month end is when spring batch can be used.
 - Sending out mass communication emails.
 - For generating automated reports on daily, weekly or monthly basis.
 - Executing business workflow automatically without human intervention.
 
-#### Framework Architecture
+### Framework Architecture
 
 Spring Batch exhibit a layered architecture and it comprises of three major high level components: 
 Application, Core and Infrastructure.
@@ -18,7 +18,7 @@ Application, Core and Infrastructure.
 
 - The **infrastructure** contains API for common readers and writers, and services for retrying on failure, repeat jobs etc. The infrastructure layer are used both by application developers(ItemReader and ItemWriter) and the core framework itself for controlling the batch job such as Retry, repeat. Thus Batch Core and Application layers are built on top of Infrastructure layer.
 
-#### How Spring Batch works
+### How Spring Batch works
 ```
                                / ItemReader
 JobLauncher -- Job -- Step --/---ItemProcessor
@@ -36,7 +36,7 @@ JobLauncher -- Job -- Step --/---ItemProcessor
 - **ItemStreamWriter** - Basic interface for generic output operations. Class implementing this interface will be responsible for serializing objects as necessary. Generally, it is responsibility of implementing class to decide which technology to use for mapping and how it should be configured. The write method is responsible for making sure that any internal buffers are flushed. If a transaction is active it will also usually be necessary to discard the output on a subsequent rollback. The resource to which the writer is sending data should normally be able to handle this itself.
 - **Tasklet** - The Tasklet is an interface which performs any single task such as setup resource, running a sql update, cleaning up resources etc.
 
-#### Chunk Processing
+### Chunk Processing
 - Suppose the job to be run is complex and involves executing of tasks involving reads, processing and writes the we use chunk oriented processing
 - It involves reading an input, processing it based on the business logic and then aggregating it till the commit-interval is reached and finally writing out the chunk of data output to a file or database table.
 - Usually used in scenarios where multiple aggregated steps need to be run like copying, processing and transferring of data .
@@ -51,17 +51,17 @@ Example
 	}
 ```
 
-#### Concurrent Batch
+### Concurrent Batch
 Concurrent/on-line batch processing refers to the batch process that handles data being concurrently used/updated by online users so the data cannot be locked in database or file as the online users will need it. Also the data updates should be commited frequently at the end of few transactions to minimize the portion of data that is unavailable to other processes and the elapsed time the data is unavailable.
 
-#### Parallel Processing
+### Parallel Processing
 Parallel processing enables multiple batch runs jobs to run in parallel to reduce the total elapsed batch processing time. Parallel processing is simpler as long as the same file or database table is not shared among the processes otherwise the processes should process partitioned data.
 
 Another approach would be using a control table for maintaining interdependencies and to track each shared resource in use by any process or not.
 
 Other key issues in parallel processing include load balancing and the availability of general system resources such as files, database buffer pools etc. Also note that the control table itself can easily become a critical resource.
 
-#### Metadata Schema
+### Metadata Schema
 The Spring Batch Meta-Data tables are used to persist batch domain objects such as JobInstance, JobExecution, JobParameters, and StepExecution for internally managing the Batch Jobs.
 
 The JobRepository is responsible for saving and storing each Java object into its correct table
