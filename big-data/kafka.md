@@ -165,7 +165,37 @@ Within the available producer, the main function of partitioning key is to valid
 
 #### What is the purpose of the retention period in the Kafka cluster?
 Within the Kafka cluster, it retains all the published records. It doesn’t check whether they have been consumed or not. Using a configuration setting for the retention period, the records can be discarded. The main reason to discard the records from the Kafka cluster is that it can free up some space.
-     
+
+
+### Commands
+```
+Zookeeper
+	zkserver
+		
+Broker
+	Start
+	.\bin\windows\kafka-server-start.bat .\config\server.properties
+
+Topics
+	Create
+	kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic Hello-Kafka
+	
+	List
+	kafka-topics.bat --zookeeper localhost:2181 --list
+	
+	Details
+	kafka-topics.bat --describe --zookeeper localhost:2181 --topic Hello-Kafka
+
+	Delete
+	kafka-topics.bat --delete --zookeeper localhost:2181 --topic topic-name
+
+Producer
+	kafka-console-producer.bat --broker-list localhost:9092 --topic Hello-Kafka
+	
+Consumer
+	kafka-console-consumer.bat --bootstrap-server localhost:9092     --topic Hello-Kafka --from-beginning
+
+```
      
 ### Code Example
  https://github.com/Sumitbhoyar/kafka
