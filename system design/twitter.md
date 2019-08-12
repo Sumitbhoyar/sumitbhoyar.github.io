@@ -8,6 +8,8 @@ Node.js,React, MySQL, jQuery, Bootstrap,  Redis, Rails, ExpressJS, GraphQL, Scal
 - How trending hashtag calculated
 - Stream processing
 - How search works
+
+![System design](twitter-design.jpg)
 	
 ### What happens when we tweet
 ##### Summary
@@ -27,6 +29,8 @@ Node.js,React, MySQL, jQuery, Bootstrap,  Redis, Rails, ExpressJS, GraphQL, Scal
 - These timelines are stored in memory within Twitter’s Redis cluster and replicated across data centers on three different machines. For each user, the daemon inserts the Tweet ID (8 bytes) in a native list structure in Redis along with the User ID (8 bytes) and some additional information for retweets, replies, and similar system-centric data (4 bytes). 
 - Redis doesn’t store the 140 character tweet information itself nor does it store a list of the entire history of tweets by the users that are followed. Instead, the Twitter engineering team limits Redis to storing the last 800 tweet IDs for each home timeline. Even with this limited amount of information, the Redis cluster uses several terabytes of RAM. This allows the Twitter engineering team to cache almost every single active user’s home timeline in memory at any given time and provide the fastest response times possible. These are also written to disk.
 
+![System design](twitter-write api.jpg)
+
 ### How twitter dashboard works?
 When a user logs in to Twitter or a 3rd party tool that uses the Twitter API, they are presented the home timeline, served from data in the Redis cluster. This is a temporal merge of all the people followed and includes some business rules like stripping out replies for people you don’t follow and visibility of retweets. The timeline contains the ID of all the tweets and those IDs are hydrated or rendered with additional data by pulling data for user objects from a system called Gizmoduck and tweet objects from a system called TweetyPie, each with their own caches.
 
@@ -38,7 +42,6 @@ So if you tweet then that is a write and twitter delivers that to all the subscr
 Facebook does not immediately deliver a written post. It waits until users are actually consuming their feed. Facebook at this time looks for posts that have been written that this user is eligible to read; fan out read. The processing of whether a user has permission to read a particular post is done at read time.
 
 How did they decide which architectural approach to use? The answer is in these two cases complexity versus real time. Twitter emphasized real time delivery of tweets while Facebook has lots of complexity about who can see what. Facebook has prioritized the complex analysis needed to decide if a particular post is available to a particular user only when the particular user is ready to see it, which saves up front processing when the post is first written.
-
 
 
 ### Earlybird: Real-Time Search at Twitter
@@ -66,6 +69,8 @@ These tasks run on many containers, These applications create a real-time analys
 
 Basically, method implies the counting of the most mentioned terms in the poster tweets in the Twitter social network.
 The method is known in the domain of data analysis for the social network as “Trending Hashtags” method. Suppose two subjects A and B, the fact that A is more popular than B is equivalent to the fact that the number of mentions of the subject A is greater than the number of mentions of the subject B
+
+![System design](twitter-Stream Processing.png)
 
 ### Databases:
 - **Gizzard** is Twitter’s distributed data storage framework built on top of MySQL (InnoDB). InnoDB was chosen because it doesn’t corrupt data. Gizzard us just a datastore. Data is fed in and you get it back out again. To get higher performance on individual nodes a lot of features like binary logs and replication are turned off. Gizzard handles sharding, replicating N copies of the data, and job scheduling.
