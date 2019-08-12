@@ -57,7 +57,7 @@ The java.util.logging package provides the logging capabilities via the Logger c
 
 ### Components
 ```
- |Logger|         |Handler|          |External System|
+ |Logger| ---->   |Handler|  ----->   |External System|
      |           _____|______           * Disk
      |          |            |          * Survillence System
  |Filter|   |Filter|   |Formatter|      * etc 
