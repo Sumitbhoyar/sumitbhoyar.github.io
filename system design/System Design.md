@@ -3,6 +3,7 @@
 ## Specific systems
 - [Twitter](twitter/twitter.md)
 - [Netflix](netflix/netflix.md)
+- [Instagram or Flickr or Picasa](instagram/instagram.md)
 
 
 ## General systems
