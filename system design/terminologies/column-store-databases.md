@@ -2,8 +2,9 @@
 
 As the name suggests, wide-column stores use columns to store data. You can group related columns into column families. Individual rows then constitute a column family.
 
-Schema: Keyspace
-Table: Column Families
+**Schema**: Keyspace
+
+**Table**: Column Families
 
 - A column family consists of multiple rows.
 - Each row can contain a different number of columns to the other rows. And the columns don’t have to match the columns in the other rows (i.e. they can have different column names, data types, etc).
@@ -33,5 +34,14 @@ Here’s a breakdown of each element in the row:
 - Vertica
 
 ### Use cases
-- Spotify uses Cassandra to store user profile attributes and metadata about artists, songs, etc. for better personalization
-- Facebook initially built its revamped Messages on top of HBase, but is now also used for other Facebook services like the Nearby Friends feature and search indexing
+- **Spotify** uses Cassandra to store user profile attributes and metadata about artists, songs, etc. for better personalization
+- **Facebook** initially built its revamped Messages on top of HBase, but is now also used for other Facebook services like the Nearby Friends feature and search indexing
+- Sensor Logs  (Internet of Things -IOT)
+- User preferences
+- Geographic information
+- Reporting systems
+- Time Series Data
+- Logging and other write heavy applications
+
+
+
