@@ -43,6 +43,8 @@ With 68.7B unique strings, let’s assume six letter keys would suffice for our 
 
 ![System design](request-flow-shortning.png)
 
+![System design](request-flow-accessing.png)
+
 ### If multiple users enter the same URL?
 
 We can append an increasing sequence number to each input URL to make it unique, and then generate a hash of it. We don’t need to store this sequence number in the databases, though. Possible problems with this approach could be an ever-increasing sequence number.
@@ -50,4 +52,13 @@ We can append an increasing sequence number to each input URL to make it unique,
 ### What kind of database should we use? 
 Since we anticipate storing billions of rows, and we don’t need to use relationships between objects – a NoSQL key-value store like DynamoDB, Cassandra or Riak is a better choice. A NoSQL choice would also be easier to scale. 
 
-![System design](request-flow-accessing.png)
+
+### Reference
+
+- https://www.educative.io/collection/page/5668639101419520/5649050225344512/5668600916475904
+
+- https://medium.com/@narengowda/url-shortener-system-design-3db520939a1c
+
+- https://leetcode.com/discuss/interview-question/124658/Design-a-URL-Shortener-(-TinyURL-)-System/
+
+- http://blog.gainlo.co/index.php/2016/03/08/system-design-interview-question-create-tinyurl-system/
