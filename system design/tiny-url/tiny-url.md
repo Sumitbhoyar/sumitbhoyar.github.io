@@ -35,6 +35,8 @@ To cache 20% of these requests, we will need 170GB of memory.
 
 ### Encoding URL
 Refer [Base 64](../terminologies/Base-64.md) to understand encoding.
+
+
 We can compute a unique hash (e.g., MD5 or SHA256, etc.) of the given URL. The hash can then be encoded for displaying. This encoding could be base36 ([a-z ,0-9]) or base62 ([A-Z, a-z, 0-9]) and if we add '-' and '.' we can use base64 encoding. A reasonable question would be, what should be the length of the short key? 6, 8 or 10 characters.
 
 Using base64 encoding, a 6 letter long key would result in 64^6 = ~68.7 billion possible strings

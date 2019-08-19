@@ -10,3 +10,4 @@
 
 ## Concepts
 - [Base 64](terminologies/Base-64.md)
+- [Column Store Databases](terminologies/column-store-databases.md)
