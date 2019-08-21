@@ -14,7 +14,7 @@ The power of gossip lies in the robust spread of information. Even if Dave had t
 
 Gossip protocols are very simple conceptually and very simple to code.  The basic idea behind them is this: A node wants to share some information to the other nodes in the network. Then periodically it selects randomly a node from the set of nodes and exchanges the information. The node that receives the information does exactly the same thing.  The information is periodically send to N targets, N is called fanout.
 
-![Gossip Protocol](gossip-protocol.jpg)
+![Gossip Protocol](gossip-protocol.gif)
 
 ### Gossip Protocol in Action
 
