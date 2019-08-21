@@ -65,7 +65,7 @@ Availability matters a lot. Uber has competitors and switching costs are very lo
 - Demand Service now passes this to the Supply service type of cab and nature of drive requested and using Google S2 library passes the cell id of the rider.
 - Supply service based on hashing the cell index, finds the server that will have the data related to cabs in this range of cell index. (ie) If user makes request from cell index 5, it finds the server which holds the data for this cell index and makes the call. If there are multiple indexes obtained, supply service talks to one server which functions as master and makes calls to respective all other servers and manages the communication between the servers in the ring via RPC calls.
 - The server now draws a circle to find all the cells from where cabs can be figured out. Then based on cabs found, it uses Map Service to find ETA and responds to Supply Service.
-- The supply service now sends the request back to the drivers and depending on notification / acknowledgement from driver, allocate the same to the rider.
+- The supply service now sends the request back to the drivers and depending on notification / acknowledgment from driver, allocate the same to the rider.
 
 ### How does system track cab location
 Every cab will send the location through Web application gateway / firewall , load balancer to the Kafka REST Api which gets consumed to different places as required, database and DISCO to keep the latest cab location. We have different servers in a ring which are assigned responsibilities of different hashed cell index and hence the data is stored accordingly. These servers are in architecture called Ring Pop and they are equally distributed with loads when new servers are added or servers are taken down.
@@ -87,13 +87,13 @@ Every cab will send the location through Web application gateway / firewall , lo
 - The problem is the data for in-process trips may not be in the backup datacenter. Rather than replicate data they use driver phones as a source of trip data.
 - What happens is the Dispatch system periodically sends an encrypted State Digest down to driver phones. Now let’s say there’s a datacenter failover. The next time the driver phone sends a location update to the Dispatch system the Dispatch system will detect that it doesn’t know about this trip and ask them for the State Digest. The Dispatch system then updates itself from the State Digest and the trip keeps on going like nothing happened.
 
-### How Maintain the stability of system maintained
+### How the stability of system maintained?
 All systems publish logs to separate Kafka cluster which can be analyzed and dashboards to enable the monitoring and control of large volume of system in this eco system.
 
 ### Where they store data?
 Moved from RDBMS to NoSQL DB. This is to ensure horizontal scaling, manage different regions on which they are establishing the services. As each cab sends request every 4 seconds, this will be write heavy application and read heavy application to manage rider request. So in order to enable intense operations with nearly zero downtime irrespective of adding nodes, taking backup or system goes down. They build data center in nearest place to the region they establish to ensure faster response.
 
-### Exaplain Geo Spatial Design - How this is achieved.
+### Explain Geo Spatial Design - How this is achieved.
 - Google S2 libraries - This service is used to identify the location for cab and rider
 - Building Maps - Earlier Uber used map-box but now Google Map Framework has been used and also Google Maps API to calculate ETA by collaboration with Google while it was doing on its own earlier.
 - Preferred Access points. - For large communities and also university / campus the system cannot come to exact location of rider. So based on the trend of bookings, it learns specific access points which are being used by riders and learns to recommend the same back to the rider.
