@@ -32,49 +32,48 @@
   - [Memory Leak](java/memory/MemoryLeak.md)
 
 - Java 8
-  - [Functional Interface](java/java-8/Functional-Interface.adoc)
-  - [Common Functional Interfaces](java/java-8/CommonFunctionalInterfaces.adoc)
-  - [Diamond Problem](java/java-8/Diamond-Problem.adoc)
-  - [Lambda Examples](java/java-8/Lambda-Examples.adoc)
-  - [Method References](java/java-8/Method-References.adoc)
+  - [Functional Interface](java/java-8/Functional-Interface.md)
+  - [Common Functional Interfaces](java/java-8/CommonFunctionalInterfaces.md)
+  - [Diamond Problem](java/java-8/Diamond-Problem.md)
+  - [Lambda Examples](java/java-8/Lambda-Examples.md)
+  - [Method References](java/java-8/Method-References.md)
 
-  
 ### Other tools
 - [Maven](mvn-git/maven.md)
 - [GIT](mvn-git/git.md)
 
 ### Security
 - [Basics](security/Basics.md)
-- [Encryption-Algorithms](security/Encryption-Algorithms.adoc)
-- [JWT](security/JSON-Web-Token-JWT.adoc)
-- [OAuth](security/OAuth.adoc)
+- [Encryption-Algorithms](security/Encryption-Algorithms.md)
+- [JWT](security/JSON-Web-Token-JWT.md)
+- [OAuth](security/OAuth.md)
 - [Spring](security/Spring.md)
 
 - Web Security
-  - [Terminologies](security/web/Terminologies.adoc)
-  - [SQL Injection](security/web/SQL-Injection.adoc)
-  - [Security Principles](security/web/Security-Principles.adoc)
-  - [Directory traversal](security/web/Directory-traversal.adoc)
-  - [CSRF](security/web/CSRF.adoc)
-  - [Cross-site scripting](security/web/Cross-site-scripting.adoc)
-  - [CORS](security/web/CORS.adoc)
-  - [Command Execution Attacks](security/web/Command-Execution-Attacks.adoc)
-  - [Click-jacking](security/web/Clickjacking.adoc)
+  - [Terminologies](security/web/Terminologies.md)
+  - [SQL Injection](security/web/SQL-Injection.md)
+  - [Security Principles](security/web/Security-Principles.md)
+  - [Directory traversal](security/web/Directory-traversal.md)
+  - [CSRF](security/web/CSRF.md)
+  - [Cross-site scripting](security/web/Cross-site-scripting.md)
+  - [CORS](security/web/CORS.md)
+  - [Command Execution Attacks](security/web/Command-Execution-Attacks.md)
+  - [Click-jacking](security/web/Clickjacking.md)
 
 ### Micro-services
-- [12-Factor application](microservices+api/12-Factor-Apps.adoc)
-- [Micro Services](microservices+api/webservices.adoc)
-- [REST API](microservices+api/REST-API.adoc)
-- [Eureka](microservices+api/Eureka.adoc)
-- [Swagger](microservices+api/swagger.adoc)
-- [ZooKeeper](microservices+api/ZooKeeper.adoc)
-- [API exception handing](microservices+api/API-exception-handing.adoc)
+- [12-Factor application](microservices+api/12-Factor-Apps.md)
+- [Micro Services](microservices+api/webservices.md)
+- [REST API](microservices+api/REST-API.md)
+- [Eureka](microservices+api/Eureka.md)
+- [Swagger](microservices+api/swagger.md)
+- [ZooKeeper](microservices+api/ZooKeeper.md)
+- [API exception handing](microservices+api/API-exception-handing.md)
 
 ### Spring framework
-- [Spring Concepts](spring/Spring-Concepts.adoc)
-- [Spring Autoconfiguration](spring/Spring-Autoconfiguration.adoc)
+- [Spring Concepts](spring/Spring-Concepts.md)
+- [Spring Autoconfiguration](spring/Spring-Autoconfiguration.md)
 - [Spring Batch](spring/Spring-Batch.md)
-- [Spring Security](spring/Spring-Security.adoc)
+- [Spring Security](spring/Spring-Security.md)
 - [Transaction](spring/Transaction.md)
 
 ### Mongo DB
