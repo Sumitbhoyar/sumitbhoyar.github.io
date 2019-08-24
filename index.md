@@ -1,26 +1,25 @@
-
-#My Notes
+# My Notes
 
 
 ## System Design
 
 - Specific systems
-  - [Twitter](twitter/twitter.md)
-  - [Uber/OLA/LYFT](uber/uber.md)
-  - [Netflix](netflix/netflix.md)
-  - [Instagram or Flickr or Picasa](instagram/Instagram.md)
+  - [Twitter](system-design/twitter/twitter.md)
+  - [Uber/OLA/LYFT](system-design/uber/uber.md)
+  - [Netflix](system-design/netflix/netflix.md)
+  - [Instagram or Flickr or Picasa](system-design/instagram/Instagram.md)
 
 
 - General systems
-  - [URL Shortner](tiny-url/tiny-url.md)
+  - [URL Shortner](system-design/tiny-url/tiny-url.md)
 
 - Concepts
-  - [Base 64](terminologies/Base-64.md)
-  - [Column Store Databases](terminologies/column-store-databases.md)
-  - [Pessimistic And Optimistic Locking.md](terminologies/Pessimistic-And-Optimistic-Locking.md)
-  - [Polling vs SSE vs WebSocket](terminologies/Polling-vs-SSE-vs-WebSocket.md)
-  - [General Principles In Cloud Computing](terminologies/General-Principles-In-Cloud-Computing.md)
-  - [Gossip Protocol](terminologies/gossip-protocol.md)
+  - [Base 64](system-design/terminologies/Base-64.md)
+  - [Column Store Databases](system-design/terminologies/column-store-databases.md)
+  - [Pessimistic And Optimistic Locking.md](system-design/terminologies/Pessimistic-And-Optimistic-Locking.md)
+  - [Polling vs SSE vs WebSocket](system-design/terminologies/Polling-vs-SSE-vs-WebSocket.md)
+  - [General Principles In Cloud Computing](system-design/terminologies/General-Principles-In-Cloud-Computing.md)
+  - [Gossip Protocol](system-design/terminologies/gossip-protocol.md)
 
 ## Java
 - [String Pool](java/StringPool.md)
