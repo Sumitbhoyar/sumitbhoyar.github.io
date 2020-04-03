@@ -137,7 +137,7 @@ With the above concepts  in place, the business needs to decide what the forecas
 The above are just a few factors that can be used for capacity planning of a system and the importance of these factors vary based on the type of environment.
 
 Different architects use different processes to calculate capacity. A sample process is illustrated in Figure; whatever the process, it needs to be coupled with your existing solution architecture process.
- ![Capacity Planning as Part of Deployment Architecture Process](E:%5CSumit%5Cwork%5Cworkspaces%5Cnotes%5Csystem-design%5Cusers-in-capacity-planning.png)
+ ![Capacity Planning as Part of Deployment Architecture Process](https://github.com/Sumitbhoyar/sumitbhoyar.github.io/blob/master/system-design/users-in-capacity-planning.png)
 
 As per the process shown in Figure 8, it is important to have an accurate business architecture that can be converted into a high-level solution architecture. Based on this, the team can start gathering capacity data that would be used to ill a capacity planning matrix or model.
 
