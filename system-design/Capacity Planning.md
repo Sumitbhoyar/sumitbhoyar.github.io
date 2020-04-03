@@ -75,6 +75,74 @@ Rely on intuition, expert opinions, past experience, ad hoc procedures and gener
         -   Expected growth in the business, Requirements for implementing new applications.
         -   Planned acquisitions, IT budget limitations.
 
+## Capacity Planning Parameters
+### Throughput and TPS
+
+Generally throughput is deined as the number of messages processed over a given interval of time. Throughput is a measure of the number of actions per unit time, where time can be in seconds, minutes, hours, etc. TPS is the number of atomic actions, in this case ‘transactions’ per second. For a stateless server, this will be the major characteristic that affects server capacity.
+
+Theoretically speaking, if a user performs 60 transactions in a minute, then the TPS should be 60/60 TPS = 1 TPS. Of course, since all concurrent users who are logged into a system might not necessarily be using that system at the given time, this might not be accurate. Additionally, think time of users and pace time comes into consideration as well. But eliminating the above, this can be considered an average of 1 TPS considering users uniformly accessing the system over 60 seconds; this of course means that we can also expect all users coming within a single second which means a 60 TPS max peak load.
+
+### Work done per transaction
+
+Each incoming 'transaction' to a server will have some level of operations it triggers. This would mean a number of CPU instructions would be triggered to process the said message. These instructions might include application processing as well as system operations like database access, external system access, etc. If the transaction is a simple ‘pass through’ that would mean relatively lesser processing requirements than a transaction that triggers a set of further operations. If a certain type of transaction triggers, for example, a series of complex XML-based transformations or processing operations, this would mean some level of processing power or memory requirements. A sequence diagram of the transaction would help determine the actual operations that are related to a transaction.
+
+### Think time
+From a web application perspective, users submit requests, which are then processed at the server side before returned to a user. The user then often waits on the response, and 'processes' it, before submitting again. This delay is the user think time that falls between requests, and can be taken into account when calculating optimum system load. For machine to machine communication, this think time parameter would be relatively lower. For capacity planning, the average think time is useful in arriving at an accurate throughput number.
+
+### Active users and concurrency
+
+A system would have a total number of users - this might not affect the server capacity directly, but is an important metric in database sizing for instance. Of these total set of users, a subset of them would be active users - users who use the system at a given time. Usually the active users login to a system, perform some operations and logout; or they just let the system be, which in turn will kick the user out once the session expires (often in 30 minutes or so). Active users might have a session created for each of them, but concepts like garbage collection, etc. would come into effect as well.
+
+![users-in-capacity-planning-figure1.png](https://b.content.wso2.com/sites/all/white-paper-landing/images/users-in-capacity-planning-figure1.png)
+
+Figure: Users in Capacity Planning
+
+Concurrent active users are the number of distinct users concurrently accessing the system at any given time at the same time. As shown in the example in Figure 1, concurrent users are a subset of active users who are using the system at a given time. If 200 active users are logged into the system, and have a 10 second think time, then that amounts to roughly 20 actual concurrent users hitting the system. In capacity planning, this has several meanings and implications. In an application server with a stateful application that handles sessions, the number of concurrent users will play a bigger role than in an ESB, which handles stateless access, for instance. For systems designed in such a way, each concurrent user consumes some level of memory that needs to be taken into account.
+
+Conventionally, a system’s throughput increases with the number of concurrent users until it reaches peak capacity; from then onwards the system would experience performance degradation. Thus, it is important to calculate the maximum concurrency a system can handle.
+
+### Message size
+
+The size of the message passed across the 'wire' is also an important factor in determining the required capacity of a system. Larger messages mean more processing power requirement, more memory requirements, or both. As a basis for capacity planning, the following message sizes can be considered.
+
+| Message size range |  Message size category |
+|--|--|
+| Less than 50 KB | Small |
+| Between 50 KB and 1 MB | Moderate|
+| Between 1 MB and 5 MB | Large|
+| Larger than 5 MB | Extra Large|
+
+### Latency
+Latency is the additional time spent due to the introduction of a system. Non-functional requirements (NFRs) of a system would usually indicate a desired response time of a transaction that a system must then strive to meet. Considering the example in Figure 1, if a single transaction performs a number of database calls, or a set of synchronous web service calls, the calling transaction must 'wait' for a response. This would then add to the overall response time of that said transaction or service call.
+
+![Figure 4: Server Performance - Latency](https://b.content.wso2.com/sites/all/white-paper-landing/images/users-in-capacity-planning-figure3.png)
+
+Figure : Server Performance - Latency
+
+Latency is usually calculated via a step-by-step process – irst test response times without the newer systems in place, and then test response times with the addition of the newer systems. The latency vs functionality due to the newer systems is then a tradeoff decision. Techniques like caching can be used to improve latency times.
+
+Latency is usually from the client and needs to account for network/bandwith overheads as well.
+
+### Forecasting Capacity Requirements
+
+With the above concepts  in place, the business needs to decide what the forecasting period should be as well. Are you just focusing on year 1? Will the capacity requirements double in year 2, and if so would there be a significant downtime at the end of year one to accommodate this? A table, such as the one given in Figure 6, would be useful for forecasting, and can be based on past trends and future business forecasting.
+
+| Parameter | Year 1 | Year 2 | Year 3 | Year 4 |
+|--|--|--|--|--|
+| TPS | 50 | 500 | 1000  | 2500 | 
+| Concurrent Users | 20| 100| 500 | 1000 |
+
+## Capacity Calculation
+
+The above are just a few factors that can be used for capacity planning of a system and the importance of these factors vary based on the type of environment.
+
+Different architects use different processes to calculate capacity. A sample process is illustrated in Figure; whatever the process, it needs to be coupled with your existing solution architecture process.
+ ![Capacity Planning as Part of Deployment Architecture Process](E:%5CSumit%5Cwork%5Cworkspaces%5Cnotes%5Csystem-design%5Cusers-in-capacity-planning.png)
+
+As per the process shown in Figure 8, it is important to have an accurate business architecture that can be converted into a high-level solution architecture. Based on this, the team can start gathering capacity data that would be used to ill a capacity planning matrix or model.
+
+With these factors in place, we also need a set of benchmark performance numbers to calculate server capacity. For instance, if we know that an enterprise service bus in certain environmental conditions on certain type of capacity performs at 3000 TPS, then we can assume that a server of similar capacity and operations would provide the same.
+
 ## Problems in the Capacity Planning Process
 
 -   No standard technology.
@@ -113,4 +181,3 @@ To cache 20% of these requests, we will need 170GB of memory. 0.2 * 1.7 billion 
 
 #### References:
 [https://dzone.com/articles/capacity-planning-process-part-1](https://dzone.com/articles/capacity-planning-process-part-1)
-
