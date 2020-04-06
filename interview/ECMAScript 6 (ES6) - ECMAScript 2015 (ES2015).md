@@ -362,20 +362,6 @@ console.log(c); //outputs Hello John;
 ```
 
 ## Explain Destructuring Assignment in ES6?
- Destructing assignment in another improvement in Es6. It allows us to extract data from array and objects into separate variables. Example 
- ```js
-let full_name =['John','Deo']; 
-let [first_name,last_name]=full_name; console.log(first_name,last_name); 
-// outputs John Deo 
-```
-Another example 
-```js
-let c=[100,200,330,400]; 
-let [a,...b]=c; 
-console.log(a,b); 
-// outputs 100 [200, 330, 400]
-```
-## Explain Destructuring Assignment in ES6?
 Destructing assignment in another improvement in Es6. It allows us to extract data from array and objects into separate variables. Example 
 ```js
 let full_name =['John','Deo']; 
@@ -426,3 +412,246 @@ Constants are also referred to as Immutable variables. It means that the value o
 **Default parameter** values are used to initialize the functions with default values. The value of a parameter can be anything like a null value, number or function.  
 The **rest parameter** is used to retrieve all the arguments to invoke the function. It means we can push the items of different categories separately. The rest parameter uses the rest parameter to combine parameters into a single array parameter.  
 A **spread operator** is donated by … and then the variable name has been provided. E.g. ‘…X’ syntax of spread operator. It has been used to manipulate objects and array in ES6 and to copy the enumerable properties from one object to another.
+
+## What are  `ES6 Modules`?
+**Modules**  lets us split our code base to multiple files for more maintainability and this lets us avoid putting all of our code in one big file (yucksss). Before ES6 has supported Modules there were two popular module systems that were used for Code Maintainability in  **JavaScript**.
+
+-   CommonJS -  **Nodejs**
+-   AMD (Asynchronous Module Definition) -  **Browsers**
+
+Basically, the sytanx for using modules are straightforward,  
+`import`  is used for  _getting_  functionality from another file or several functionalities or values while  
+`export`  is used for  _exposing_  functionality from a file or several functionalities or values.
+## What are  **Promises**?
+**Promises**  are one way in handling asynchronous operations in  **JavaScript**. It represents the value of an asynchronous operation.  **Promises**  was made to solve the problem of doing and dealing with async code before promises we're using callbacks.  
+
+```
+fs.readFile('somefile.txt', function (e, data) {
+  if (e) {
+    console.log(e);
+  }
+  console.log(data);
+});
+
+```
+
+The problem with this approach if we have another async operation inside the callback and another. We will have a code that is messy and unreadable. This code is called  **Callback Hell**.  
+
+```
+//Callback Hell yucksss
+fs.readFile('somefile.txt', function (e, data) {
+  //your code here
+  fs.readdir('directory', function (e, files) {
+    //your code here
+    fs.mkdir('directory', function (e) {
+      //your code here
+    })
+  })
+})
+
+```
+
+If we use promises in this code it will be more readable and easy to understand and easy to maintain.  
+
+```
+promReadFile('file/path')
+  .then(data => {
+    return promReaddir('directory');
+  })
+  .then(data => {
+    return promMkdir('directory');
+  })
+  .catch(e => {
+    console.log(e);
+  })
+
+```
+
+Promises have 3 different states.
+
+**Pending**  - The initial state of a promise. The promise's outcome has not yet been known because the operation has not been completed yet.
+
+**Fulfilled**  - The async operation is completed and successful with the resulting value.
+
+**Rejected**  - The async operation has failed and has a  _reason_  on why it failed.
+
+**Settled**  - If the promise has been either  **Fulfilled**  or  **Rejected**.
+
+The  **Promise**  constructor has two parameters which are functions  `resolve`  and  `reject`  respectively.  
+If the async operation has been completed without errors call the  `resolve`  function to resolve the promise or if an error occurred  
+call the  `reject`  function and pass the error or reason to it.  
+We can access the result of the fulfilled promise using the  `.then`  
+method and we catch errors in the  `.catch`  method. We chain multiple async promise operations in the  `.then`  method because the  `.then`  method returns a  **Promise**  just like the example in the imag e above.  
+
+```
+const myPromiseAsync = (...args) => {
+  return new Promise((resolve, reject) => {
+    doSomeAsync(...args, (error, data) => {
+      if (error) {
+        reject(error);
+      } else {
+        resolve(data);
+      }
+    })
+  })
+}
+
+myPromiseAsync()
+  .then(result => {
+    console.log(result);
+  })
+  .catch(reason => {
+    console.log(reason);
+  })
+
+```
+
+We can make a helper func that converts an async operation with a callback to promise. It works like the  **promisify**  utility function from the node core module  `util`.  
+
+```
+const toPromise = (asyncFuncWithCallback) => {
+  return (...args) => {
+    return new Promise((res, rej) => {
+      asyncFuncWithCallback(...args, (e, result) => {
+        return e ? rej(e) : res(result);
+      });
+    });
+  }
+}
+
+const promReadFile = toPromise(fs.readFile);
+
+promReadFile('file/path')
+  .then((data) => {
+    console.log(data);
+  })
+  .catch(e => console.log(e));
+```
+
+
+## What is  _async/await_  and How does it work?
+ _async/await_  is the new way of writing asynchronous or non-blocking code in  **JavaScript's**. It is built on top of  **Promises**. It makes writing asynchronous code more readable and cleaner than  
+**Promise**s . But you must learn the basics of  **Promises**  before using this feature because as I said earlier it is built on top of  **Promises**  which means is still uses  **Promises**  under the hood.
+
+Using Promises.  
+
+```
+function callApi() {
+  return fetch("url/to/api/endpoint")
+    .then(resp => resp.json())
+    .then(data => {
+      //do something with "data"
+    }).catch(err => {
+      //do something with "err"
+    });
+}
+
+
+```
+
+Using Async/Await.
+
+**Note**: We're using the old  _try/catch_  statement to  **catch**  any errors that happened in any of those async operations inside the  _try_  statement.  
+
+```
+async function callApi() {
+  try {
+    const resp = await fetch("url/to/api/endpoint");
+    const data = await resp.json();
+    //do something with "data"
+  } catch (e) {
+    //do something with "err"
+  }
+}
+
+```
+
+**Note**: The  _async_  keyword before the function declaration makes the function return  _implicitly_  a  **Promise**.  
+
+```
+const giveMeOne = async () => 1;
+
+giveMeOne()
+  .then((num) => {
+    console.log(num); // logs 1
+  });
+
+```
+
+**Note**: The  _await_  keyword can  **only**  be used inside an  **async function**. Using  _await_  keyword in any other function which is not an  **async function**  will throw an error. The  _await_  keyword  **awaits**  the right-hand side expression (presumably a  **Promise**) to return before executing the next line of code.  
+
+```
+const giveMeOne = async () => 1;
+
+function getOne() {
+  try {
+    const num = await giveMeOne();
+    console.log(num);
+  } catch (e) {
+    console.log(e);
+  }
+}
+
+//Throws a Compile-Time Error = Uncaught SyntaxError: await is only valid in an async function
+
+async function getTwo() {
+  try {
+    const num1 = await giveMeOne(); //finishes this async operation first before going to
+    const num2 = await giveMeOne(); //this line
+    return num1 + num2;
+  } catch (e) {
+    console.log(e);
+  }
+}
+
+await getTwo(); // returns 2
+```
+
+## What are  **Default Parameters**?
+ **Default Parameters**  is a new way of defining default variables in  **JavaScript**  it is available in the  **ES6**  or  **ECMAScript 2015**  Version.  
+
+```
+//ES5 Version
+function add(a,b){
+  a = a || 0;
+  b = b || 0;
+  return a + b;
+}
+
+//ES6 Version
+function add(a = 0, b = 0){
+  return a + b;
+}
+//If we don't pass any argument for 'a' or 'b' then 
+// it's gonna use the "default parameter" value which is 0
+add(1); // returns 1 
+
+```
+
+We can also use Destructuring  in  **Default Paremeters**.  
+
+```
+function getFirst([first, ...rest] = [0, 1]) {
+  return first;
+}
+
+getFirst();  // returns 0
+getFirst([10,20,30]);  // returns 10
+
+function getArr({ nums } = { nums: [1, 2, 3, 4] }){
+    return nums;
+}
+
+getArr(); // returns [1, 2, 3, 4]
+getArr({nums:[5,4,3,2,1]}); // returns [5,4,3,2,1]
+
+```
+
+We can also use the parameters defined first to the parameters defined after them.  
+
+```
+function doSomethingWithValue(value = "Hello World", callback = () => { console.log(value) }) {
+  callback();
+}
+doSomethingWithValue(); //logs "Hello World"
+```
