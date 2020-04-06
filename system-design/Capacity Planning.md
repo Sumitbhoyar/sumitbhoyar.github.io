@@ -139,7 +139,7 @@ The above are just a few factors that can be used for capacity planning of a sys
 Different architects use different processes to calculate capacity. A sample process is illustrated in Figure; whatever the process, it needs to be coupled with your existing solution architecture process.
  ![Capacity Planning as Part of Deployment Architecture Process](https://github.com/Sumitbhoyar/sumitbhoyar.github.io/blob/master/system-design/users-in-capacity-planning.png)
 
-As per the process shown in Figure 8, it is important to have an accurate business architecture that can be converted into a high-level solution architecture. Based on this, the team can start gathering capacity data that would be used to ill a capacity planning matrix or model.
+As per the process shown in Figure, it is important to have an accurate business architecture that can be converted into a high-level solution architecture. Based on this, the team can start gathering capacity data that would be used to ill a capacity planning matrix or model.
 
 With these factors in place, we also need a set of benchmark performance numbers to calculate server capacity. For instance, if we know that an enterprise service bus in certain environmental conditions on certain type of capacity performs at 3000 TPS, then we can assume that a server of similar capacity and operations would provide the same.
 
