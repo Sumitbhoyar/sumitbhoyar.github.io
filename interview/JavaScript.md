@@ -624,9 +624,7 @@ const data = {
 **Arrow functions**  don't have their own  `this`  value. It captures or gets the  `this`  value of lexically enclosing function or in this example, the  `addAll`  function copies the  `this`  value of the  `computeResult`  method and if we declare an arrow function in the global scope the value of  `this`  would be the  `window`  object.
 
 
-
-
-### What are  **Closures**?
+## What are  **Closures**?
 **Closures**  is simply the ability of a function at the time of declaration to remember the references of variables and parameters on its current scope, on its parent function scope, on its parent's parent function scope until it reaches the global scope with the help of  **Scope Chain**. Basically it is the  **Scope**  created when the function was declared.
 
 Examples are a great way to explain closures.  
