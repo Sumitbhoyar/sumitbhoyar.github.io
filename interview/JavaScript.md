@@ -122,7 +122,7 @@ The  **fifth example**  goes to  **condition eight**. The array is converted to 
 The  **last example**  goes to  **condition ten**. The object is converted to a  `string`  using the  `toString()`  method which returns  `[object Object]`.
 
 Let's have examples.
-| `x` | `y` | `x == y` |
+| `x` | `y` | `x === y` |
 |--|--|--|
 | `5` | `5` | `true` |
 | `1` | `'1'` | `false`|
