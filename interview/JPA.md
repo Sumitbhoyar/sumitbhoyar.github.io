@@ -25,27 +25,27 @@ Hibernate supports JPA annotations and it has some other annotations in  `org.hi
 
 ## What is Hibernate SessionFactory and how to configure it?
     
-    SessionFactory is the factory class used to get the Session objects. SessionFactory is responsible to read the hibernate configuration parameters and connect to the database and provide Session objects. Usually an application has a single SessionFactory instance and threads servicing client requests obtain Session instances from this factory.
+SessionFactory is the factory class used to get the Session objects. SessionFactory is responsible to read the hibernate configuration parameters and connect to the database and provide Session objects. Usually an application has a single SessionFactory instance and threads servicing client requests obtain Session instances from this factory.
     
-    The internal state of a SessionFactory is immutable. Once it is created this internal state is set. This internal state includes all of the metadata about Object/Relational Mapping.
+The internal state of a SessionFactory is immutable. Once it is created this internal state is set. This internal state includes all of the metadata about Object/Relational Mapping.
     
-    SessionFactory also provide methods to get the Class metadata and Statistics instance to get the stats of query executions, second level cache details etc.
+SessionFactory also provide methods to get the Class metadata and Statistics instance to get the stats of query executions, second level cache details etc.
     
 ## Hibernate SessionFactory is thread safe?
     
-    Internal state of SessionFactory is immutable, so it’s thread safe. Multiple threads can access it simultaneously to get Session instances.
+Internal state of SessionFactory is immutable, so it’s thread safe. Multiple threads can access it simultaneously to get Session instances.
     
 
 ## What is Hibernate Session and how to get it?
     
-    Hibernate Session is the interface between java application layer and hibernate. This is the core interface used to perform database operations. Lifecycle of a session is bound by the beginning and end of a transaction.
+Hibernate Session is the interface between java application layer and hibernate. This is the core interface used to perform database operations. Lifecycle of a session is bound by the beginning and end of a transaction.
     
-    Session provide methods to perform create, read, update and delete operations for a persistent object. We can execute HQL queries, SQL native queries and create criteria using Session object.
+Session provide methods to perform create, read, update and delete operations for a persistent object. We can execute HQL queries, SQL native queries and create criteria using Session object.
     
 
 ## Hibernate Session is thread safe?
     
-    Hibernate Session object is not thread safe, every thread should get it’s own session instance and close it after it’s work is finished.
+Hibernate Session object is not thread safe, every thread should get it’s own session instance and close it after it’s work is finished.
 
 ## How transaction management works in Hibernate?
 
@@ -55,34 +55,34 @@ Overall hibernate transaction management is better than JDBC transaction managem
 
 ## Which design patterns are used in Hibernate framework?
     
-    Some of the design patterns used in Hibernate Framework are:
+Some of the design patterns used in Hibernate Framework are:
     
-    -   Domain Model Pattern – An object model of the domain that incorporates both behavior and data.
-    -   Data Mapper – A layer of Mappers that moves data between objects and a database while keeping them independent of each other and the mapper itself.
-    -   Proxy Pattern:   for lazy loading
-    -   Factory pattern:  in SessionFactory
+-   Domain Model Pattern – An object model of the domain that incorporates both behavior and data.
+-   Data Mapper – A layer of Mappers that moves data between objects and a database while keeping them independent of each other and the mapper itself.
+-   Proxy Pattern:   for lazy loading
+-   Factory pattern:  in SessionFactory
 
 ## What are best practices to follow with Hibernate framework?
     
-    Some of the best practices to follow in Hibernate are:
+Some of the best practices to follow in Hibernate are:
     
-    -   Always check the primary key field access, if it’s generated at the database layer then you should not have a setter for this.
-    -   By default hibernate set the field values directly, without using setters. So if you want hibernate to use setters, then make sure proper access is defined as  `@Access(value=AccessType.PROPERTY)`.
-    -   If access type is property, make sure annotations are used with getter methods and not setter methods. Avoid mixing of using annotations on both filed and getter methods.
-    -   Use native sql query only when it can’t be done using HQL, such as using database specific feature.
-    -   If you have to sort the collection, use ordered list rather than sorting it using Collection API.
-    -   Use named queries wisely, keep it at a single place for easy debugging. Use them for commonly used queries only. For entity specific query, you can keep them in the entity bean itself.
-    -   For web applications, always try to use JNDI DataSource rather than configuring to create connection in hibernate.
-    -   Avoid Many-to-Many relationships, it can be easily implemented using bidirectional One-to-Many and Many-to-One relationships.
-    -   For collections, try to use Lists, maps and sets. Avoid array because you don’t get benefit of lazy loading.
-    -   Do not treat exceptions as recoverable, roll back the Transaction and close the Session. If you do not do this, Hibernate cannot guarantee that in-memory state accurately represents the persistent state.
-    -   Prefer DAO pattern for exposing the different methods that can be used with entity bean
-    -   Prefer lazy fetching for associations
+-   Always check the primary key field access, if it’s generated at the database layer then you should not have a setter for this.
+-   By default hibernate set the field values directly, without using setters. So if you want hibernate to use setters, then make sure proper access is defined as  `@Access(value=AccessType.PROPERTY)`.
+-   If access type is property, make sure annotations are used with getter methods and not setter methods. Avoid mixing of using annotations on both filed and getter methods.
+-   Use native sql query only when it can’t be done using HQL, such as using database specific feature.
+-   If you have to sort the collection, use ordered list rather than sorting it using Collection API.
+-   Use named queries wisely, keep it at a single place for easy debugging. Use them for commonly used queries only. For entity specific query, you can keep them in the entity bean itself.
+-   For web applications, always try to use JNDI DataSource rather than configuring to create connection in hibernate.
+-   Avoid Many-to-Many relationships, it can be easily implemented using bidirectional One-to-Many and Many-to-One relationships.
+-   For collections, try to use Lists, maps and sets. Avoid array because you don’t get benefit of lazy loading.
+-   Do not treat exceptions as recoverable, roll back the Transaction and close the Session. If you do not do this, Hibernate cannot guarantee that in-memory state accurately represents the persistent state.
+-   Prefer DAO pattern for exposing the different methods that can be used with entity bean
+-   Prefer lazy fetching for associations
 
 ## What is Hibernate Validator Framework?
-    Data validation is integral part of any application. You will find data validation at presentation layer with the use of Javascript, then at the server side code before processing it. Also data validation occurs before persisting it, to make sure it follows the correct format.
+Data validation is integral part of any application. You will find data validation at presentation layer with the use of Javascript, then at the server side code before processing it. Also data validation occurs before persisting it, to make sure it follows the correct format.
     
-    Validation is a cross cutting task, so we should try to keep it apart from our business logic. That’s why JSR303 and JSR349 provides specification for validating a bean by using annotations. Hibernate Validator provides the reference implementation of both these bean validation specs.
+Validation is a cross cutting task, so we should try to keep it apart from our business logic. That’s why JSR303 and JSR349 provides specification for validating a bean by using annotations. Hibernate Validator provides the reference implementation of both these bean validation specs.
     
 ## What types of connections (relationship) between Entity do you know (list eight types, or specify four types of connections, each of which can be further divided into two types)?
 
