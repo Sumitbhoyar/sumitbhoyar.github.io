@@ -29,34 +29,34 @@ In most cases, the back office activities are usually outsourced to cheaper sour
 ### The following ten steps make up the entire lifecycle of a trade.
  
 
-1. The Order
+1. The Order: 
 The trade life cycle begins when the investor informs the firm that they wish to either buy or sell a particular instrument or product. The investor will include information on the product and the bid/ask price in this order.
 
-2. The Front Office Action
+2. The Front Office Action: 
 The investor’s order is received by the front office traders at the firm. The order is then passed to risk management experts in the firm’s middle office.
 
-3. Risk Management
+3. Risk Management: 
 The risk management team will check the order and estimate the level of risk. This process will determine whether or not it is safe to complete the proposed order.
 
-4. The Execution Venue
+4. The Execution Venue: 
 Once the order has been accepted and validated by the risk management team, it will be sent to the relevant execution venue.
 
-5. Matching the Orders
+5. Matching the Orders: 
 The execution venue then looks for a sell order which matches the buy order placed by the investor or, in the case of a sale, looks for a corresponding buy order.
 
-6. Trade Completed
+6. Trade Completed:
 Once a matching order has been found, the trade is completed. Once this step has taken place, the post trade process begins. The firm’s front office team will now inform the investor that the trade has been completed.
 
-7. Confirmation 
+7. Confirmation:
 The brokers on each side of the trade will then confirm that their respective clients agree to the conditions set forth. These conditions include the price at which the instrument has been traded, the settlement date, and any number of other variable factors.
 
-8. Reconciliation 
+8. Reconciliation:
 The reconciliation stage of the trade life cycle ensures that all accounts of the trade which has taken place are consistent and accurate. Reconciliation can be performed in a number of ways, but generally speaking it involves the act of comparing ledgers against statements from both sides of the trade. This sures up any records made and avoids the possibility of fraud or inaccurate record keeping.
 
-9. Clearing
+9. Clearing: 
 Once confirmation has taken place, the clearinghouse will make the necessary calculations to determine what is needed from the buy-side and sell-side respectively.
 
-10. Settlement
+10. Settlement: 
 Finally, the back-office staff will ensure that the relevant payments are made on time, that they are documented, and that they are reported correctly. Pending the completion of these three tasks, the trade life cycle is completed.
 
 # The Clearinghouse:
