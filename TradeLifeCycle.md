@@ -29,6 +29,8 @@ In most cases, the back office activities are usually outsourced to cheaper sour
 ## The following ten steps make up the entire lifecycle of a trade.
  
 ![enter image description here](https://www.ksvali.com/wp-content/uploads/2009/04/trade_processing_1.png)
+
+
 An investor (either an individual who invests for themselves, known as a ‘retail investor’, or an institution, an organisation investing on behalf of their clients such as a fund) scopes out some tasty potential investment opportunities. Once they’ve made a decision to make a move and buy a particular security, such as shares in a company, the process kicks off…
 
 ### Stage one: the order
