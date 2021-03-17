@@ -26,38 +26,64 @@ This static data details are important and critical for the completion and settl
 
 In most cases, the back office activities are usually outsourced to cheaper sources for its respective management activities (for example .. outsourced to companies like Reuters, Capco, Bloomberg etc.), in order to cut down costs for the company which increases their profitability by delivering greater operational value
 
-### The following ten steps make up the entire lifecycle of a trade.
+## The following ten steps make up the entire lifecycle of a trade.
  
-![enter image description here](https://blog.imarticus.org/wp-content/uploads/2019/07/trade1.jpg)
-1. The Order
-The trade life cycle begins when the investor informs the firm that they wish to either buy or sell a particular instrument or product. The investor will include information on the product and the bid/ask price in this order.
+![enter image description here](https://www.ksvali.com/wp-content/uploads/2009/04/trade_processing_1.png)
+An investor (either an individual who invests for themselves, known as a ‘retail investor’, or an institution, an organisation investing on behalf of their clients such as a fund) scopes out some tasty potential investment opportunities. Once they’ve made a decision to make a move and buy a particular security, such as shares in a company, the process kicks off…
 
-2. The Front Office Action
-The investor’s order is received by the front office traders at the firm. The order is then passed to risk management experts in the firm’s middle office.
+### Stage one: the order
 
-3. Risk Management
-The risk management team will check the order and estimate the level of risk. This process will determine whether or not it is safe to complete the proposed order.
+The investor informs the broker firm and their custodian (a financial institution – usually a bank – which looks after their assets for safekeeping) of the security they would like to buy, and at what price – either the market price or lower. This is called a buy order.
 
-4. The Execution Venue
-Once the order has been accepted and validated by the risk management team, it will be sent to the relevant execution venue.
+(A couple more jargon nuggets for you here: A market order is an order to buy or sell at the market prices. A limit order is an order to buy or sell at a client’s specified price, or higher.)
 
-5. Matching the Orders
-The execution venue then looks for a sell order which matches the buy order placed by the investor or, in the case of a sale, looks for a corresponding buy order.
+### Stage two: front office action
 
-6. Trade Completed
-Once a matching order has been found, the trade is completed. Once this step has taken place, the post trade process begins. The firm’s front office team will now inform the investor that the trade has been completed.
+The investor’s order is received by the front office sales traders at the brokerage firm. From this point, the order is fed down to the risk management experts in the middle office of the organisation. The sales traders then ‘execute’ the order…
 
-7. Confirmation 
-The brokers on each side of the trade will then confirm that their respective clients agree to the conditions set forth. These conditions include the price at which the instrument has been traded, the settlement date, and any number of other variable factors.
+### Stage three: risk management
 
-8. Reconciliation 
-The reconciliation stage of the trade life cycle ensures that all accounts of the trade which has taken place are consistent and accurate. Reconciliation can be performed in a number of ways, but generally speaking it involves the act of comparing ledgers against statements from both sides of the trade. This sures up any records made and avoids the possibility of fraud or inaccurate record keeping.
+The risk management team will conduct a number of checks and calculations to see whether the levels of risk involved with the client’s order mean it’s still safe to accept and proceed to the next stages. Amongst other things they will check the client placing the order has sufficient stocks to pay for the security and the limits.
 
-9. Clearing
-Once confirmation has taken place, the clearinghouse will make the necessary calculations to determine what is needed from the buy-side and sell-side respectively.
+### Stage four: off to the exchange
 
-10. Settlement
-Finally, the back-office staff will ensure that the relevant payments are made on time, that they are documented, and that they are reported correctly. Pending the completion of these three tasks, the trade life cycle is completed.
+When an order is accepted and validated by the risk management team, the broker firm sends it to the Stock Exchange…
+
+Now, let’s pause for a breather and consider what’s going on the sell-side of things, i.e. the guys with the security to sell. They will also put in a sell order to their broker, stating the security they have to make available on the market and the market price (how much they want to sell it for).
+
+The sell order goes through all of the necessary risk management procedures in the middle office on this side as well. All being well, it then shoots off to the exchange too…
+
+### Stage five: match making
+
+Now it’s time for match making at the exchange. It’s a bit like the awkward Singles’ Night of trading. The exchange has to find the match between a security’s buy order and sell order. Once the beautiful moment of a perfect match happens…
+
+### Stage six: trade made
+
+A trade is born! Then, quick as a flash, we’re into post trade territory. The exchange sends information on the trade back to the brokers for confirmation, and also details of the trade to the investor’s custodian. The brokers’ front office sales team can then inform their clients of the trade.
+
+### Stage seven: confirmation
+
+In order to proceed further, confirmation is necessary. The broker on each side of the trade has checked that their client agrees with details and conditions: details such as which security is being traded, how much it’s being traded for and the settlement date.
+
+The exchange will also send these details to the custodian who will relay this information to the broker for confirmation.
+
+Once the trade has been confirmed by the brokers and as long as each party agrees with the details and conditions, the back office team gets to work, and the clearing house comes into play…
+
+### Stage eight: clearing begins
+
+The clearing house will make all of the necessary calculations for the buy side and the sell side of the trade in order to determine what’s needed from each of them and by when. It’s their job to make sure all of the obligations are fulfilled. They inform each party of what’s needed.
+
+Trades are referred to generally as T+1, T+2 and T+3. ‘T’ refers to the transaction date (the date on which the trade was made). +1, +2 or +3 refers to the settlement date. If a trade is marked T+2 for example, securities and cash will be exchanged two days after the trade is made. On the settlement date the sell side must have transferred their security and the buy side must have transferred the money for their purchase.
+
+The majority of settlements are now T+2. The UK and Irish capital markets will move to a T+2 settlement period from October 2014.
+
+### Stage nine: settlement
+
+Finally, the glorious settlement date arrives: the transfer of money and the security. Back office staff are responsible for ensuring that these payments are made on time and documented and reported in the correct manner.
+
+The transfer isn’t done directly between the trading parties: the clearing house will have accounts for each side of the trade and will facilitate the transfer. The buy side will transfer cash for the security via the clearing house, and likewise the sell side will hand over their security. Then everyone’s happy!
+
+At the end of each trade day the clearing house will provide reports on settled trades to exchanges and custodians.
 
 # The Clearinghouse:
 A clearinghouse is a designated intermediary between a buyer and seller in a financial market. The clearinghouse validates and finalizes the transaction, ensuring that both the buyer and the seller honor their contractual obligations.
