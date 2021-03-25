@@ -1,8 +1,9 @@
 # Trade date fields
 
-### Transaction Date
+### Trade Date
+The trade date is the month, day, and year that an order is executed in the market. The trade date is therefore when an order to purchase, sell, or otherwise transact in a security is performed. A trade date is determined for all types of investment security transactions in the market.
 
-A transaction date is a date upon which a trade takes place for a  security or other financial instrument. The transaction date represents the time at which ownership officially transfers. In banking, the date a transaction appears in the account is also referred to as the transaction date, although it is not necessarily the date on which the bank clears the transaction and deposits or withdraws funds.
+Trade dates are followed by a settlement date,
 
 **Example:-**
 
