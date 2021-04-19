@@ -112,7 +112,7 @@ Using this information, investors and analysts can assess the profitability of t
 
 Whereas the P&L shows the income, expenditures, and profitability of a company over a period of time, the balance sheet provides a snapshot of the company’s assets and liabilities as of a certain date. Typically, the balance sheet is presented as of the last day of the company’s fiscal year. Investors use the balance sheet to understand the financial strength of the company, comparing the amount and quality of its assets against its liabilities.
 
-## Why Are P&L Statements Published?
+### Why Are P&L Statements Published?
 
 P&L statements are published for a variety of reasons. The inner financial workings of a company are of great interest to numerous people, including accountants, economists, and investors. Because certain companies are so large, even the business owners themselves may not have a comprehensive understanding of all the company's financial movements without consulting the P&L. For all of these professionals, assessing a company's financial strength means taking a detailed look at total revenue, the amount of debt or  leverage, additional investments, secondary operations, and tax burden.
 
