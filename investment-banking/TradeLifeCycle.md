@@ -9,9 +9,16 @@ The Trade Life Cycle is the referred to, as the workflow of a trade order from i
 ### Front Office: 
 The Front office is usually referred very commonly as the trading floor; it mainly performs two main functions, which 1) Trade Capture and 2) Trade Execution. The front office is where the trade gets initiated.
 
-Using the trade app (the front end user application) is where the order gets booked on the front office as per the market price of the instrument; however the buyer does an option to quote an offer to the selling counterparty. (There are several ways to place a trade order … like Market Order, Market on close (MOC), Limit Order, Stop Order etc) If the counterparty agrees to the details of the trade and is willing to enter into the deal, the trade then gets executed.
+- Trade Execution
 
-When the trade is executed, its gets captured in the trading desk (in the Front Office) usually using a Trade capture system. The trade capture system validates all the necessary trade information and assigns a trade confirmation number or a trade reference number; this number will be unique and will be used for all subsequent trade events like amendment, cancellation etc; This reference number is sent back to both the parties (seller and buyer) as an acknowledgement of the “booking” confirmation.
+Execution refers to filling a buy or sell order in the market, subject to conditions placed on the order by the end client.
+It invovles inputting all trade details in the official book of record system, linking all reference data, and calculating profit and loss.
+There are several ways to execute a trade and they encompass manual as well as automated methods.
+Brokers are required by law to find the best possible means to execute a client's trade.
+
+- Trade Capture
+
+The trade capture system validates all the necessary trade information and assigns a trade confirmation number or a trade reference number; this number will be unique and will be used for all subsequent trade events like amendment, cancellation etc; This reference number is sent back to both the parties (seller and buyer) as an acknowledgement of the “booking” confirmation.
 
 ### Middle Office:
 The Middle Office in Trade Life Cycle plays a very vital role in the exception management. This is where the three important steps are done, which are 1) Validation, 2) Booking and 3) Confirmation.
