@@ -35,10 +35,10 @@ Credit or default risk is the risk that interest and principal payments due on t
 
 Prepayment risk is the risk that a given bond issue will be paid off earlier than expected
 
-### Bond Yield
+## Bond Yield
 A bond's yield refers to the expected earnings generated and realized on a fixed-income investment over a particular period of time, expressed as a percentage or interest rate.
 
-### Debenture?
+## Debenture?
 
 A debenture is a type of bond or other debt instrument that is unsecured by collateral. Since debentures have no collateral backing, they must rely on the creditworthiness and reputation of the issuer for support. Both corporations and governments frequently issue debentures to raise capital or funds.
 
