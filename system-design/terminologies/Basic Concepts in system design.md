@@ -1,9 +1,9 @@
 # Terminologies
 
-### DNS
+## DNS
 The Domain Name System is a hierarchical and decentralized naming system for computers, services, or other resources connected to the Internet or a private network. It associates various information with domain names assigned to each of the participating entities.
 
-### Load Balancer
+## Load Balancer
 A load balancer is a device that distributes network or application traffic across a cluster of servers. Load balancing improves responsiveness and increases availability of applications.
 
 A load balancer sits between the client and the server farm accepting incoming network and application traffic and distributing the traffic across multiple backend servers using various methods. By balancing application requests across multiple servers, a load balancer reduces individual server load and prevents any one application server from becoming a single point of failure, thus improving overall application availability and responsiveness.
@@ -56,19 +56,19 @@ The user can be sent to any server in the cluster since all machines in a cluste
   
 Session replication may allow your application to have session failover but it may require you to have extra cost in terms of memory and network bandwidth.
 
-### Job Queues
+## Job Queues
 In system software, a job queue, is a data structure maintained by job scheduler software containing jobs to run. Users submit their programs that they want executed, “jobs”, to the queue for batch processing. The scheduler software maintains the queue as the pool of jobs available for it to run.
 
-### Full-text Search Service
+## Full-text Search Service
 While it’s possible to do full-text search directly from some databases (e.g., MySQL supports full-text search), it’s typical to run a separate “search service” that computes and stores the inverted index and provides a query interface. The most popular full-text search platform today is  Elasticsearch  though there are other options such as  Sphinx  or Apache Solr.
 
-### Cloud storage
+## Cloud storage
 Cloud storage is a cloud computing model that stores data on the Internet through a cloud computing provider who manages and operates data storage as a service. It’s delivered on demand with just-in-time capacity and costs, and eliminates buying and managing your own data storage infrastructure. This gives you agility, global scale and durability, with “anytime, anywhere” data access.
 
-### CDN
+## CDN
 A content delivery network (CDN) refers to a geographically distributed group of servers which work together to provide fast delivery of Internet content. A CDN allows for the quick transfer of assets needed for loading Internet content including HTML pages, javascript files, stylesheets, images, and videos. The popularity of CDN services continues to grow, and today the majority of web traffic is served through CDNs, including traffic from major sites like Facebook, Netflix, and Amazon.
 
-### What Is CAP Theorem?
+## CAP Theorem
 The CAP Theorem for distributed computing was published by Eric Brewer, This states that it is not possible for a distributed computer system to simultaneously provide all three of the following guarantees:  
 1.  Consistency (all nodes see the same data even at the same time with concurrent updates )
 2.  Availability (a guarantee that every request receives a response about whether it was successful or failed)
@@ -79,8 +79,34 @@ The CAP acronym corresponds to these 3 guarantees. This theorem has created the 
 Worlds most high volume traffic companies (e.g. Amazon, Google, Facebook) use this as the basis for deciding their application architecture.  
   
 It's important to understand that only two of these three conditions can be guaranteed to be met by a system.  
-  
-### What Is Sharding?
+
+Today, NoSQL databases are classified based on the two CAP characteristics they support:
+
+- **CP database:** A CP database delivers consistency and partition tolerance at the expense of availability. When a partition occurs between any two nodes, the system has to shut down the non-consistent node (i.e., make it unavailable) until the partition is resolved.
+
+- **AP database:** An AP database delivers availability and partition tolerance at the expense of consistency. When a partition occurs, all nodes remain available but those at the wrong end of a partition might return an older version of data than others. (When the partition is resolved, the AP databases typically resync the nodes to repair all inconsistencies in the system.)
+
+- **CA database:** A CA database delivers consistency and availability across all nodes. It can’t do this if there is a partition between any two nodes in the system, however, and therefore can’t deliver fault tolerance.
+We listed this type last for a reason—in a distributed system, partitions can’t be avoided. So, while we can discuss a CA distributed database in theory, for all practical purposes, a CA distributed database can’t exist.
+
+#### Understanding CP with MongoDB
+
+MongoDB is a NoSQL database that stores data in one or more Primary nodes in the form of JSON files. Each Primary node has multiple replica sets that update themselves asynchronously using the operation log file of their respective primary node. The replica set nodes in the system send a heartbeat (ping) to every other node to keep track if other replicas or primary nodes are alive or dead. If no heartbeat is received within 10 seconds, then that node is marked as inaccessible.
+
+If a Primary node becomes inaccessible, then one of the secondary nodes needs to become the primary node. Till a new primary is elected from amongst the secondary nodes, the system remains unavailable to the user to make any new write query. Therefore, the MongoDB system behaves as a Consistent system and compromises on Availability during a partition.
+
+
+#### Understanding AP with Cassandra
+
+Cassandra is a peer-to-peer system. It consists of multiple nodes in the system. And each node can accept a read or write request from the user. Cassandra maintains multiple replicas of data in separate nodes. This gives it a masterless node architecture where there are multiple points of failure instead of a single point.
+
+The replication factor determines the number of replicas of data. If the replication factor is 3, then we will replicate the data in three nodes in a clockwise manner.
+
+A situation can occur where a partition occurs and the replica does not get an updated copy of the data. In such a situation the replica nodes will still be available to the user but the data will be inconsistent. However, Cassandra also provides eventual consistency. Meaning, all updates will reach all the replicas eventually. But in the meantime, it allows divergent versions of the same data to exist temporarily. Until we update them to the consistent state.
+
+Therefore, by allowing nodes to be available throughout and allowing temporarily inconsistent data to existing in the system, Cassandra is an AP database that compromises on consistency.
+
+## What Is Sharding?
 Sharding is an architectural approach that distributes a single logical database system into a cluster of machines.  
   
 Sharding is Horizontal partitioning design scheme. In this database design rows of a database table are stored separately, instead of splitting into columns (like in normalization and vertical partitioning). Each partition is called a shard, which can be independently located on a separate database server or physical location.  
@@ -95,27 +121,27 @@ The most common approach for creating shards is by the use of consistent hashing
 -   If you require a lot of cross-node join queries then your performance will be really bad. Therefore, knowing how the data will be used for querying becomes really important.
 -   A wrong sharding logic may result in worse performance. Therefore make sure you shard based on the application need.
 
-### What Is ACID Property Of A System?
+## What Is ACID Property Of A System?
 ACID is an acronym which is commonly used to define the properties of a relational database system, it stands for the following terms  
 -   **Atomicity**  - This property guarantees that if one part of the transaction fails, the entire transaction will fail, and the database state will be left unchanged.
 -   **Consistency**  - This property ensures that any transaction will bring the database from one valid state to another.
 -   **Isolation**  - This property ensures that the concurrent execution of transactions results in a system state that would be obtained if transactions were executed serially.
 -   **Durable**  - means that once a transaction has been committed, it will remain so, even in the event of power loss.
 
-### What Is BASE Property Of A System?
+## What Is BASE Property Of A System?
 BASE properties are the common properties of recently evolved NoSQL databases. According to CAP theorem, a BASE system does not guarantee consistency. This is a contrived acronym that is mapped to following property of a system in terms of the CAP theorem  
 -   **Basically available**  indicates that the system is guaranteed to be available
 -   Soft state indicates that the state of the system may change over time, even without input. This is mainly due to the eventually consistent model.
 -   **Eventual consistency**  indicates that the system will become consistent over time, given that the system doesn't receive input during that time.
 - 
-### What Does Eventually Consistent Mean?
+## What Does Eventually Consistent Mean?
 Unlike  relational database property of Strict consistency, eventual consistency property of a system ensures that any transaction will eventually (not immediately) bring the database from one valid state to another. This means there can be intermediate states that are not consistent between multiple nodes.
 
 Eventually consistent systems are useful at scenarios where absolute consistency is not critical. For example in case of Twitter status update, if some users of the system do not see the latest status from a particular user its may not be very devastating for system.
 
 Eventually consistent systems can not be used for use cases where absolute/strict consistency is required. For example a banking transactions system can not be using eventual consistency since it must consistently have the state of a transaction at any point of time. Your account balance should not show different amount if accessed from different ATM machines.
 
-### What Is Shared Nothing Architecture? How Does It Scale?
+## What Is Shared Nothing Architecture? How Does It Scale?
 A shared nothing architecture (SN) is a distributed computing approach in which each node is independent and self-sufficient, and there is no single point of contention required across the system.  
   -   This means no resources are shared between nodes (No shared memory, No shared file storage)
 -   The nodes are able to work independently without depending on each other for any work.
@@ -125,7 +151,7 @@ This approach is highly scalable since it avoids the existence of a single bottl
   
 In theory, A shared nothing system can scale almost infinitely simply by adding nodes in the form of inexpensive machines.
 
-### What Do You Mean By High Availability?
+## What Do You Mean By High Availability?
 Having better service capacity with high availability and low latency is mission critical for almost all businesses.  
   
 Availability means the ability of the application used to access the system, If a user cannot access the application, it is assumed unavailable. High Availability means the application will be available, without interruption.  
@@ -136,7 +162,7 @@ Availability is commonly expressed as a percentage of uptime in a given year.
   
 For example, web-based maintenance management software applications are commonly mission-critical for most manufacturing businesses and availability is of much importance. This is because a skipped maintenance job can cause mechanical failure resulting in much higher repair costs for the business in addition to serious manufacturing process disruptions.
 
-### What Is A Cluster?
+## What Is A Cluster?
 
 A cluster is the group of computing machines that can individually run the software. Clusters are typically utilized to achieve high availability for server software.  
   
@@ -148,7 +174,7 @@ Clustering is used in many types of servers for high availability.
     A database server cluster is the group of machines that can run a database server that can be reliably utilized with a minimum of downtime.
  
 
-### Why Do You Need Clustering?
+## Why Do You Need Clustering?
 Clustering is needed for achieving high availability for server software. The main purpose of clustering is to achieve 100% availability or a zero downtime in service.  
   
 Typical server software can be running on one computer machine and it can serve as long as there is no hardware failure or some other failure.  
@@ -157,7 +183,7 @@ By creating a cluster of more than one machine, we can reduce the chances of our
   
 Doing clustering does not always guarantee that service will be 100% available since there can still be a chance that all the machine in a cluster fails at the same time. However, it is not very likely in case you have many machines and they are located at a different location or supported by their own resources.
 
-### How Do You Update A Live Heavy Traffic Site With Minimum Or Zero Down Time?
+## How Do You Update A Live Heavy Traffic Site With Minimum Or Zero Down Time?
 Deploying a newer version of a live website can be a challenging task especially when a website has high traffic. Any downtime is going to affect the users. There are a few best practices that we can follow  
   
 **Before deploying on Production**  
@@ -174,7 +200,7 @@ Deploying a newer version of a live website can be a challenging task especially
 -   Keep backup of current site/data to be able to rollback.
 -   Use sanity test cases before doing a lot of in-depth testing.
 
-# Checksum
+## Checksum
 
 A checksum is the outcome of running an algorithm, called a  cryptographic hash function , on a piece of data, usually a single  file. Comparing the checksum that you generate from your version of the file, with the one provided by the source of the file, helps ensure that your copy of the file is genuine and error free.
 Even a minuscule change in the file will produce a vastly different checksum, making it very clear that one is not like the other.
@@ -185,7 +211,7 @@ Although **hashing and checksums** are similar in that they both create a value 
 
 Checksums are useful for verifying that a file you downloaded from somewhere other than the original source is, in fact, a valid file and hasn't been altered, maliciously or otherwise, from the original. Just compare the hash you create with the one available from the file's source.
 
-# Proxy
+## Proxy
 A forward proxy, often called a proxy, proxy server, or web proxy, is a server that sits in front of a group of client machines. When those computers make requests to sites and services on the Internet, the proxy server intercepts those requests and then communicates with web servers on behalf of those clients, like a middleman.
 ![Forward Proxy Flow](https://www.cloudflare.com/img/learning/cdn/glossary/reverse-proxy/forward-proxy-flow.svg)
 Why would anyone add this extra middleman to their Internet activity? There are a few reasons one might want to use a forward proxy:
@@ -194,7 +220,7 @@ Why would anyone add this extra middleman to their Internet activity? There are 
 -   **To block access to certain content**  - Conversely, proxies can also be set up to block a group of users from accessing certain sites. For example, a school network might be configured to connect to the web through a proxy which enables content filtering rules, refusing to forward responses from Facebook and other social media sites.
 -   **To protect their identity online**  - In some cases, regular Internet users simply desire increased anonymity online, but in other cases, Internet users live in places where the government can impose serious consequences to political dissidents. Criticizing the government in a web forum or on social media can lead to fines or imprisonment for these users. If one of these dissidents uses a forward proxy to connect to a website where they post politically sensitive comments, the IP address used to post the comments will be harder to trace back to the dissident. Only the IP address of the proxy server will be visible.
 
-# Reverse Proxy
+## Reverse Proxy
 A reverse proxy is a server that sits in front of one or more web servers, intercepting requests from clients. This is different from a forward proxy, where the proxy sits in front of the clients. With a reverse proxy, when clients send requests to the origin server of a website, those requests are intercepted at the network edge by the reverse proxy server. The reverse proxy server will then send requests to and receive responses from the origin server.
 ![Reverse Proxy Flow](https://www.cloudflare.com/img/learning/cdn/glossary/reverse-proxy/reverse-proxy-flow.svg)
 
@@ -208,7 +234,7 @@ Below we outline some of the benefits of a reverse proxy:
 - 
 Source: https://www.cloudflare.com/en-in/learning/cdn/glossary/reverse-proxy/
 
-# Caching
+## Caching
 Caching is a mechanism to improve the performance of any type of application. Technically, caching is the process of storing and accessing data from a cache. But wait, what is a cache? A cache is a software or hardware component aimed at storing data so that future requests for the same data can be served faster.
 
 ### Challenges
@@ -278,7 +304,7 @@ Following are some of the most common cache eviction policies:
 5.  Least Frequently Used (LFU): Counts how often an item is needed. Those that are used least often are discarded first.
 6.  Random Replacement (RR): Randomly selects a candidate item and discards it to make space when necessary.
 
-# Quorum
+## Quorum
 In a distributed environment, a quorum is the minimum number of servers on which a distributed operation needs to be performed successfully before declaring the operation’s overall success.
 
 Minimum number of nodes in cluster that must be online and be able to communicate with each other. If any additional node failure occurs beyond this threshold, cluster will stop running.
