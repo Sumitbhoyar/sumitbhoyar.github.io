@@ -283,7 +283,8 @@ In a distributed environment, a quorum is the minimum number of servers on which
 
 Minimum number of nodes in cluster that must be online and be able to communicate with each other. If any additional node failure occurs beyond this threshold, cluster will stop running.
 
-**Deciding on number of servers in a cluster**
+#### **Deciding on number of servers in a cluster**
+
 The cluster can function only if majority of servers are up and running. In systems doing data replication, there are two things to consider:
 
 -   The throughput of write operations.
@@ -296,12 +297,13 @@ The number of server failures tolerated is dependent on the size of the cluster.
 
 Considering these two factors, most practical quorum-based systems have cluster sizes of three or five. A five-server cluster tolerates two server failures and has tolerable data write throughput of few thousand requests per second.
 
-**What value should we choose for Quorum?**
+#### **What value should we choose for Quorum?**
 
 More than half of the number of nodes in cluster. (N/2 + 1)  where N is total number of nodes in cluster. Eg:  
 _In a 5-node cluster, 3 voters must be online to have majority.  
 In a 4-node cluster, 3 voters must be online to have majority._  
 With 5-node it can afford 2 node failures whereas with 4-node it can afford only 1 node failure, because of this logic, it is recommended to always have an odd number of total nodes in the cluster.  
+
 **_Note: Each node has 1 vote._**
 
 **What happens when there is “Split” or “Cluster Partitioning”**
@@ -310,6 +312,6 @@ Network problems can cause communication failures among cluster nodes. One set o
 
 Now the partition which has quorum is allowed to continue running the application. The other partitions are removed from cluster.
 
-**What if cluster splits into two partitions with equal number of working nodes in each?**
+#### **What if cluster splits into two partitions with equal number of working nodes in each?**
 
 Its a tie situation, this can be resolve by giving the the voting members some way to perform a tiebreak, may be by giving a member a “super vote” or by disabling one members vote.
