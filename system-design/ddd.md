@@ -2,12 +2,11 @@
 
 Domain-Driven Design is a framework based on **strategic** value, and it’s about mapping business domain concepts into software artifacts.
 
-Any microservice implementation could benefit by following this prescriptive approach:
-
--   Analyze domain
--   Define bounded contexts
--   Define entities, aggregates, and services
--   Identify microservices
+Domain-driven design (DDD) is an approach to developing software for complex needs by deeply connecting the implementation to an evolving model of the core business concepts.
+Its premise is:
+- Place the project’s primary focus on the core domain and domain logic
+- Base complex designs on a model
+- Initiate a creative collaboration between technical and domain experts to iteratively cut ever closer to the conceptual heart of the problem.
 
 ### Analyze domain
 A domain refers to real-world aspects of a solution (e.g., automobile, banking, mortgage, credit, debit accounts, credit cards, retails loans, content management, etc.) The domain informs the requirements and acceptance criteria for the system to be implemented by the developer.
@@ -105,10 +104,5 @@ A repository encapsulates a collection of objects stored in the database.
 -   One repository per aggregate root
 -   Layer abstraction that can be file, storage or in memory database
 
-### Identify microservices
-
-##### Microservice architecture
-
-
-
+![image](https://user-images.githubusercontent.com/6672785/134818055-e74289b5-1c78-4235-b4a5-f83d9ff71b27.png)
 
