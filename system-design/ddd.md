@@ -8,6 +8,11 @@ Its premise is:
 - Base complex designs on a model
 - Initiate a creative collaboration between technical and domain experts to iteratively cut ever closer to the conceptual heart of the problem.
 
+![image](https://user-images.githubusercontent.com/6672785/134819021-8508c764-2b1a-4617-ae92-d0f28e6dc799.png)
+
+## DDD Modelling process:
+![image](https://user-images.githubusercontent.com/6672785/134819763-4ecdcfa4-9699-4a62-8242-6c9c6f195344.png)
+
 ### Analyze domain
 A domain refers to real-world aspects of a solution (e.g., automobile, banking, mortgage, credit, debit accounts, credit cards, retails loans, content management, etc.) The domain informs the requirements and acceptance criteria for the system to be implemented by the developer.
 
@@ -28,9 +33,20 @@ A bounded context is a clear boundary around a domain model and determines the p
 -   Each context can have its own ubiquitous language and its own model.
 -   Bounded Contexts may share some domain aspects.
 
+![image](https://user-images.githubusercontent.com/6672785/134819093-48f162af-14f2-45c7-8e81-6d32440ec7bb.png)
+
+Example:
+![image](https://user-images.githubusercontent.com/6672785/134819434-49c4aac2-3c36-4b21-88f1-c70c80969dfc.png)
+
+
 ##### Ubiquitous Language
 
 Ubiquitous Language  is the term uses in Domain-Driven Design for the practice of building up a common, rigorous language between developers and users. This language should be based on the Domain Model used in the software — hence the need for it to be rigorous since software doesn’t cope well with ambiguity.
+
+![image](https://user-images.githubusercontent.com/6672785/134818847-a0f01fc5-9fd4-400d-bac0-83e6083a0d19.png)
+
+To create an UL, have an open discussion, analyze existing documents, express the domain clearly, and define an agreed glossary. Glossary alone won't help. Use it consciously to arrive at a common understanding of the model.
+
 
 ##### Context Map
 
@@ -67,6 +83,9 @@ We design domain concepts as a Value Object when we care only about the attribut
 -   Does not have a lifespan, no history associated with them
 -   Shouldn’t have their tables in the database.
 
+![image](https://user-images.githubusercontent.com/6672785/134818951-677164cf-3eb6-42f2-b74c-d8f477b61581.png)
+
+
 ##### Aggregate
 
 An aggregate is an associated cluster object which is considered as one unit (also knows as a transaction) root entity. Aggregates have a clearly defined boundary (only cares about integrity and responsibility of the object inside the aggregate, it does not care about external objects). Aggregates protect internal objects from the outside world (outside objects can only access by the root aggregate and can’t change the state of the objects in the aggregate). The aggregate has the responsibility to protect the integrity of the entities and value objects they have.
@@ -74,6 +93,9 @@ An aggregate is an associated cluster object which is considered as one unit (al
 -   One root entity per aggregate
 -   Associated entities can refer to root but not other entities in the aggregate
 -   All operations are done through root
+
+![image](https://user-images.githubusercontent.com/6672785/134818967-79123baa-135a-4f16-87da-e69a4f75fdac.png)
+
 
 ##### Service
 
@@ -104,5 +126,14 @@ A repository encapsulates a collection of objects stored in the database.
 -   One repository per aggregate root
 -   Layer abstraction that can be file, storage or in memory database
 
-![image](https://user-images.githubusercontent.com/6672785/134818055-e74289b5-1c78-4235-b4a5-f83d9ff71b27.png)
+![image](https://user-images.githubusercontent.com/6672785/134818888-8612f86d-7176-4759-bc3d-511f4458d92c.png)
 
+## DDD Layers
+
+![image](https://user-images.githubusercontent.com/6672785/134819462-b38e091f-c2fc-43f2-9010-727f4860cb77.png)
+
+## Summary:
+![image](https://user-images.githubusercontent.com/6672785/134819243-6140acbc-b0ec-4663-9658-762358402f3f.png)
+
+
+Reference: https://devopedia.org/domain-driven-design
