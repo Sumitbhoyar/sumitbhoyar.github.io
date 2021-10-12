@@ -25,7 +25,9 @@ WebDriver is a web framework that helps you execute **cross-browser** tests; it 
 
 
 #### WebDriver architecture
-https://www.educative.io/api/collection/5455247108472832/4603030201696256/page/5336047337603072/image/5065502423515136.png
+
+![image](https://user-images.githubusercontent.com/6672785/136910378-559ce2f8-da19-4a67-9e43-36006ace1ef4.png)
+
 
 #### Download WebDriver
 
